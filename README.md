@@ -33,7 +33,6 @@ Execute the following commands in the cloned project (install necessary submodul
 ```
 git submodule init
 git submodule update
-
 ```
 ### Set up
 1. Change platform to Android from Build Settings  
