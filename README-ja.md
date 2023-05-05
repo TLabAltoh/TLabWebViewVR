@@ -4,6 +4,7 @@ UnityのOculus quest VRでWebViewを使用するためのサンプルプロジ�
 
 ## スクリーンショット  
 
+[Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](https://user-images.githubusercontent.com/121733943/236464782-8fc7518c-5bde-4778-935c-1bf8850b7c9d.gif)
 
 ## 動作環境
