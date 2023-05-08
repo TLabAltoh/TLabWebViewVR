@@ -85,8 +85,8 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 3. Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unityを開く
 4. ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
 - Url: WebViewの初期化時にロードするURL
-- WebWidth, WebHeight: Webページのサイズ
-- TexWidth, TexHeight: Texture2Dのサイズ
+- Texture2D サイズ: 512 * 512
+- WebView サイズ: 1024 * 1024
 
 ## リンク
 [使用したJavaプラグインのソースコード](https://github.com/TLabAltoh/TLabWebViewPlugin)

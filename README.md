@@ -88,8 +88,8 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 3. Open Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unity
 4. Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
 - Url: URL to load during WebView initialization
-- WebWidth, WebHeight: Web page size
-- TexWidth, TexHeight: Texture2D size
+- Texture2D size: 512 * 512
+- WebView size: 1024 * 1024
 
 ## Link
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
