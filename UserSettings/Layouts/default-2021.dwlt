@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 106
+  controlID: 74
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 107
+  controlID: 113
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 108
+  controlID: 114
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -348,22 +348,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/TLab/TLabWebView
+    - Assets/TLab/TLabWebViewVR/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/TLab/TLabWebView
+  - Assets/TLab/TLabWebViewVR/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Tetu\source\GameDev\UnityProjects\TLabWebViewVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 9c7a0000
-    m_LastClickedID: 31388
-    m_ExpandedIDs: 00000000987a00009a7a00009c7a000000ca9a3bffffff7f
+    m_SelectedIDs: fe7a0000
+    m_LastClickedID: 31486
+    m_ExpandedIDs: 000000008e7a0000907a0000927a0000b07a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -391,7 +391,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000987a00009a7a00009c7a0000
+    m_ExpandedIDs: 000000008e7a0000907a0000927a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -521,9 +521,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: fe7a0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2cfbffff
+      m_ExpandedIDs: a0f7ffffa4f7ffff2efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -806,9 +806,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.08730513, y: 0.5875265, z: 1.8872483}
+    m_Target: {x: 0.44168472, y: 2.7187943, z: 2.3085117}
     speed: 2
-    m_Value: {x: 0.08730513, y: 0.5875265, z: 1.8872483}
+    m_Value: {x: 0.44168472, y: 2.7187943, z: 2.3085117}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -855,13 +855,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.048236933, y: -0.04733025, z: 0.002289092, w: -0.9977187}
+    m_Target: {x: 0.37678644, y: -0.19452088, z: -0.08126041, w: -0.9020041}
     speed: 2
-    m_Value: {x: -0.048236936, y: -0.047330253, z: 0.0022890922, w: -0.9977187}
+    m_Value: {x: 0.37690395, y: -0.19316563, z: -0.080694295, w: -0.9022854}
   m_Size:
-    m_Target: 1.1063952
+    m_Target: 1.4341557
     speed: 2
-    m_Value: 1.1063952
+    m_Value: 1.5017337
   m_Ortho:
     m_Target: 0
     speed: 2
