@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 111
+  controlID: 121
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 80
+  controlID: 111
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 81
+  controlID: 112
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -348,22 +348,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/TLab/TLabWebView
+    - Assets/TLab/TLabVKeyborad
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/TLab/TLabWebView
+  - Assets/TLab/TLabVKeyborad
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Tetu\source\GameDev\UnityProjects\TLabWebViewVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: eaac0100
-    m_LastClickedID: 109802
-    m_ExpandedIDs: 0000000098900100a290010000ca9a3bffffff7f
+    m_SelectedIDs: a27a0000
+    m_LastClickedID: 31394
+    m_ExpandedIDs: 000000008e7a0000907a0000a27a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -391,7 +391,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000008e7a0000907a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -521,9 +521,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ce09ffff
-      m_LastClickedID: -63026
-      m_ExpandedIDs: dc09ffffe009ffff6a0dffffb60effff
+      m_SelectedIDs: 92f7ffff
+      m_LastClickedID: -2158
+      m_ExpandedIDs: a0f7ffffa4f7ffff2efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -806,9 +806,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.08278389, y: 1.5052431, z: 1.9770188}
+    m_Target: {x: 0.08730513, y: 0.5875265, z: 1.8872483}
     speed: 2
-    m_Value: {x: 0.08278389, y: 1.5052431, z: 1.9770188}
+    m_Value: {x: 0.08730513, y: 0.5875265, z: 1.8872483}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -857,11 +857,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.048236933, y: -0.04733025, z: 0.002289092, w: -0.9977187}
     speed: 2
-    m_Value: {x: -0.048236936, y: -0.047330253, z: 0.0022890922, w: -0.9977187}
+    m_Value: {x: -0.048236575, y: -0.0473299, z: 0.002289075, w: -0.9977113}
   m_Size:
-    m_Target: 1.9432231
+    m_Target: 1.1063952
     speed: 2
-    m_Value: 2.0347886
+    m_Value: 1.0587515
   m_Ortho:
     m_Target: 0
     speed: 2
