@@ -24,7 +24,7 @@ Unity: 2021.23f1
 ### インストール
 任意のディレクトリに以下のコマンドでリポジトリをクローン
 ```
-git clone https://github.com/TLabAltoh/TLabWebView.git
+git clone https://github.com/TLabAltoh/TLabWebViewVR.git
 ```
 クローンしたプロジェクトの中で以下のコマンドを実行(必要なSubmoduleのインストール)
 ```

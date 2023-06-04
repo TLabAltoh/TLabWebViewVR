@@ -26,7 +26,7 @@ Unity: 2021.23f1
 ### Installing
 Clone the repository to any directory with the following command  
 ```
-git clone https://github.com/TLabAltoh/TLabWebView.git
+git clone https://github.com/TLabAltoh/TLabWebViewVR.git
 ```
 Execute the following commands in the cloned project (install necessary submodules)
 
