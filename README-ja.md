@@ -15,12 +15,13 @@ Unity: 2021.23f1
 
 ## スタートガイド
 ### 必要な要件
-- Unity 2021.3.23f1 
+- Unity 2021.3.23f1  
 - Oculus Integration
-- [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
-- [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
 - TextMeshPro
 - ProBuilder
+- [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
+- [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
+- [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
 ### インストール
 任意のディレクトリに以下のコマンドでリポジトリをクローン
 ```
