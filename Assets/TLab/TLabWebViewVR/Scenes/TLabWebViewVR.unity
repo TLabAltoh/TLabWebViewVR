@@ -2572,18 +2572,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
---- !u!20 &1236759348 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
-  m_PrefabInstance: {fileID: 617355998}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1466447022
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh91564
+  m_Name: pb_Mesh31866
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2747,7 +2742,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh91058
+  m_Name: pb_Mesh31808
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2911,7 +2906,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh91534
+  m_Name: pb_Mesh31852
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3137,14 +3132,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 257662538371145494, guid: e81afc2b3d9f6c3428a5b86e4ca95ef3, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1236759348}
-    - target: {fileID: 1086089063155664950, guid: e81afc2b3d9f6c3428a5b86e4ca95ef3, type: 3}
-      propertyPath: m_anchor
-      value: 
-      objectReference: {fileID: 727427699}
     - target: {fileID: 4676471538961104208, guid: e81afc2b3d9f6c3428a5b86e4ca95ef3, type: 3}
       propertyPath: m_Name
       value: TLabWebViewVR

@@ -18,11 +18,11 @@ Unity: 2021.23f1
 ### Prerequisites
 - Unity 2021.3.23f1  
 - Oculus Integration
+- TextMeshPro
+- ProBuilder
 - [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
 - [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
 - [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
-- TextMeshPro
-- ProBuilder
 ### Installing
 Clone the repository to any directory with the following command  
 ```
@@ -88,8 +88,8 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 3. Open Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unity
 4. Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
 - Url: URL to load during WebView initialization
-- Texture2D size: 512 * 512
-- WebView size: 512 * 1024
+- Texture2D default size: 512 * 512
+- WebView default size: 512 * 1024
 
 ## Link
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
