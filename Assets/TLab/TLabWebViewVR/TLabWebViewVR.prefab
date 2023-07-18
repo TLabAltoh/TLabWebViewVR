@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4676471538569020024}
   - component: {fileID: 4676471538569020025}
   - component: {fileID: 4676471538569020026}
+  - component: {fileID: 1980733628795922005}
   m_Layer: 6
   m_Name: RaycasDummy
   m_TagString: Untagged
@@ -97,6 +98,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1980733628795922005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4676471538569020004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0391f896636a64c807c92fd4289a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tlabWebView: {fileID: 6272470167859563041}
+  m_anchor: {fileID: 0}
+  m_rayMaxLength: 10
+  m_webViewLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  m_controller: 2
+  m_touchButton: 8192
 --- !u!1 &4676471538961104208
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,3 +319,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6721217010310261599, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}
   m_PrefabInstance: {fileID: 637672001730037174}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6272470167859563041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6905492866619264919, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}
+  m_PrefabInstance: {fileID: 637672001730037174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4a489b321ca4f67a45b6b2194bbf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
