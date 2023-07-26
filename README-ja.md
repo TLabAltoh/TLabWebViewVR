@@ -83,8 +83,9 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
 </manifest>
 ```
-3. Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unityを開く
-4. ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
+3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
+4. Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unityを開く
+5. ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
 - Url: WebViewの初期化時にロードするURL
 - Texture2D サイズ: 512 * 512
 - WebView サイズ: 1024 * 1024

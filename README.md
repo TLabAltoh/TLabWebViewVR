@@ -85,8 +85,9 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
 </manifest>
 ```
-3. Open Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unity
-4. Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
+3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
+4. Open Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unity
+5. Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
 - Url: URL to load during WebView initialization
 - Texture2D default size: 512 * 512
 - WebView default size: 512 * 1024
