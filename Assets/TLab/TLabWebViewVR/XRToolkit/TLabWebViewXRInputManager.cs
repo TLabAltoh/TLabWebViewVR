@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public class TLabWebViewXRInputManager : MonoBehaviour
 {
@@ -17,7 +19,8 @@ public class TLabWebViewXRInputManager : MonoBehaviour
     [SerializeField] private LayerMask m_webViewLayer;
 
     [Header("XR Input Settings")]
-    [SerializeField] private XRNode m_controllerNode = XRNode.RightHand;
+    [SerializeField] private InputActionReference m_triggerPress;
+    //[SerializeField] private XRNode m_controllerNode = XRNode.RightHand;
     [SerializeField] private InputHelpers.Button m_touchButton = InputHelpers.Button.TriggerButton;
 
     private InputDevice m_controller;
@@ -33,12 +36,22 @@ public class TLabWebViewXRInputManager : MonoBehaviour
     private const int TOUCH_UP = 1;
     private const int TOUCH_MOVE = 2;
 
+    private void OnEnable()
+    {
+        m_triggerPress.action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        m_triggerPress.action.Disable();
+    }
+
     private int GetButtonEvent()
     {
-        int eventNum = (int)TouchPhase.Stationary;
+        int eventNum = (int)UnityEngine.TouchPhase.Stationary;
 
-        bool pressed;
-        m_controller.TryGetFeatureValue(CommonUsages.triggerButton, out pressed);
+        bool pressed = m_triggerPress.action.IsPressed();
+        //m_controller.TryGetFeatureValue(CommonUsages.triggerButton, out pressed);
 
         Debug.Log(pressed);
 
@@ -62,7 +75,7 @@ public class TLabWebViewXRInputManager : MonoBehaviour
 
     void Start()
     {
-        m_controller = InputDevices.GetDeviceAtXRNode(m_controllerNode);
+        //m_controller = InputDevices.GetDeviceAtXRNode(m_controllerNode);
     }
 
     void Update()

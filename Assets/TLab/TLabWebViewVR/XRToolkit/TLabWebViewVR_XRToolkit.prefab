@@ -7363,7 +7363,7 @@ MonoBehaviour:
   m_webViewLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_controllerNode: 5
+  m_triggerPress: {fileID: -5384860772493043476, guid: d2d039ebf990ec34794eebf1a60f32e9, type: 3}
   m_touchButton: 4
 --- !u!1 &4422954985559843771
 GameObject:
