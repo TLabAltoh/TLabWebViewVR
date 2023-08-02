@@ -6,8 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unity
+    path: Assets/TLab/TLabWebViewVR/OculusIntegration/Scene/TLabWebViewVR.unity
     guid: 4b7eb4c46a9c51446ba14f1a05b2ae4d
+  - enabled: 0
+    path: Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
+    guid: 8bcc0278569dd0442b0b5feeba45e2c4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ec2bea82b67f04945934b9f400ad5671, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 19ef7116424564847a9f7f524fe6661a, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e07ea6435c576b5469f527b9a29508f0, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7728a0e25b8333f4eb306fec617a1c9a, type: 2}

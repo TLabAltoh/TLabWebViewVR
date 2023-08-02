@@ -3,6 +3,7 @@
 [日本語版READMEはこちら](README-ja.md)
 
 Sample project for using WebView in Oculus quest VR in Unity  
+Support for both Oculus Integration and XR Interaction Toolkit.
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
@@ -20,6 +21,7 @@ Unity: 2021.23f1
 ### Prerequisites
 - Unity 2021.3.23f1  
 - Oculus Integration
+- XR Interaction Toolkit
 - TextMeshPro
 - ProBuilder
 - [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
@@ -87,9 +89,18 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
 </manifest>
 ```
+#### Oculus Integration
 3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
-4. Open Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unity
+4. Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
 5. Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
+- Url: URL to load during WebView initialization
+- Texture2D default size: 512 * 512
+- WebView default size: 512 * 1024
+
+#### XR Interaction Toolkit
+3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
+4. Open Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
+5. Change any parameter of TLabWebView attached to TLabWebViewVR_XRToolkit/TLabWebView/WebView from the hierarchy
 - Url: URL to load during WebView initialization
 - Texture2D default size: 512 * 512
 - WebView default size: 512 * 1024

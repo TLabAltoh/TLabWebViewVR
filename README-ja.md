@@ -1,6 +1,7 @@
 # TLabWebViewVR  
 
-UnityのOculus quest VRでWebViewを使用するためのサンプルプロジェクト 
+UnityのOculus quest VRでWebViewを使用するためのサンプルプロジェクト  
+Oculus Integration と XR Interaction Toolkitの両方をサポート.
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
@@ -19,6 +20,7 @@ Unity: 2021.23f1
 ### 必要な要件
 - Unity 2021.3.23f1  
 - Oculus Integration
+- XR Interaction Toolkit
 - TextMeshPro
 - ProBuilder
 - [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
@@ -85,9 +87,18 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
 </manifest>
 ```
+#### Oculus Integration
 3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
-4. Assets/TLab/TLabWebViewVR/Scenes/TLabWebViewVR.unityを開く
+4. Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
 5. ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
+- Url: WebViewの初期化時にロードするURL
+- Texture2D サイズ: 512 * 512
+- WebView サイズ: 1024 * 1024
+
+#### XR Interaction Toolkit
+3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
+4. Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unityを開く
+5. ヒエラルキーからTLabWebViewVR_XRToolkit/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
 - Url: WebViewの初期化時にロードするURL
 - Texture2D サイズ: 512 * 512
 - WebView サイズ: 1024 * 1024
