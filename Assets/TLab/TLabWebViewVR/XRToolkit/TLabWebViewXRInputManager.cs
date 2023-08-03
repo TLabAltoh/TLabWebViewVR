@@ -21,9 +21,13 @@ public class TLabWebViewXRInputManager : MonoBehaviour
     [Header("XR Input Settings")]
     [SerializeField] private InputActionReference m_triggerPress;
     //[SerializeField] private XRNode m_controllerNode = XRNode.RightHand;
-    [SerializeField] private InputHelpers.Button m_touchButton = InputHelpers.Button.TriggerButton;
+    //[SerializeField] private InputHelpers.Button m_touchButton = InputHelpers.Button.TriggerButton;
 
-    private InputDevice m_controller;
+    [Header("XR Interact Line Visual")]
+    [SerializeField] private XRInteractorLineVisual m_lineVisual;
+    [SerializeField] private LineRenderer m_lineRenderer;
+
+    //private InputDevice m_controller;
 
     private RaycastHit m_raycastHit;
     private int m_lastXPos;
@@ -38,11 +42,13 @@ public class TLabWebViewXRInputManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Application.onBeforeRender += UpdateWebViewLineVisual;
         m_triggerPress.action.Enable();
     }
 
     private void OnDisable()
     {
+        Application.onBeforeRender -= UpdateWebViewLineVisual;
         m_triggerPress.action.Disable();
     }
 
@@ -52,8 +58,6 @@ public class TLabWebViewXRInputManager : MonoBehaviour
 
         bool pressed = m_triggerPress.action.IsPressed();
         //m_controller.TryGetFeatureValue(CommonUsages.triggerButton, out pressed);
-
-        Debug.Log(pressed);
 
         if (m_lastPressed == true)
         {
@@ -73,17 +77,16 @@ public class TLabWebViewXRInputManager : MonoBehaviour
         return eventNum;
     }
 
-    void Start()
+    [BeforeRenderOrder(500)]
+    private void UpdateWebViewLineVisual()
     {
-        //m_controller = InputDevices.GetDeviceAtXRNode(m_controllerNode);
+        if (m_onTheWeb == true)
+            m_lineRenderer.colorGradient = m_lineVisual.validColorGradient;
     }
 
     void Update()
     {
-#if false
-        GetButtonEvent();
-#else
-        Ray ray = new Ray(m_anchor.position, -m_anchor.forward);
+        Ray ray = new Ray(m_anchor.position, m_anchor.forward);
         if (Physics.Raycast(ray, out m_raycastHit, m_rayMaxLength, m_webViewLayer))
         {
             m_onTheWeb = true;
@@ -91,10 +94,7 @@ public class TLabWebViewXRInputManager : MonoBehaviour
             m_lastXPos = (int)((1.0f - m_raycastHit.textureCoord.x) * m_tlabWebView.webWidth);
             m_lastYPos = (int)(m_raycastHit.textureCoord.y * m_tlabWebView.webHeight);
 
-            int eventNum = GetButtonEvent();
-            Debug.Log(eventNum);
-
-            m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, eventNum);
+            m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, GetButtonEvent());
         }
         else
         {
@@ -102,7 +102,8 @@ public class TLabWebViewXRInputManager : MonoBehaviour
             {
                 m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, TOUCH_UP);
             }
+
+            m_onTheWeb = false;
         }
-#endif
     }
 }

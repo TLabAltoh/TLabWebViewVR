@@ -52,6 +52,8 @@ public class TLabWebViewVRTouchEventManager : MonoBehaviour
             {
                 m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, TOUCH_UP);
             }
+
+            m_onTheWeb = false;
         }
     }
 }
