@@ -87,7 +87,10 @@ public class TLabWebViewXRInputManager : MonoBehaviour
     void Update()
     {
         Ray ray = new Ray(m_anchor.position, m_anchor.forward);
-        if (Physics.Raycast(ray, out m_raycastHit, m_rayMaxLength, m_webViewLayer))
+
+        bool hit = Physics.Raycast(ray, out m_raycastHit, m_rayMaxLength, m_webViewLayer);
+
+        if (hit && (m_raycastHit.collider.gameObject == this.gameObject))
         {
             m_onTheWeb = true;
 
