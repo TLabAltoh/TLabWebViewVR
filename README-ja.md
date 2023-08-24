@@ -16,26 +16,26 @@ OS: Android 10
 GPU: Qualcomm Adreno650  
 Unity: 2021.23f1  
 
+## 使用したTLabパッケージのリンク
+- [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
+- [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
+- [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
+
 ## スタートガイド
+
 ### 必要な要件
 - Unity 2021.3.23f1  
 - Oculus Integration
 - XR Interaction Toolkit
 - TextMeshPro
 - ProBuilder
-- [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
-- [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
-- [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
+
 ### インストール
 任意のディレクトリに以下のコマンドでリポジトリをクローン
 ```
 git clone https://github.com/TLabAltoh/TLabWebViewVR.git
 ```
-クローンしたプロジェクトの中で以下のコマンドを実行(必要なSubmoduleのインストール)
-```
-git submodule init
-git submodule update
-```
+
 ### セットアップ
 1. Build Settingsからプラットフォームを Androidに変更  
 2. Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
