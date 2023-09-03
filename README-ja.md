@@ -88,17 +88,21 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
 4. Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
 5. ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
-- Url: WebViewの初期化時にロードするURL
-- Texture2D サイズ: 512 * 512
-- WebView サイズ: 1024 * 1024
+- Url: WebViewの初期化時にロードするURL  
+- DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
+- SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
+- Web (Width/Height): WebViewの解像度 (デフォルト 1024 * 1024)  
+- Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
 
 #### XR Interaction Toolkit
 3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
 4. Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unityを開く
 5. ヒエラルキーからTLabWebViewVR_XRToolkit/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
-- Url: WebViewの初期化時にロードするURL
-- Texture2D サイズ: 512 * 512
-- WebView サイズ: 1024 * 1024
+- Url: WebViewの初期化時にロードするURL  
+- DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
+- SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
+- Web (Width/Height): WebViewの解像度 (デフォルト 1024 * 1024)  
+- Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
 
 ## リンク
 [使用したJavaプラグインのソースコード](https://github.com/TLabAltoh/TLabWebViewPlugin)

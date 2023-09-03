@@ -89,17 +89,21 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
 4. Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
 5. Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
-- Url: URL to load during WebView initialization
-- Texture2D default size: 512 * 512
-- WebView default size: 512 * 1024
+- Url: URL to load during WebView initialization  
+- DlOption: Whether to download to the application folder or the downloads folder  
+- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
+- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
+- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 
 #### XR Interaction Toolkit
 3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
 4. Open Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
 5. Change any parameter of TLabWebView attached to TLabWebViewVR_XRToolkit/TLabWebView/WebView from the hierarchy
-- Url: URL to load during WebView initialization
-- Texture2D default size: 512 * 512
-- WebView default size: 512 * 1024
+- Url: URL to load during WebView initialization  
+- DlOption: Whether to download to the application folder or the downloads folder  
+- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
+- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
+- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 
 ## Link
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
