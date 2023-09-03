@@ -93,8 +93,8 @@ namespace TLab.XR.Oculus
             {
                 m_onTheWeb = true;
 
-                m_lastXPos = (int)((1.0f - m_raycastHit.textureCoord.x) * m_tlabWebView.webWidth);
-                m_lastYPos = (int)(m_raycastHit.textureCoord.y * m_tlabWebView.webHeight);
+                m_lastXPos = (int)((1.0f - m_raycastHit.textureCoord.x) * m_tlabWebView.WebWidth);
+                m_lastYPos = (int)(m_raycastHit.textureCoord.y * m_tlabWebView.WebHeight);
 
                 m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, GetButtonEvent());
             }

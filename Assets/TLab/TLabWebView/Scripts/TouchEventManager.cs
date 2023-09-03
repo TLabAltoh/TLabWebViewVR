@@ -60,12 +60,12 @@ namespace TLab.Android.WebView
 
         private int TouchHorizontal(float x)
         {
-            return (int)((x - screenEdge[LEFT_IDX]) / screenSize[HORIZONTAL_IDX] * tlabWebView.webWidth);
+            return (int)((x - screenEdge[LEFT_IDX]) / screenSize[HORIZONTAL_IDX] * tlabWebView.WebWidth);
         }
 
         private int TouchVertical(float y)
         {
-            return (int)((1.0f - (y - screenEdge[BOTTOM_IDX]) / screenSize[VERTICAL_IDX]) * tlabWebView.webHeight);
+            return (int)((1.0f - (y - screenEdge[BOTTOM_IDX]) / screenSize[VERTICAL_IDX]) * tlabWebView.WebHeight);
         }
 
         void Update()
@@ -89,7 +89,7 @@ namespace TLab.Android.WebView
             else if (t.phase == TouchPhase.Began) eventNum = TOUCH_DOWN;
             else if (t.phase == TouchPhase.Moved) eventNum = TOUCH_MOVE;
 
-            if (x > tlabWebView.webWidth || x < 0 || y > tlabWebView.webHeight || y < 0)
+            if (x > tlabWebView.WebWidth || x < 0 || y > tlabWebView.WebHeight || y < 0)
             {
                 if (onTheWeb == true && t.phase == TouchPhase.Moved)
                     eventNum = TOUCH_UP;
