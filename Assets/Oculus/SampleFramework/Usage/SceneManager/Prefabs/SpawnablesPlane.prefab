@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -91,3 +92,23 @@ MonoBehaviour:
       type: 3}
     ClassificationLabel: OTHER
     _editorClassificationIndex: 7
+  - ResizablePrefab: {fileID: 7329915652745048277, guid: 9e3d47fa7d34b244db95a4f1e63c4d41,
+      type: 3}
+    ClassificationLabel: TABLE
+    _editorClassificationIndex: 13
+  - ResizablePrefab: {fileID: 7329915652745048277, guid: 4448d19be5174b04aaffd0f79363db90,
+      type: 3}
+    ClassificationLabel: LAMP
+    _editorClassificationIndex: 11
+  - ResizablePrefab: {fileID: 7329915652745048277, guid: 4448d19be5174b04aaffd0f79363db90,
+      type: 3}
+    ClassificationLabel: PLANT
+    _editorClassificationIndex: 12
+  - ResizablePrefab: {fileID: 7329915652745048277, guid: 4448d19be5174b04aaffd0f79363db90,
+      type: 3}
+    ClassificationLabel: STORAGE
+    _editorClassificationIndex: 8
+  - ResizablePrefab: {fileID: 7329915652745048277, guid: 4448d19be5174b04aaffd0f79363db90,
+      type: 3}
+    ClassificationLabel: BED
+    _editorClassificationIndex: 9

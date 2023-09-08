@@ -19,6 +19,9 @@
  */
 
 using System;
+using System.Collections.Generic;
+using Oculus.Interaction.PoseDetection.Debug;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -249,6 +252,9 @@ namespace Oculus.Interaction.PoseDetection
             // In case there is no RemainActiveWhile condition, start the cooldown
             // timer
             _cooldownExceededTime = time + _remainActiveCooldown;
+
+            // Activate native component
+            NativeMethods.isdk_NativeComponent_Activate(0x5365717565446574);
         }
 
         private void ResetState()
@@ -261,6 +267,22 @@ namespace Oculus.Interaction.PoseDetection
         #endregion
 
         public bool Active { get; private set;  }
+
+        static Sequence()
+        {
+            ActiveStateDebugTree.RegisterModel<Sequence, DebugModel>();
+        }
+
+        private class DebugModel : ActiveStateModel<Sequence>
+        {
+            protected override IEnumerable<IActiveState> GetChildren(Sequence activeState)
+            {
+                List<IActiveState> children = new List<IActiveState>();
+                children.AddRange(activeState._stepsToActivate.Select(step => step.ActiveState));
+                children.Add(activeState.RemainActiveWhile);
+                return children.Where(c => c != null);
+            }
+        }
 
         #region Inject
 

@@ -506,14 +506,59 @@ namespace Oculus.Platform
 
   public static partial class Application
   {
-    /// Requests version information, including the currently installed and latest
-    /// available version name and version code.
+    /// Cancel an app download that is in progress. It will return a result when
+    /// the download is cancelled.
+    ///
+    public static Request<Models.AppDownloadResult> CancelAppDownload()
+    {
+      if (Core.IsInitialized())
+      {
+        return new Request<Models.AppDownloadResult>(CAPI.ovr_Application_CancelAppDownload());
+      }
+
+      Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
+      return null;
+    }
+
+    /// Track download progress for an app
+    ///
+    public static Request<Models.AppDownloadProgressResult> CheckAppDownloadProgress()
+    {
+      if (Core.IsInitialized())
+      {
+        return new Request<Models.AppDownloadProgressResult>(CAPI.ovr_Application_CheckAppDownloadProgress());
+      }
+
+      Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
+      return null;
+    }
+
+    /// Requests version information, including the version code and version name
+    /// of the currently installed app and version code, version name, size and
+    /// release date of the latest app update
     ///
     public static Request<Models.ApplicationVersion> GetVersion()
     {
       if (Core.IsInitialized())
       {
         return new Request<Models.ApplicationVersion>(CAPI.ovr_Application_GetVersion());
+      }
+
+      Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
+      return null;
+    }
+
+    /// Installs the app update that was previously downloaded. Once the install
+    /// begins the application will exit automatically. After the installation
+    /// process is complete, the app will be relaunched based on the options
+    /// passed.
+    /// \param deeplink_options Additional configuration for this relaunch. Optional.
+    ///
+    public static Request<Models.AppDownloadResult> InstallAppUpdateAndRelaunch(ApplicationOptions deeplink_options = null)
+    {
+      if (Core.IsInitialized())
+      {
+        return new Request<Models.AppDownloadResult>(CAPI.ovr_Application_InstallAppUpdateAndRelaunch((IntPtr)deeplink_options));
       }
 
       Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
@@ -531,6 +576,21 @@ namespace Oculus.Platform
       if (Core.IsInitialized())
       {
         return new Request<string>(CAPI.ovr_Application_LaunchOtherApp(appID, (IntPtr)deeplink_options));
+      }
+
+      Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
+      return null;
+    }
+
+    /// Starts an app download. It will return a result when the download is
+    /// finished. Download progress can be monitored using the
+    /// check_app_download_progress API.
+    ///
+    public static Request<Models.AppDownloadResult> StartAppDownload()
+    {
+      if (Core.IsInitialized())
+      {
+        return new Request<Models.AppDownloadResult>(CAPI.ovr_Application_StartAppDownload());
       }
 
       Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
@@ -930,6 +990,25 @@ namespace Oculus.Platform
       if (Core.IsInitialized())
       {
         return new Request<Models.Challenge>(CAPI.ovr_Challenges_UpdateInfo(challengeID, (IntPtr)challengeOptions));
+      }
+
+      Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
+      return null;
+    }
+
+  }
+
+  public static partial class DeviceApplicationIntegrity
+  {
+    /// Returns Device and Application Integrity Attestation JSON Web Token. The
+    /// token has format of header.claims.signature encoded in base64. Header
+    /// contains algorithm type (PS256) and token type (JWT).
+    ///
+    public static Request<string> GetIntegrityToken(string challenge_nonce)
+    {
+      if (Core.IsInitialized())
+      {
+        return new Request<string>(CAPI.ovr_DeviceApplicationIntegrity_GetIntegrityToken(challenge_nonce));
       }
 
       Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
@@ -1758,6 +1837,36 @@ namespace Oculus.Platform
       if (Core.IsInitialized())
       {
         return new Request<Models.LaunchUnblockFlowResult>(CAPI.ovr_User_LaunchUnblockFlow(userID));
+      }
+
+      Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
+      return null;
+    }
+
+  }
+
+  public static partial class UserAgeCategory
+  {
+    /// Retrieve the user age category for the current user.
+    ///
+    public static Request<Models.UserAccountAgeCategory> Get()
+    {
+      if (Core.IsInitialized())
+      {
+        return new Request<Models.UserAccountAgeCategory>(CAPI.ovr_UserAgeCategory_Get());
+      }
+
+      Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);
+      return null;
+    }
+
+    /// Report the current user's age category to Meta.
+    ///
+    public static Request Report(AppAgeCategory age_category)
+    {
+      if (Core.IsInitialized())
+      {
+        return new Request(CAPI.ovr_UserAgeCategory_Report(age_category));
       }
 
       Debug.LogError(Oculus.Platform.Core.PlatformUninitializedError);

@@ -227,15 +227,15 @@ namespace Oculus.Interaction.Input
 
             _handDataAsset.IsFingerHighConfidence[(int)HandFinger.Middle] = true;
             _handDataAsset.IsFingerPinching[(int)HandFinger.Middle] = gripStrength >= 1f;
-            _handDataAsset.FingerPinchStrength[(int)HandFinger.Middle] = pinchStrength;
+            _handDataAsset.FingerPinchStrength[(int)HandFinger.Middle] = gripStrength;
 
             _handDataAsset.IsFingerHighConfidence[(int)HandFinger.Ring] = true;
             _handDataAsset.IsFingerPinching[(int)HandFinger.Ring] = gripStrength >= 1f;
-            _handDataAsset.FingerPinchStrength[(int)HandFinger.Ring] = pinchStrength;
+            _handDataAsset.FingerPinchStrength[(int)HandFinger.Ring] = gripStrength;
 
             _handDataAsset.IsFingerHighConfidence[(int)HandFinger.Pinky] = true;
             _handDataAsset.IsFingerPinching[(int)HandFinger.Pinky] = gripStrength >= 1f;
-            _handDataAsset.FingerPinchStrength[(int)HandFinger.Pinky] = pinchStrength;
+            _handDataAsset.FingerPinchStrength[(int)HandFinger.Pinky] = gripStrength;
 
             _handDataAsset.PointerPoseOrigin = PoseOrigin.RawTrackedPose;
             _handDataAsset.PointerPose = new Pose(

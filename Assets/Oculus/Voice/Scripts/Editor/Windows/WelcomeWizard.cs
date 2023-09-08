@@ -19,6 +19,7 @@
  */
 
 using System.Collections.Generic;
+using Meta.Voice.TelemetryUtilities;
 using Meta.WitAi;
 using Meta.WitAi.Data.Configuration;
 using Meta.WitAi.Windows;
@@ -41,6 +42,11 @@ namespace Oculus.Voice.Windows
 
         protected override void OnEnable()
         {
+            Telemetry.LogInstantEvent(Telemetry.TelemetryEventId.OpenUi, new Dictionary<Telemetry.AnnotationKey, string>()
+            {
+                {Telemetry.AnnotationKey.PageId, "Getting Started"}
+            });
+
             WitAuthUtility.tokenValidator = new VoiceSDKTokenValidatorProvider();
             base.OnEnable();
             witBuiltInIndex = 0;

@@ -95,7 +95,6 @@ namespace Oculus.Interaction
             if (_started)
             {
                 InteractableView.WhenStateChanged -= HandleStateChanged;
-                InteractableView.WhenStateChanged -= HandleStateChanged;
                 InteractableView.WhenInteractorViewAdded -= HandleInteractorViewAdded;
                 InteractableView.WhenInteractorViewRemoved -= HandleInteractorViewRemoved;
                 InteractableView.WhenSelectingInteractorViewAdded -= HandleSelectingInteractorViewAdded;

@@ -13,6 +13,7 @@
 using System;
 using System.Collections.Generic;
 using Meta.Conduit;
+using Meta.Voice.TelemetryUtilities;
 using Meta.WitAi.Json;
 using UnityEditor;
 using UnityEngine;
@@ -278,6 +279,8 @@ namespace Meta.WitAi.Data.Configuration
         // Sets server token for specified configuration by updating it's application data
         public static void SetServerToken(this WitConfiguration configuration, string serverToken, Action<string> onSetComplete = null)
         {
+            var instanceKey = Telemetry.StartEvent(Telemetry.TelemetryEventId.SupplyToken);
+
             // Invalid
             if (!IsServerTokenValid(serverToken))
             {
@@ -296,7 +299,17 @@ namespace Meta.WitAi.Data.Configuration
                 {
                     WitAuthUtility.SetAppServerToken(info.id, serverToken);
                 }
+
                 // Complete
+                if (!string.IsNullOrEmpty(error))
+                {
+                    Telemetry.EndEventWithFailure(instanceKey, error);
+                }
+                else
+                {
+                    Telemetry.EndEvent(instanceKey, Telemetry.ResultType.Success);
+                }
+
                 onSetComplete?.Invoke(error);
             });
         }
@@ -309,14 +322,14 @@ namespace Meta.WitAi.Data.Configuration
         /// <summary>
         /// Import supplied Manifest into WIT.ai.
         /// </summary>
-        internal static void ImportData(this WitConfiguration configuration, Manifest manifest, VRequest.RequestCompleteDelegate<bool> onComplete = null, bool suppressErrors = false)
+        internal static void ImportData(this WitConfiguration configuration, Manifest manifest, VRequest.RequestCompleteDelegate<bool> onComplete = null, bool suppressLogs = false)
         {
             var manifestData = GetSanitizedManifestString(manifest);
-            var request = configuration.CreateImportDataRequest(GetAppName(configuration), manifestData);
-            VLog.SuppressErrors = suppressErrors;
-            PerformRequest(request, (error) =>
+            var request = new WitSyncVRequest(configuration);
+            VLog.SuppressLogs = suppressLogs;
+            request.RequestImportData(manifestData, (error, responseData) =>
             {
-                VLog.SuppressErrors = false;
+                VLog.SuppressLogs = false;
                 if (!string.IsNullOrEmpty(error))
                 {
                     onComplete?.Invoke(false, error);
@@ -365,41 +378,6 @@ namespace Meta.WitAi.Data.Configuration
                 // Complete
                 onRefreshComplete?.Invoke(s);
             });
-        }
-
-        // Get application name
-        private static string GetAppName(WitConfiguration configuration)
-        {
-            if (configuration != null)
-            {
-                return configuration.GetApplicationInfo().name;
-            }
-            return string.Empty;
-        }
-
-        private static void PerformRequest(WitRequest request, Action<string> onComplete)
-        {
-            // Add response delegate
-            request.onResponse += (response) =>
-            {
-                // Get status
-                int status = response.StatusCode;
-                // HTTP failed
-                if (status != 200)
-                {
-                    onComplete($"Request Failed [{status}]: {response.StatusDescription}\nPath: {request}");
-                }
-                // Success
-                else
-                {
-                    VLog.D($"Request Success\nType: {request}");
-                    onComplete?.Invoke("");
-                }
-            };
-
-            // Perform
-            VLog.D($"Request Begin\nType: {request}");
-            request.Request();
         }
         #endregion
     }

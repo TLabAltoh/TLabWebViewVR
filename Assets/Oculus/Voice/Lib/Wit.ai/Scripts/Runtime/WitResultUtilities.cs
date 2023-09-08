@@ -21,6 +21,8 @@ namespace Meta.WitAi
         public const string WIT_KEY_ENTITIES = "entities";
         public const string WIT_KEY_TRAITS = "traits";
         public const string WIT_KEY_FINAL = "is_final";
+        public const string WIT_PARTIAL_RESPONSE = "partial_response";
+        public const string WIT_RESPONSE = "response";
 
         #region Base Response methods
         /// <summary>
@@ -36,12 +38,48 @@ namespace Meta.WitAi
         /// <summary>
         /// Get whether this response is a 'final' response
         /// </summary>
-        public static bool HasResponse(this WitResponseNode witResponse) =>
-            null != witResponse
-            && witResponse.AsObject != null
-            && (witResponse.AsObject.HasChild(WIT_KEY_INTENTS)
-            || witResponse.AsObject.HasChild(WIT_KEY_ENTITIES)
-            || witResponse.AsObject.HasChild(WIT_KEY_TRAITS));
+        public static bool HasResponse(this WitResponseNode witResponse)
+        {
+            var response = witResponse?.AsObject;
+            return null != response
+                && (response.HasChild(WIT_KEY_INTENTS)
+                    || response.HasChild(WIT_KEY_ENTITIES)
+                    || response.HasChild(WIT_KEY_TRAITS)
+                    || response.HasChild(WIT_PARTIAL_RESPONSE)
+                    || response.HasChild(WIT_RESPONSE));
+        }
+
+        /// <summary>
+        /// Gets the content of a witResponse's partial or final response whichever is present.
+        /// </summary>
+        /// <param name="witResponse">The response node class or null if none was found.</param>
+        /// <returns></returns>
+        public static WitResponseClass GetResponse(this WitResponseNode witResponse)
+        {
+            return witResponse.GetFinalResponse() ?? witResponse.GetPartialResponse();
+        }
+
+        /// <summary>
+        /// Gets the content of a witResponse["response"] node.
+        /// </summary>
+        /// <param name="witResponse">The response node class or null if none was found.</param>
+        /// <returns></returns>
+        public static WitResponseClass GetFinalResponse(this WitResponseNode witResponse)
+        {
+            var response = witResponse?.AsObject;
+            return null != response && response.HasChild(WIT_PARTIAL_RESPONSE) ? response[WIT_PARTIAL_RESPONSE].AsObject : null;
+        }
+
+        /// <summary>
+        /// Gets the content of a witResponse["partial_response"] node.
+        /// </summary>
+        /// <param name="witResponse">The response node class or null if none was found.</param>
+        /// <returns></returns>
+        public static WitResponseClass GetPartialResponse(this WitResponseNode witResponse)
+        {
+            var response = witResponse?.AsObject;
+            return null != response && response.HasChild(WIT_PARTIAL_RESPONSE) ? response[WIT_PARTIAL_RESPONSE].AsObject : null;
+        }
 
         /// <summary>
         /// Get whether this response is a 'final' response
@@ -194,6 +232,16 @@ namespace Meta.WitAi
         }
 
         /// <summary>
+        /// Returns the total number of entities
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        public static int EntityCount(this WitResponseNode response)
+        {
+            return response?[WIT_KEY_ENTITIES]?.AsArray?.Count ?? 0;
+        }
+
+        /// <summary>
         /// Gets all float entity values in the given response with the specified entity name
         /// </summary>
         /// <param name="witResponse">The root response node of an VoiceService.events.OnResponse event</param>
@@ -243,7 +291,7 @@ namespace Meta.WitAi
         /// <returns></returns>
         public static string GetIntentName(this WitResponseNode witResponse)
         {
-            return witResponse?[WIT_KEY_INTENTS]?[0]?["name"]?.Value;
+            return witResponse == null || !witResponse.AsObject.HasChild(WIT_KEY_INTENTS) ? null : witResponse[WIT_KEY_INTENTS][0]?["name"]?.Value;
         }
 
         /// <summary>
@@ -253,7 +301,7 @@ namespace Meta.WitAi
         /// <returns></returns>
         public static WitResponseNode GetFirstIntent(this WitResponseNode witResponse)
         {
-            return witResponse?[WIT_KEY_INTENTS]?[0];
+            return witResponse == null || !witResponse.AsObject.HasChild(WIT_KEY_INTENTS) ? null : witResponse[WIT_KEY_INTENTS][0];
         }
 
         /// <summary>
@@ -263,7 +311,7 @@ namespace Meta.WitAi
         /// <returns>WitIntentData or null if no intents are found</returns>
         public static WitIntentData GetFirstIntentData(this WitResponseNode witResponse)
         {
-            var array = witResponse?[WIT_KEY_INTENTS]?.AsArray;
+            var array = witResponse == null || !witResponse.AsObject.HasChild(WIT_KEY_INTENTS) ? null : witResponse[WIT_KEY_INTENTS]?.AsArray;
             return array?.Count > 0 ? array[0].AsWitIntent() : null;
         }
 
@@ -274,7 +322,7 @@ namespace Meta.WitAi
         /// <returns></returns>
         public static WitIntentData[] GetIntents(this WitResponseNode witResponse)
         {
-            var intentResponseArray = witResponse?[WIT_KEY_INTENTS].AsArray;
+            var intentResponseArray = witResponse == null || !witResponse.AsObject.HasChild(WIT_KEY_INTENTS) ? null : witResponse[WIT_KEY_INTENTS]?.AsArray;
             var intents = new WitIntentData[intentResponseArray?.Count ?? 0];
             for (int i = 0; i < intents.Length; i++)
             {
@@ -313,7 +361,7 @@ namespace Meta.WitAi
 
             var node = response;
             int nodeIndex;
-            
+
             for(nodeIndex = 0; nodeIndex < nodes.Length - 1; nodeIndex++)
             {
                 var nodeName = nodes[nodeIndex];

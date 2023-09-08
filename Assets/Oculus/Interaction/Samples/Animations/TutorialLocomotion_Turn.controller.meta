@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: f20de30e21540a140b6bb8c7d0e63b3e
+labels:
+- oculus_interaction_deprecated
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000

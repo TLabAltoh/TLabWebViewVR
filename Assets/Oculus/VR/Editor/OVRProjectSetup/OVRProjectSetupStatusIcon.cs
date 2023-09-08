@@ -31,22 +31,23 @@ internal static class OVRProjectSetupStatusIcon
     private static readonly PropertyInfo _guiBackend;
     private static readonly PropertyInfo _visualTree;
     private static readonly FieldInfo _onGuiHandler;
-    private static readonly GUIContent _iconSuccess;
-    private static readonly GUIContent _iconNeutral;
-    private static readonly GUIContent _iconWarning;
-    private static readonly GUIContent _iconError;
+    private static readonly OVRGUIContent _iconSuccess;
+    private static readonly OVRGUIContent _iconNeutral;
+    private static readonly OVRGUIContent _iconWarning;
+    private static readonly OVRGUIContent _iconError;
     private static readonly string OpenOculusSettings = "Open Oculus Settings";
 
     private static GUIStyle _iconStyle;
     private static VisualElement _container;
-    private static GUIContent _currentIcon;
+    private static OVRGUIContent _currentIcon;
 
-    internal static GUIContent CurrentIcon => _currentIcon;
-
+    internal static OVRGUIContent CurrentIcon => _currentIcon;
 
 
     static OVRProjectSetupStatusIcon()
     {
+        if (!OVREditorUtils.IsMainEditor()) return;
+
         var editorAssembly = typeof(UnityEditor.Editor).Assembly;
         var bindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
 
@@ -59,10 +60,10 @@ internal static class OVRProjectSetupStatusIcon
         _visualTree = backendType?.GetProperty("visualTree", bindingFlags);
         _onGuiHandler = containerType?.GetField("m_OnGUIHandler", bindingFlags);
 
-        _iconSuccess = OVRProjectSetupUtils.CreateIcon("ovr_icon_success.png", null);
-        _iconNeutral = OVRProjectSetupUtils.CreateIcon("ovr_icon_neutral.png", null);
-        _iconWarning = OVRProjectSetupUtils.CreateIcon("ovr_icon_warning.png", null);
-        _iconError = OVRProjectSetupUtils.CreateIcon("ovr_icon_error.png", null);
+        _iconSuccess = OVREditorUtils.CreateContent("ovr_icon_success.png",  OVRGUIContent.Source.GenericIcons);
+        _iconNeutral = OVREditorUtils.CreateContent("ovr_icon_neutral.png",  OVRGUIContent.Source.GenericIcons);
+        _iconWarning = OVREditorUtils.CreateContent("ovr_icon_warning.png",  OVRGUIContent.Source.GenericIcons);
+        _iconError = OVREditorUtils.CreateContent("ovr_icon_error.png",  OVRGUIContent.Source.GenericIcons);
         _currentIcon = _iconSuccess;
 
         OVRProjectSetup.ProcessorQueue.OnProcessorCompleted += RefreshData;
@@ -75,6 +76,7 @@ internal static class OVRProjectSetupStatusIcon
         {
             return;
         }
+
         var toolbars = Resources.FindObjectsOfTypeAll(_toolbarType);
         if (toolbars == null || toolbars.Length == 0)
         {
@@ -123,35 +125,35 @@ internal static class OVRProjectSetupStatusIcon
         _iconStyle = new GUIStyle("StatusBarIcon");
     }
 
-    public static GUIContent ComputeIcon(OVRConfigurationTaskUpdaterSummary summary)
+    public static OVRGUIContent ComputeIcon(OVRConfigurationTaskUpdaterSummary summary)
     {
-	    if (summary == null)
-	    {
-		    return _iconSuccess;
-	    }
+        if (summary == null)
+        {
+            return _iconSuccess;
+        }
 
-	    var icon = summary.HighestFixLevel switch
-	    {
-		    OVRProjectSetup.TaskLevel.Optional => _iconNeutral,
-		    OVRProjectSetup.TaskLevel.Recommended => _iconWarning,
-		    OVRProjectSetup.TaskLevel.Required => _iconError,
-		    _ => _iconSuccess
-	    };
+        var icon = summary.HighestFixLevel switch
+        {
+            OVRProjectSetup.TaskLevel.Optional => _iconNeutral,
+            OVRProjectSetup.TaskLevel.Recommended => _iconWarning,
+            OVRProjectSetup.TaskLevel.Required => _iconError,
+            _ => _iconSuccess
+        };
 
-	    icon.tooltip = $"{summary.ComputeNoticeMessage()}\n{OpenOculusSettings}";
+        icon.Tooltip = $"{summary.ComputeNoticeMessage()}\n{OpenOculusSettings}";
 
-	    return icon;
+        return icon;
     }
 
     private static void RefreshData(OVRConfigurationTaskProcessor processor)
     {
-	    var activeBuildTargetGroup = BuildPipeline.GetBuildTargetGroup(EditorUserBuildSettings.activeBuildTarget);
-	    if (processor.Type == OVRConfigurationTaskProcessor.ProcessorType.Updater
-	        && processor.BuildTargetGroup == activeBuildTargetGroup)
-	    {
-		    var updater = processor as OVRConfigurationTaskUpdater;
-		    _currentIcon = ComputeIcon(updater?.Summary);
-	    }
+        var activeBuildTargetGroup = BuildPipeline.GetBuildTargetGroup(EditorUserBuildSettings.activeBuildTarget);
+        if (processor.Type == OVRConfigurationTaskProcessor.ProcessorType.Updater
+            && processor.BuildTargetGroup == activeBuildTargetGroup)
+        {
+            var updater = processor as OVRConfigurationTaskUpdater;
+            _currentIcon = ComputeIcon(updater?.Summary);
+        }
     }
 
     private static void RefreshGUI()
@@ -173,6 +175,7 @@ internal static class OVRProjectSetupStatusIcon
         {
             OVRProjectSetupSettingsProvider.OpenSettingsWindow(OVRProjectSetupSettingsProvider.Origins.Icon);
         }
+
         var buttonRect = GUILayoutUtility.GetLastRect();
         EditorGUIUtility.AddCursorRect(buttonRect, MouseCursor.Link);
         GUILayout.EndArea();

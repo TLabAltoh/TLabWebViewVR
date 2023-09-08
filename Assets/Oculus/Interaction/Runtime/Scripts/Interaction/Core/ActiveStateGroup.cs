@@ -19,8 +19,8 @@
  */
 
 using System.Collections.Generic;
+using Oculus.Interaction.PoseDetection.Debug;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace Oculus.Interaction
 {
@@ -92,6 +92,19 @@ namespace Oculus.Interaction
                     default:
                         return false;
                 }
+            }
+        }
+
+        static ActiveStateGroup()
+        {
+            ActiveStateDebugTree.RegisterModel<ActiveStateGroup, DebugModel>();
+        }
+
+        private class DebugModel : ActiveStateModel<ActiveStateGroup>
+        {
+            protected override IEnumerable<IActiveState> GetChildren(ActiveStateGroup activeState)
+            {
+                return activeState.ActiveStates;
             }
         }
 

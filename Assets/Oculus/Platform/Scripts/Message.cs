@@ -87,8 +87,12 @@ namespace Oculus.Platform
       ApplicationLifecycle_GetRegisteredPIDs             = 0x04E5CF62,
       ApplicationLifecycle_GetSessionKey                 = 0x3AAF591D,
       ApplicationLifecycle_RegisterSessionKey            = 0x4DB6AFF8,
+      Application_CancelAppDownload                      = 0x7C2060DE,
+      Application_CheckAppDownloadProgress               = 0x5534A924,
       Application_GetVersion                             = 0x68670A0E,
+      Application_InstallAppUpdateAndRelaunch            = 0x14806B85,
       Application_LaunchOtherApp                         = 0x54E2D1F8,
+      Application_StartAppDownload                       = 0x44FC006E,
       AssetFile_Delete                                   = 0x6D5D7886,
       AssetFile_DeleteById                               = 0x5AE8CD52,
       AssetFile_DeleteByName                             = 0x420AC1CF,
@@ -118,6 +122,7 @@ namespace Oculus.Platform
       Challenges_Join                                    = 0x21248069,
       Challenges_Leave                                   = 0x296116E5,
       Challenges_UpdateInfo                              = 0x1175BE60,
+      DeviceApplicationIntegrity_GetIntegrityToken       = 0x3271ABDA,
       Entitlement_GetIsViewerEntitled                    = 0x186B58B1,
       GroupPresence_Clear                                = 0x6DAA9CC3,
       GroupPresence_GetInvitableUsers                    = 0x234BC3F1,
@@ -159,6 +164,8 @@ namespace Oculus.Platform
       RichPresence_GetDestinations                       = 0x586F2D14,
       RichPresence_GetNextDestinationArrayPage           = 0x67367F45,
       RichPresence_Set                                   = 0x3C147509,
+      UserAgeCategory_Get                                = 0x21CBE0C0,
+      UserAgeCategory_Report                             = 0x2E4DD8D6,
       UserDataStore_PrivateDeleteEntryByKey              = 0x5C896F3E,
       UserDataStore_PrivateGetEntries                    = 0x6C8A8228,
       UserDataStore_PrivateGetEntryByKey                 = 0x1C068319,
@@ -277,6 +284,8 @@ namespace Oculus.Platform
     public virtual AchievementDefinitionList GetAchievementDefinitions() { return null; }
     public virtual AchievementProgressList GetAchievementProgressList() { return null; }
     public virtual AchievementUpdate GetAchievementUpdate() { return null; }
+    public virtual AppDownloadProgressResult GetAppDownloadProgressResult() { return null; }
+    public virtual AppDownloadResult GetAppDownloadResult() { return null; }
     public virtual ApplicationInviteList GetApplicationInviteList() { return null; }
     public virtual ApplicationVersion GetApplicationVersion() { return null; }
     public virtual AssetDetails GetAssetDetails() { return null; }
@@ -330,6 +339,7 @@ namespace Oculus.Platform
     public virtual string GetString() { return null; }
     public virtual SystemVoipState GetSystemVoipState() { return null; }
     public virtual User GetUser() { return null; }
+    public virtual UserAccountAgeCategory GetUserAccountAgeCategory() { return null; }
     public virtual UserCapabilityList GetUserCapabilityList() { return null; }
     public virtual UserDataStoreUpdateResponse GetUserDataStoreUpdateResponse() { return null; }
     public virtual UserList GetUserList() { return null; }
@@ -364,6 +374,16 @@ namespace Oculus.Platform
         case Message.MessageType.Achievements_AddFields:
         case Message.MessageType.Achievements_Unlock:
           message = new MessageWithAchievementUpdate(messageHandle);
+          break;
+
+        case Message.MessageType.Application_CheckAppDownloadProgress:
+          message = new MessageWithAppDownloadProgressResult(messageHandle);
+          break;
+
+        case Message.MessageType.Application_CancelAppDownload:
+        case Message.MessageType.Application_InstallAppUpdateAndRelaunch:
+        case Message.MessageType.Application_StartAppDownload:
+          message = new MessageWithAppDownloadResult(messageHandle);
           break;
 
         case Message.MessageType.GroupPresence_GetNextApplicationInviteArrayPage:
@@ -473,6 +493,7 @@ namespace Oculus.Platform
         case Message.MessageType.Notification_MarkAsRead:
         case Message.MessageType.RichPresence_Clear:
         case Message.MessageType.RichPresence_Set:
+        case Message.MessageType.UserAgeCategory_Report:
           message = new Message(messageHandle);
           break;
 
@@ -587,6 +608,7 @@ namespace Oculus.Platform
 
         case Message.MessageType.ApplicationLifecycle_GetSessionKey:
         case Message.MessageType.Application_LaunchOtherApp:
+        case Message.MessageType.DeviceApplicationIntegrity_GetIntegrityToken:
         case Message.MessageType.Notification_AbuseReport_ReportButtonPressed:
         case Message.MessageType.Notification_ApplicationLifecycle_LaunchIntentChanged:
         case Message.MessageType.Notification_Voip_MicrophoneAvailabilityStateUpdate:
@@ -603,6 +625,10 @@ namespace Oculus.Platform
         case Message.MessageType.User_Get:
         case Message.MessageType.User_GetLoggedInUser:
           message = new MessageWithUser(messageHandle);
+          break;
+
+        case Message.MessageType.UserAgeCategory_Get:
+          message = new MessageWithUserAccountAgeCategory(messageHandle);
           break;
 
         case Message.MessageType.GroupPresence_GetInvitableUsers:
@@ -719,6 +745,30 @@ namespace Oculus.Platform
       var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
       var obj = CAPI.ovr_Message_GetAchievementUpdate(msg);
       return new AchievementUpdate(obj);
+    }
+
+  }
+  public class MessageWithAppDownloadProgressResult : Message<AppDownloadProgressResult>
+  {
+    public MessageWithAppDownloadProgressResult(IntPtr c_message) : base(c_message) { }
+    public override AppDownloadProgressResult GetAppDownloadProgressResult() { return Data; }
+    protected override AppDownloadProgressResult GetDataFromMessage(IntPtr c_message)
+    {
+      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
+      var obj = CAPI.ovr_Message_GetAppDownloadProgressResult(msg);
+      return new AppDownloadProgressResult(obj);
+    }
+
+  }
+  public class MessageWithAppDownloadResult : Message<AppDownloadResult>
+  {
+    public MessageWithAppDownloadResult(IntPtr c_message) : base(c_message) { }
+    public override AppDownloadResult GetAppDownloadResult() { return Data; }
+    protected override AppDownloadResult GetDataFromMessage(IntPtr c_message)
+    {
+      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
+      var obj = CAPI.ovr_Message_GetAppDownloadResult(msg);
+      return new AppDownloadResult(obj);
     }
 
   }
@@ -1364,6 +1414,18 @@ namespace Oculus.Platform
       var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
       var obj = CAPI.ovr_Message_GetUser(msg);
       return new User(obj);
+    }
+
+  }
+  public class MessageWithUserAccountAgeCategory : Message<UserAccountAgeCategory>
+  {
+    public MessageWithUserAccountAgeCategory(IntPtr c_message) : base(c_message) { }
+    public override UserAccountAgeCategory GetUserAccountAgeCategory() { return Data; }
+    protected override UserAccountAgeCategory GetDataFromMessage(IntPtr c_message)
+    {
+      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
+      var obj = CAPI.ovr_Message_GetUserAccountAgeCategory(msg);
+      return new UserAccountAgeCategory(obj);
     }
 
   }

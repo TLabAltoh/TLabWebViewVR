@@ -6,7 +6,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+using System;
 using System.Collections.Generic;
+using Meta.Voice.TelemetryUtilities;
 using UnityEditor;
 using UnityEngine;
 using Meta.WitAi.Data.Configuration;
@@ -23,7 +25,22 @@ namespace Meta.WitAi.Windows
         // VLog log level
         private static int _logLevel = -1;
         private static string[] _logLevelNames;
-        private static LogType[] _logLevels = new LogType[] { LogType.Log, LogType.Warning, LogType.Error };
+        private static readonly LogType[] _logLevels = new LogType[] { LogType.Log, LogType.Warning, LogType.Error };
+
+#if VSDK_TELEMETRY_AVAILABLE
+        private static int _telemetryLogLevel = -1;
+        private static string[] _telemetryLogLevelNames;
+        private static readonly TelemetryLogLevel[] _telemetryLogLevels = new TelemetryLogLevel[]
+            { TelemetryLogLevel.Off, TelemetryLogLevel.Basic, TelemetryLogLevel.Verbose };
+#endif
+        public virtual bool ShowWitConfiguration => true;
+        public virtual bool ShowGeneralSettings => true;
+
+        public static bool ShowTooltips
+        {
+            get => EditorPrefs.GetBool("VSDK::Settings::Tooltips", true);
+            set => EditorPrefs.SetBool("VSDK::Settings::Tooltips", value);
+        }
 
         protected override void OnEnable()
         {
@@ -33,6 +50,7 @@ namespace Meta.WitAi.Windows
                 serverToken = WitAuthUtility.ServerToken;
             }
             RefreshLogLevel();
+            InitializeTelemetryLevelOptions();
             SetWitEditor();
         }
 
@@ -55,6 +73,12 @@ namespace Meta.WitAi.Windows
 
         protected override void LayoutContent()
         {
+            if (ShowGeneralSettings) DrawGeneralSettings();
+            if (ShowWitConfiguration) DrawWitConfigurations();
+        }
+
+        private void DrawGeneralSettings()
+        {
             // VLog level
             bool updated = false;
             RefreshLogLevel();
@@ -65,9 +89,36 @@ namespace Meta.WitAi.Windows
                 SetLogLevel(logLevel);
             }
 
+            var showTooltips = ShowTooltips;
+            WitEditorUI.LayoutToggle(new GUIContent(WitTexts.Texts.ShowTooltipsLabel), ref showTooltips, ref updated);
+            if (updated)
+            {
+                ShowTooltips = showTooltips;
+            }
+
+#if VSDK_TELEMETRY_AVAILABLE && UNITY_EDITOR_WIN
+            var enableTelemetry = TelemetryConsentManager.ConsentProvided;
+            WitEditorUI.LayoutToggle(new GUIContent(WitTexts.Texts.TelemetryEnabledLabel), ref enableTelemetry, ref updated);
+            if (updated)
+            {
+                TelemetryConsentManager.ConsentProvided = enableTelemetry;
+            }
+
+            var telemetryLogLevel = _telemetryLogLevel;
+            WitEditorUI.LayoutPopup(WitTexts.Texts.TelemetryLevelLabel, _telemetryLogLevelNames, ref telemetryLogLevel, ref updated);
+            if (updated)
+            {
+                _telemetryLogLevel = Math.Max(0, telemetryLogLevel);
+                Telemetry.LogLevel = _telemetryLogLevels[_telemetryLogLevel];
+            }
+#endif
+        }
+        
+        private void DrawWitConfigurations()
+        {
             // Server access token
             GUILayout.BeginHorizontal();
-            updated = false;
+            bool updated = false;
             WitEditorUI.LayoutPasswordField(WitTexts.SettingsServerTokenContent, ref serverToken, ref updated);
             if (updated)
             {
@@ -98,6 +149,7 @@ namespace Meta.WitAi.Windows
                 witInspector.OnInspectorGUI();
             }
         }
+
         // Apply server token
         private void RelinkServerToken(bool closeIfInvalid)
         {
@@ -144,6 +196,27 @@ namespace Meta.WitAi.Windows
         {
             _logLevel = Mathf.Max(0, newLevel);
             VLog.EditorLogLevel = _logLevel < _logLevels.Length ? _logLevels[_logLevel] : LogType.Log;
+        }
+
+        private static void InitializeTelemetryLevelOptions()
+        {
+#if VSDK_TELEMETRY_AVAILABLE
+            _telemetryLogLevelNames = new string [_telemetryLogLevels.Length];
+            for (int i = 0; i < _telemetryLogLevelNames.Length; ++i)
+            {
+                _telemetryLogLevelNames[i] = _telemetryLogLevels[i].ToString();
+            }
+
+            var currentLevel = Telemetry.LogLevel.ToString();
+            for (int i = 0; i < _telemetryLogLevelNames.Length; ++i)
+            {
+                if (_telemetryLogLevelNames[i] == currentLevel)
+                {
+                    _telemetryLogLevel = i;
+                    return;
+                }
+            }
+#endif
         }
     }
 }

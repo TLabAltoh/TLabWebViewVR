@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 5e71d82996a6bf84e94d1cd4dc728f5d
+labels:
+- oculus_interaction_deprecated
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

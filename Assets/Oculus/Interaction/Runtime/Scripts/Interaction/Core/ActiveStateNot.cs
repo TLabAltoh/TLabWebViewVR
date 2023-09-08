@@ -18,10 +18,10 @@
  * limitations under the License.
  */
 
-using System;
+using System.Collections.Generic;
+using Oculus.Interaction.PoseDetection;
+using Oculus.Interaction.PoseDetection.Debug;
 using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.Serialization;
 
 namespace Oculus.Interaction
 {
@@ -35,7 +35,7 @@ namespace Oculus.Interaction
 
         protected virtual void Awake()
         {
-            ActiveState = _activeState as IActiveState;;
+            ActiveState = _activeState as IActiveState;
         }
 
         protected virtual void Start()
@@ -44,6 +44,19 @@ namespace Oculus.Interaction
         }
 
         public bool Active => !ActiveState.Active;
+
+        static ActiveStateNot()
+        {
+            ActiveStateDebugTree.RegisterModel<ActiveStateNot, DebugModel>();
+        }
+
+        private class DebugModel : ActiveStateModel<ActiveStateNot>
+        {
+            protected override IEnumerable<IActiveState> GetChildren(ActiveStateNot activeState)
+            {
+                return new[] { activeState.ActiveState };
+            }
+        }
 
         #region Inject
 

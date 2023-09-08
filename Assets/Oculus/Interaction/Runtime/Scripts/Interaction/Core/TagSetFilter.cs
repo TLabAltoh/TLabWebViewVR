@@ -38,14 +38,13 @@ namespace Oculus.Interaction
         [FormerlySerializedAs("_avoidTags")]
         private string[] _excludeTags;
 
-        private HashSet<string> _requireTagSet;
-        private HashSet<string> _excludeTagSet;
+        private readonly HashSet<string> _requireTagSet =
+            new HashSet<string>();
+        private readonly HashSet<string> _excludeTagSet =
+            new HashSet<string>();
 
         protected virtual void Start()
         {
-            _requireTagSet = new HashSet<string>();
-            _excludeTagSet = new HashSet<string>();
-
             foreach (string requireTag in _requireTags)
             {
                 _requireTagSet.Add(requireTag);

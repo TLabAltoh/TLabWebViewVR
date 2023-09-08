@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
@@ -8,20 +8,8 @@
 
 using System;
 
-namespace Meta.Conduit
+namespace Oculus.Interaction.Deprecated
 {
-    /// <summary>
-    /// Triggers a method to be executed if it error happens
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class OnConduitFailedParameterResolutionAttribute : Attribute
-    {
-        /// <summary>
-        /// Triggers a method to be executed if an error is thrown
-        /// </summary>
-        public OnConduitFailedParameterResolutionAttribute() 
-        {
-            
-        }
-    }
+    [Obsolete("Replaced by HandleEntityResolutionFailureAttribute")]
+    public class OnConduitFailedParameterResolutionAttribute { }
 }
