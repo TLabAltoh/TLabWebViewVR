@@ -12,10 +12,9 @@ Support for both Oculus Integration and XR Interaction Toolkit.
 ![output](Media/tlab-webview-vr.gif)
 
 ## Operating Environment
-Headset: Oculus Quest 2  
-OS: Android 10  
-GPU: Qualcomm Adreno650  
-Unity: 2021.23f1  
+- Oculus Quest 2
+- Qualcomm Adreno650
+- Unity: 2021.23f1
 
 ## Getting Started
 ### Prerequisites
@@ -29,14 +28,14 @@ Unity: 2021.23f1
 - [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
 
 ### Installing
-Clone the repository with the following command.
+Clone the repository with the following command
 ```
 git clone https://github.com/TLabAltoh/TLabWebViewVR.git
 ```
 
 ### Set up
-1. Change platform to Android from Build Settings  
-2. Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
+- Change platform to Android from Build Settings  
+- Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
 ```
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC
 ```
@@ -49,7 +48,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - Color Space: Linear
 - Graphics: OpenGLES3
 - Minimux API Level: 29 
-  
 - Create Assets/Plugins/Android/AndroidManifest.xml and copy the following text
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -86,9 +84,9 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 </manifest>
 ```
 #### Oculus Integration
-3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
-4. Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
-5. Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
+- ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
+- Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
+- Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
 - Url: URL to load during WebView initialization  
 - DlOption: Whether to download to the application folder or the downloads folder  
 - SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
@@ -96,9 +94,9 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 
 #### XR Interaction Toolkit
-3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
-4. Open Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
-5. Change any parameter of TLabWebView attached to TLabWebViewVR_XRToolkit/TLabWebView/WebView from the hierarchy
+- ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
+- Open Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
+- Change any parameter of TLabWebView attached to TLabWebViewVR_XRToolkit/TLabWebView/WebView from the hierarchy
 - Url: URL to load during WebView initialization  
 - DlOption: Whether to download to the application folder or the downloads folder  
 - SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  

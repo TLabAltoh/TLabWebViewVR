@@ -1,7 +1,7 @@
-# TLabWebViewVR  
+#TLabWebViewVR  
 
 UnityのOculus quest VRでWebViewを使用するためのサンプルプロジェクト  
-Oculus Integration と XR Interaction Toolkitの両方をサポート.
+Oculus Integration と XR Interaction Toolkitの両方をサポート
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
@@ -11,10 +11,9 @@ Oculus Integration と XR Interaction Toolkitの両方をサポート.
 ![output](Media/tlab-webview-vr.gif)
 
 ## 動作環境
-ヘッドセット: Oculus Quest 2  
-OS: Android 10  
-GPU: Qualcomm Adreno650  
-Unity: 2021.23f1  
+- Oculus Quest 2
+- Qualcomm Adreno650
+- Unity: 2021.23f1
 
 ## スタートガイド
 ### 必要な要件
@@ -34,8 +33,8 @@ git clone https://github.com/TLabAltoh/TLabWebViewVR.git
 ```
 
 ### セットアップ
-1. Build Settingsからプラットフォームを Androidに変更  
-2. Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
+- Build Settingsからプラットフォームを Androidに変更  
+- Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
 ```
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC
 ```
@@ -48,7 +47,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - Color Space: Linear
 - Graphics: OpenGLES3
 - Minimux API Level: 29 
-  
 - Assets/Plugins/Android/AndroidManifest.xmlを作成し，以下のテキストをコピーする
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -85,9 +83,9 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 </manifest>
 ```
 #### Oculus Integration
-3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
-4. Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
-5. ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
+- ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
+- Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
+- ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
 - Url: WebViewの初期化時にロードするURL  
 - DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
 - SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
@@ -95,9 +93,9 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
 
 #### XR Interaction Toolkit
-3. ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
-4. Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unityを開く
-5. ヒエラルキーからTLabWebViewVR_XRToolkit/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
+- ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
+- Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unityを開く
+- ヒエラルキーからTLabWebViewVR_XRToolkit/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
 - Url: WebViewの初期化時にロードするURL  
 - DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
 - SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
