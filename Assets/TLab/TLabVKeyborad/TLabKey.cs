@@ -23,13 +23,17 @@ namespace TLab.InputField
 #if UNITY_EDITOR
         public void Initialize()
         {
-            lowercase = this.gameObject.name.Split("_")[0];
-            uppercase = this.gameObject.name.Split("_")[1];
+            string[] split = this.gameObject.name.Split("_");
+            if(split.Length == 2)
+            {
+                lowercase = split[0];
+                uppercase = split[1];
 
-            lowercaseDisp = lowercase;
-            uppercaseDisp = uppercase;
+                lowercaseDisp = lowercase;
+                uppercaseDisp = uppercase;
 
-            current = lowercase;
+                current = lowercase;
+            }
         }
 #endif
 
