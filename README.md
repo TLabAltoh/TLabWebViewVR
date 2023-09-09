@@ -87,21 +87,21 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
 - Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
 - Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
-- Url: URL to load during WebView initialization  
-- DlOption: Whether to download to the application folder or the downloads folder  
-- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
-- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
-- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
+	- Url: URL to load during WebView initialization  
+	- DlOption: Whether to download to the application folder or the downloads folder  
+	- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
+	- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
+	- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 
 #### XR Interaction Toolkit
 - ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
 - Open Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
 - Change any parameter of TLabWebView attached to TLabWebViewVR_XRToolkit/TLabWebView/WebView from the hierarchy
-- Url: URL to load during WebView initialization  
-- DlOption: Whether to download to the application folder or the downloads folder  
-- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
-- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
-- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
+	- Url: URL to load during WebView initialization  
+	- DlOption: Whether to download to the application folder or the downloads folder  
+	- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
+	- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
+	- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 
 ## Link
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
