@@ -13,7 +13,7 @@ namespace TLab.Android.WebView
 			downloadFolder
 		}
 
-		[SerializeField] private RawImage WebViewRawImage;
+		[SerializeField] private RawImage m_rawImage;
 		[SerializeField] private string m_url = "https://youtube.com";
 
 		[Header("File Download Settings")]
@@ -31,7 +31,7 @@ namespace TLab.Android.WebView
 		public int TexWidth { get => m_texWidth; }
 		public int TexHeight { get => m_texHeight; }
 
-		private bool m_WebViewEnable;
+		private bool m_webViewEnable;
 		private Texture2D m_webViewTexture;
 
 #if UNITY_ANDROID
@@ -59,9 +59,45 @@ namespace TLab.Android.WebView
 #endif
 		}
 
+		public void CaptureHTMLSource()
+        {
+			if (m_webViewEnable == false)
+				return;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.CallStatic("capturePage");
+#endif
+        }
+
+		public void CaptureElementById(string id)
+		{
+			if (m_webViewEnable == false)
+				return;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.CallStatic("captureElementById", id);
+#endif
+		}
+
+		public string CurrentHTMLCaptured()
+        {
+			if (m_webViewEnable == false)
+				return null;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return null;
+
+			return m_NativePlugin.CallStatic<string>("getCaptured");
+#endif
+		}
+
 		public void LoadUrl(string url)
 		{
-			if (m_WebViewEnable == false)
+			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
@@ -73,7 +109,7 @@ namespace TLab.Android.WebView
 
 		public void ZoomIn()
 		{
-			if (m_WebViewEnable == false)
+			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
@@ -85,7 +121,7 @@ namespace TLab.Android.WebView
 
 		public void ZoomOut()
 		{
-			if (m_WebViewEnable == false)
+			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
@@ -97,7 +133,7 @@ namespace TLab.Android.WebView
 
 		public void EvaluateJS(string js)
         {
-			if (m_WebViewEnable == false)
+			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
@@ -109,7 +145,7 @@ namespace TLab.Android.WebView
 
 		public void GoForward()
 		{
-			if (m_WebViewEnable == false)
+			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
@@ -121,7 +157,7 @@ namespace TLab.Android.WebView
 
 		public void GoBack()
 		{
-			if (m_WebViewEnable == false)
+			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
@@ -133,7 +169,7 @@ namespace TLab.Android.WebView
 
 		public void TouchEvent(int x, int y, int eventNum)
 		{
-			if (m_WebViewEnable == false) return;
+			if (m_webViewEnable == false) return;
 
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
@@ -144,7 +180,7 @@ namespace TLab.Android.WebView
 
 		public void KeyEvent(char key)
 		{
-			if (m_WebViewEnable == false) return;
+			if (m_webViewEnable == false) return;
 
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
@@ -155,7 +191,7 @@ namespace TLab.Android.WebView
 
 		public void BackSpace()
 		{
-			if (m_WebViewEnable == false) return;
+			if (m_webViewEnable == false) return;
 
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
@@ -166,7 +202,7 @@ namespace TLab.Android.WebView
 
 		public void SetVisible(bool visible)
 		{
-			m_WebViewEnable = visible;
+			m_webViewEnable = visible;
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
@@ -176,21 +212,21 @@ namespace TLab.Android.WebView
 
 		public void StartWebView()
 		{
-			if (m_WebViewEnable) return;
+			if (m_webViewEnable) return;
 
-			m_WebViewEnable = true;
+			m_webViewEnable = true;
 
 #if UNITY_ANDROID
 			Init(m_webWidth, m_webHeight, m_texWidth, m_texHeight, Screen.width, Screen.height, m_url, (int)m_dlOption, m_subdir);
 			m_webViewTexture = new Texture2D(m_texWidth, m_texHeight, TextureFormat.ARGB32, false);
 			m_webViewTexture.name = "WebImage";
-			WebViewRawImage.texture = m_webViewTexture;
+			m_rawImage.texture = m_webViewTexture;
 #endif
 		}
 
 		public void UpdateFrame()
 		{
-			if (!m_WebViewEnable) return;
+			if (!m_webViewEnable) return;
 
 			byte[] data = GetWebTexturePixel();
 
