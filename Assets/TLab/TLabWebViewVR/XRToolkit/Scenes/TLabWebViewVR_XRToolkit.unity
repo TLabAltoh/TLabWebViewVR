@@ -5135,6 +5135,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7993831339207944254, guid: 85b5374fcc28c11428c4d26cbcbb24f5, type: 3}
+      propertyPath: m_lineVisual
+      value: 
+      objectReference: {fileID: 418226485}
+    - target: {fileID: 7993831339207944254, guid: 85b5374fcc28c11428c4d26cbcbb24f5, type: 3}
+      propertyPath: m_lineRenderer
+      value: 
+      objectReference: {fileID: 418226486}
     - target: {fileID: 9045290968874901230, guid: 85b5374fcc28c11428c4d26cbcbb24f5, type: 3}
       propertyPath: m_anchor
       value: 

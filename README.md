@@ -11,6 +11,15 @@ Support for both Oculus Integration and XR Interaction Toolkit.
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)
 
+# Note
+The input system for WebView has been significantly changed
+``
+TLabWebViewVRTouchEventManager.cs --> TLabWebViewVRTouchEventListener.cs
+```
+```
+TLabWebViewXRInputManager.cs --> TLabWebViewXRInputListener.cs
+```
+
 ## Operating Environment
 - Oculus Quest 2
 - Qualcomm Adreno650

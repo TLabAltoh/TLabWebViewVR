@@ -3673,6 +3673,7 @@ GameObject:
   - component: {fileID: 4322460698287699718}
   - component: {fileID: 1296943328814292584}
   - component: {fileID: 6905492866619264919}
+  - component: {fileID: 9214770922695057260}
   m_Layer: 8
   m_Name: WebView
   m_TagString: Untagged
@@ -3755,6 +3756,23 @@ MonoBehaviour:
   m_webHeight: 1024
   m_texWidth: 512
   m_texHeight: 512
+--- !u!114 &9214770922695057260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858434254838504376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0391f896636a64c807c92fd4289a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tlabWebView: {fileID: 6905492866619264919}
+  m_pointerPos: {fileID: 0}
+  m_webViewRect: {fileID: 1414667499401443206}
+  m_controller: 2
+  m_touchButton: 8192
 --- !u!1 &1964764302091832044
 GameObject:
   m_ObjectHideFlags: 0

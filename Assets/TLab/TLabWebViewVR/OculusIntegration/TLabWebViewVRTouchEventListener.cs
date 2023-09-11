@@ -3,18 +3,18 @@ using TLab.Android.WebView;
 
 namespace TLab.XR.Oculus
 {
-    public class TLabWebViewVRTouchEventManager : MonoBehaviour
+    public class TLabWebViewVRTouchEventListener : MonoBehaviour
     {
         [Header("Target WebView")]
         [SerializeField] private TLabWebView m_tlabWebView;
-        [Header("Raycast Setting")]
-        [SerializeField] private Transform m_anchor;
-        [SerializeField] private float m_rayMaxLength = 10.0f;
-        [SerializeField] private LayerMask m_webViewLayer;
+
+        [Header("Input Settings")]
+        [SerializeField] private Transform m_pointerPos;
+        [SerializeField] private RectTransform m_webViewRect;
+
         [SerializeField] private OVRInput.Controller m_controller;
         [SerializeField] private OVRInput.Button m_touchButton;
 
-        private RaycastHit m_raycastHit;
         private int m_lastXPos;
         private int m_lastYPos;
         private bool m_onTheWeb = false;
@@ -23,18 +23,32 @@ namespace TLab.XR.Oculus
         private const int TOUCH_UP = 1;
         private const int TOUCH_MOVE = 2;
 
+        private const float m_rectZThreshold = 0.05f;
+
+        void TouchRelease()
+        {
+            if (m_onTheWeb)
+            {
+                m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, TOUCH_UP);
+            }
+
+            m_onTheWeb = false;
+        }
+
         void Update()
         {
-            Ray ray = new Ray(m_anchor.position, m_anchor.forward);
+            Vector3 invertPositoin = m_webViewRect.transform.InverseTransformPoint(m_pointerPos.position);
 
-            bool hit = Physics.Raycast(ray, out m_raycastHit, m_rayMaxLength, m_webViewLayer);
+            float uvX = invertPositoin.x / m_webViewRect.rect.width + 0.5f;
+            float uvY = 1.0f - (invertPositoin.y / m_webViewRect.rect.height + 0.5f);
 
-            if (hit && (m_raycastHit.collider.gameObject == this.gameObject))
+            if (Mathf.Abs(invertPositoin.z) < m_rectZThreshold &&
+                uvX >= 0.0f && uvX <= 1.0f && uvY >= 0.0f && uvY <= 1.0f)
             {
                 m_onTheWeb = true;
 
-                m_lastXPos = (int)((1.0f - m_raycastHit.textureCoord.x) * m_tlabWebView.WebWidth);
-                m_lastYPos = (int)(m_raycastHit.textureCoord.y * m_tlabWebView.WebHeight);
+                m_lastXPos = (int)(uvX * m_tlabWebView.WebWidth);
+                m_lastYPos = (int)(uvY * m_tlabWebView.WebHeight);
 
                 int eventNum = (int)TouchPhase.Stationary;
                 if (OVRInput.GetUp(m_touchButton, m_controller))
@@ -54,12 +68,7 @@ namespace TLab.XR.Oculus
             }
             else
             {
-                if (m_onTheWeb)
-                {
-                    m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, TOUCH_UP);
-                }
-
-                m_onTheWeb = false;
+                TouchRelease();
             }
         }
     }

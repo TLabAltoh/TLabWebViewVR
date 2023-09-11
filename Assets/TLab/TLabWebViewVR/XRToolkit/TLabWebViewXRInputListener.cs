@@ -5,19 +5,15 @@ using TLab.Android.WebView;
 
 namespace TLab.XR.Oculus
 {
-    public class TLabWebViewXRInputManager : MonoBehaviour
+    public class TLabWebViewXRInputListener : MonoBehaviour
     {
         // https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@2.0/api/UnityEngine.XR.Interaction.Toolkit.InputHelpers.html
 
         [Header("Target WebView")]
         [SerializeField] private TLabWebView m_tlabWebView;
 
-        [Header("Raycast Setting")]
-        [SerializeField] private Transform m_anchor;
-        [SerializeField] private float m_rayMaxLength = 10.0f;
-        [SerializeField] private LayerMask m_webViewLayer;
-
         [Header("XR Input Settings")]
+        [SerializeField] private RectTransform m_webViewRect;
         [SerializeField] private InputActionReference m_triggerPress;
         //[SerializeField] private XRNode m_controllerNode = XRNode.RightHand;
         //[SerializeField] private InputHelpers.Button m_touchButton = InputHelpers.Button.TriggerButton;
@@ -28,7 +24,6 @@ namespace TLab.XR.Oculus
 
         //private InputDevice m_controller;
 
-        private RaycastHit m_raycastHit;
         private int m_lastXPos;
         private int m_lastYPos;
         private bool m_onTheWeb = false;
@@ -38,6 +33,8 @@ namespace TLab.XR.Oculus
         private const int TOUCH_DOWN = 0;
         private const int TOUCH_UP = 1;
         private const int TOUCH_MOVE = 2;
+
+        private const float m_rectZThreshold = 0.05f;
 
         private void OnEnable()
         {
@@ -83,29 +80,36 @@ namespace TLab.XR.Oculus
                 m_lineRenderer.colorGradient = m_lineVisual.validColorGradient;
         }
 
+        void TouchRelease()
+        {
+            if (m_onTheWeb)
+            {
+                m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, TOUCH_UP);
+            }
+
+            m_onTheWeb = false;
+        }
+
         void Update()
         {
-            Ray ray = new Ray(m_anchor.position, m_anchor.forward);
+            Vector3 invertPositoin = m_webViewRect.transform.InverseTransformPoint(m_lineRenderer.GetPosition(m_lineRenderer.positionCount - 1));
 
-            bool hit = Physics.Raycast(ray, out m_raycastHit, m_rayMaxLength, m_webViewLayer);
+            float uvX = invertPositoin.x / m_webViewRect.rect.width + 0.5f;
+            float uvY = 1.0f - (invertPositoin.y / m_webViewRect.rect.height + 0.5f);
 
-            if (hit && (m_raycastHit.collider.gameObject == this.gameObject))
+            if (Mathf.Abs(invertPositoin.z) < m_rectZThreshold &&
+                uvX >= 0.0f && uvX <= 1.0f && uvY >= 0.0f && uvY <= 1.0f)
             {
                 m_onTheWeb = true;
 
-                m_lastXPos = (int)((1.0f - m_raycastHit.textureCoord.x) * m_tlabWebView.WebWidth);
-                m_lastYPos = (int)(m_raycastHit.textureCoord.y * m_tlabWebView.WebHeight);
+                m_lastXPos = (int)(uvX * m_tlabWebView.WebWidth);
+                m_lastYPos = (int)(uvY * m_tlabWebView.WebHeight);
 
                 m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, GetButtonEvent());
             }
             else
             {
-                if (m_onTheWeb)
-                {
-                    m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, TOUCH_UP);
-                }
-
-                m_onTheWeb = false;
+                TouchRelease();
             }
         }
     }
