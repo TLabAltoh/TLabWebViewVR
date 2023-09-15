@@ -107,6 +107,18 @@ namespace TLab.Android.WebView
 #endif
 		}
 
+		public void LoadHTML(string html, string baseURL)
+        {
+			if (m_webViewEnable == false)
+				return;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.CallStatic("loadHtml", html, baseURL);
+#endif
+		}
+
 		public void ZoomIn()
 		{
 			if (m_webViewEnable == false)
@@ -207,6 +219,33 @@ namespace TLab.Android.WebView
 			if (Application.isEditor) return;
 
 			m_NativePlugin.CallStatic("setVisible", visible);
+#endif
+		}
+
+		public void ClearCache(bool includeDiskFiles)
+        {
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.CallStatic("clearCash", includeDiskFiles);
+#endif
+		}
+
+		public void ClearCookie()
+		{
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.CallStatic("clearCookie");
+#endif
+		}
+
+		public void ClearHistory()
+        {
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.CallStatic("clearHistory");
 #endif
 		}
 
