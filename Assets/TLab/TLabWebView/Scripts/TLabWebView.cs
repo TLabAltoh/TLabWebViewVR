@@ -92,6 +92,8 @@ namespace TLab.Android.WebView
 			if (Application.isEditor) return null;
 
 			return m_NativePlugin.CallStatic<string>("getCaptured");
+#else
+			return null;
 #endif
 		}
 
