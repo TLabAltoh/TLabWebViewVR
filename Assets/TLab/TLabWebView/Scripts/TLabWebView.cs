@@ -44,7 +44,7 @@ namespace TLab.Android.WebView
 			if (Application.isEditor) return;
 
 			m_NativePlugin = new AndroidJavaObject("com.tlab.libwebview.UnityConnect");
-			m_NativePlugin.CallStatic("initialize", webWidth, webHeight, tWidth, tHeight, sWidth, sHeight, url, dlOption, subDir);
+			m_NativePlugin.Call("initialize", webWidth, webHeight, tWidth, tHeight, sWidth, sHeight, url, dlOption, subDir);
 #endif
 		}
 
@@ -53,7 +53,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return new byte[0];
 
-			return m_NativePlugin.CallStatic<byte[]>("getPixel");
+			return m_NativePlugin.Call<byte[]>("getPixel");
 #else
 		return null;
 #endif
@@ -67,7 +67,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("capturePage");
+			m_NativePlugin.Call("capturePage");
 #endif
         }
 
@@ -79,7 +79,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("captureElementById", id);
+			m_NativePlugin.Call("captureElementById", id);
 #endif
 		}
 
@@ -91,7 +91,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return null;
 
-			return m_NativePlugin.CallStatic<string>("getCaptured");
+			return m_NativePlugin.Call<string>("getCaptured");
 #else
 			return null;
 #endif
@@ -105,7 +105,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("loadUrl", url);
+			m_NativePlugin.Call("loadUrl", url);
 #endif
 		}
 
@@ -117,7 +117,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("loadHtml", html, baseURL);
+			m_NativePlugin.Call("loadHtml", html, baseURL);
 #endif
 		}
 
@@ -129,7 +129,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("zoomIn");
+			m_NativePlugin.Call("zoomIn");
 #endif
 		}
 
@@ -141,7 +141,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("zoomOut");
+			m_NativePlugin.Call("zoomOut");
 #endif
 		}
 
@@ -153,7 +153,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("evaluateJS", js);
+			m_NativePlugin.Call("evaluateJS", js);
 #endif
 		}
 
@@ -165,7 +165,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("goForward");
+			m_NativePlugin.Call("goForward");
 #endif
 		}
 
@@ -177,7 +177,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("goBack");
+			m_NativePlugin.Call("goBack");
 #endif
 		}
 
@@ -188,7 +188,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("touchEvent", x, y, eventNum);
+			m_NativePlugin.Call("touchEvent", x, y, eventNum);
 #endif
 		}
 
@@ -199,7 +199,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("keyEvent", key);
+			m_NativePlugin.Call("keyEvent", key);
 #endif
 		}
 
@@ -210,7 +210,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("backSpaceKey");
+			m_NativePlugin.Call("backSpaceKey");
 #endif
 		}
 
@@ -220,7 +220,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("setVisible", visible);
+			m_NativePlugin.Call("setVisible", visible);
 #endif
 		}
 
@@ -229,7 +229,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("clearCash", includeDiskFiles);
+			m_NativePlugin.Call("clearCash", includeDiskFiles);
 #endif
 		}
 
@@ -238,7 +238,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("clearCookie");
+			m_NativePlugin.Call("clearCookie");
 #endif
 		}
 
@@ -247,7 +247,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("clearHistory");
+			m_NativePlugin.Call("clearHistory");
 #endif
 		}
 

@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
     guid: 4b7eb4c46a9c51446ba14f1a05b2ae4d
-  - enabled: 1
+  - enabled: 0
     path: Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
     guid: 8bcc0278569dd0442b0b5feeba45e2c4
   m_configObjects:
