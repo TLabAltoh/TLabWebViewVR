@@ -8,7 +8,7 @@ namespace TLab.Android.WebView
 	public class TLabWebView : MonoBehaviour
 	{
 		private enum DownloadOption
-        {
+		{
 			applicationFolder,
 			downloadFolder
 		}
@@ -53,14 +53,19 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return new byte[0];
 
-			return m_NativePlugin.Call<byte[]>("getPixel");
+			// https://www.dbu9.site/post/2023-03-31-androidjnihelper-getsignature-using-byte-parameters-is-obsolete-use-sbyte-parameters-instead/
+			//sbyte[] sdata = m_NativePlugin.Call<sbyte[]>("getPixel");
+			//byte[] data = new byte[sdata.Length];
+			//Buffer.BlockCopy(sdata, 0, data, 0, sdata.Length);
+			// https://stackoverflow.com/questions/829983/how-to-convert-a-sbyte-to-byte-in-c
+			return (byte[])(Array)m_NativePlugin.Call<sbyte[]>("getPixel");
 #else
-		return null;
+			return null;
 #endif
 		}
 
 		public void CaptureHTMLSource()
-        {
+		{
 			if (m_webViewEnable == false)
 				return;
 
@@ -69,7 +74,7 @@ namespace TLab.Android.WebView
 
 			m_NativePlugin.Call("capturePage");
 #endif
-        }
+		}
 
 		public void CaptureElementById(string id)
 		{
@@ -84,7 +89,7 @@ namespace TLab.Android.WebView
 		}
 
 		public string CurrentHTMLCaptured()
-        {
+		{
 			if (m_webViewEnable == false)
 				return null;
 
@@ -94,6 +99,42 @@ namespace TLab.Android.WebView
 			return m_NativePlugin.Call<string>("getCaptured");
 #else
 			return null;
+#endif
+		}
+
+		public void CaptureUserAgent()
+		{
+			if (m_webViewEnable == false)
+				return;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.Call("captureUserAgent");
+#endif
+		}
+
+		public string GetUserAgent()
+		{
+			if (m_webViewEnable == false)
+				return "";
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return "";
+
+			return m_NativePlugin.Call<string>("getUserAgent");
+#endif
+		}
+
+		public void SetUserAgent(string ua)
+		{
+			if (m_webViewEnable == false)
+				return;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.Call("setUserAgent", ua);
 #endif
 		}
 
@@ -110,7 +151,7 @@ namespace TLab.Android.WebView
 		}
 
 		public void LoadHTML(string html, string baseURL)
-        {
+		{
 			if (m_webViewEnable == false)
 				return;
 
@@ -146,7 +187,7 @@ namespace TLab.Android.WebView
 		}
 
 		public void EvaluateJS(string js)
-        {
+		{
 			if (m_webViewEnable == false)
 				return;
 
@@ -225,7 +266,7 @@ namespace TLab.Android.WebView
 		}
 
 		public void ClearCache(bool includeDiskFiles)
-        {
+		{
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
@@ -243,7 +284,7 @@ namespace TLab.Android.WebView
 		}
 
 		public void ClearHistory()
-        {
+		{
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
