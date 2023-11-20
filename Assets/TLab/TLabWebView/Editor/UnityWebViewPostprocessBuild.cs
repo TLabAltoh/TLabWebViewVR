@@ -22,20 +22,28 @@ public class UnityWebViewPostprocessBuild : IPostGenerateGradleAndroidProject
         var changed = false;
         var androidManifest = new AndroidManifest(GetManifestPath(basePath));
 
-        changed = (androidManifest.SetHardwareAccelerated(true) || changed);
+        changed = androidManifest.AddApplicationElement("supportsRtl", true) || changed;
+
+        changed = androidManifest.AddApplicationElement("allowBackup", true) || changed;
+
+        changed = androidManifest.SetHardwareAccelerated(true) || changed;
+
 #if UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC
-        changed = (androidManifest.SetUsesCleartextTraffic(true) || changed);
+        changed = androidManifest.SetUsesCleartextTraffic(true) || changed;
 #endif
+
 #if UNITYWEBVIEW_ANDROID_ENABLE_CAMERA
-        changed = (androidManifest.AddCamera() || changed);
+        changed = androidManifest.AddCamera() || changed;
 #endif
+
 #if UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
-        changed = (androidManifest.AddMicrophone() || changed);
+        changed = androidManifest.AddMicrophone() || changed;
 #endif
+
         if (changed)
         {
-            androidManifest.Save();
-            Debug.Log("tlabwebview: adjusted AndroidManifest.xml");
+            var result = androidManifest.Save();
+            Debug.Log("AndroidManifest.xml overwrite complete: " + result);
         }
     }
 
@@ -58,7 +66,7 @@ public class UnityWebViewPostprocessBuild : IPostGenerateGradleAndroidProject
         pathBuilder.Append(Path.DirectorySeparatorChar).Append("main");
         pathBuilder.Append(Path.DirectorySeparatorChar).Append("AndroidManifest.xml");
         var pathString = pathBuilder.ToString();
-        Debug.Log("tlabwebview: pathString " + pathString);
+        Debug.Log("android custom manifest path: " + pathString);
         return pathString;
     }
 }
@@ -124,49 +132,73 @@ internal class AndroidManifest : AndroidXmlDocument
                 nsMgr);
     }
 
+    internal bool AddApplicationElement(string attribute, bool enabled)
+    {
+        var changed = false;
+        var value = enabled ? "true" : "false";
+
+        var attributeResult = ApplicationElement.GetAttribute(attribute, AndroidXmlNamespace);
+
+        if (attributeResult == null || attributeResult == "" || attributeResult != value)
+        {
+            ApplicationElement.SetAttribute(attribute, AndroidXmlNamespace, value);
+            changed = true;
+        }
+
+        Debug.Log("succeed in set attribute: " + attribute);
+        return changed;
+    }
+
     internal bool SetUsesCleartextTraffic(bool enabled)
     {
-        bool changed = false;
+        var changed = false;
+        var value = enabled ? "true" : "false";
+
+#if UNITY_2022_1_OR_NEWER
+        changed = changed || AddApplicationElement("usesCleartextTraffic", true);
+#elif UNITY_2018_1_OR_NEWER
         var attributeResult = ApplicationElement.GetAttribute("usesCleartextTraffic", AndroidXmlNamespace);
-        Debug.Log("atributeResult(usesCleartextTraffic): " + attributeResult);
-        if (attributeResult != ((enabled) ? "true" : "false"))
+        if (attributeResult != value)
         {
             ApplicationElement.SetAttribute("usesCleartextTraffic", AndroidXmlNamespace, (enabled) ? "true" : "false");
             changed = true;
-            Debug.Log("tlabwebview: Succeed in SetAttribute usesCleartextTraffic");
         }
+#endif
         return changed;
     }
 
     internal bool SetHardwareAccelerated(bool enabled)
     {
-        bool changed = false;
+        var changed = false;
+        var value = enabled ? "true" : "false";
+
         var activity = GetActivityWithLaunchIntent() as XmlElement;
         var attributeResult = activity.GetAttribute("hardwareAccelerated", AndroidXmlNamespace);
-        Debug.Log("atributeResult(hardwareAccelerated): " + attributeResult);
-        if (attributeResult != ((enabled) ? "true" : "false"))
+        if (attributeResult != value)
         {
             activity.SetAttribute("hardwareAccelerated", AndroidXmlNamespace, (enabled) ? "true" : "false");
             changed = true;
-            Debug.Log("tlabwebview: Succeed in SetAttribute hardwareAccelerated");
         }
+
         return changed;
     }
 
     internal bool SetActivityName(string name)
     {
         bool changed = false;
+
         var activity = GetActivityWithLaunchIntent() as XmlElement;
         if (activity.GetAttribute("name", AndroidXmlNamespace) != name)
         {
             activity.SetAttribute("name", AndroidXmlNamespace, name);
             changed = true;
-            Debug.Log("tlabwebview: Succeed in SetAttribute name");
+            Debug.Log("succeed in SetActivityName");
         }
         else
         {
-            Debug.Log("tlabwebview: Failed to GetAttribute name");
+            Debug.Log("failed in SetActivityName");
         }
+
         return changed;
     }
 

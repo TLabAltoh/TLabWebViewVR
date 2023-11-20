@@ -10,6 +10,16 @@ Oculus Integration と XR Interaction Toolkitの両方をサポート
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)
 
+# Note
+- クラス名を変更しました．
+```
+TLabWebViewVRTouchEventManager.cs --> TLabWebViewVRTouchEventListener.cs
+```
+```
+TLabWebViewXRInputManager.cs --> TLabWebViewXRInputListener.cs
+```
+- 現在，Unity 2021 ~ 2022を正式にサポートしています．
+
 ## 動作環境
 - Oculus Quest 2
 - Qualcomm Adreno650
@@ -47,43 +57,10 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - Color Space: Linear
 - Graphics: OpenGLES3
 - Minimux API Level: 29 
-- Assets/Plugins/Android/AndroidManifest.xmlを作成し，以下のテキストをコピーする
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
-  <application android:label="@string/app_name" android:icon="@mipmap/app_icon" android:allowBackup="false">
-    <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:configChanges="locale|fontScale|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:launchMode="singleTask" android:name="com.unity3d.player.UnityPlayerActivity" android:excludeFromRecents="true">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
-    <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="false" />
-    <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only" />
-  </application>
-	
-    <!-- For Unity-WebView -->
-    <application android:allowBackup="true"/>
-    <application android:supportsRtl="true"/>
-    <application android:hardwareAccelerated="true"/>
-    <application android:usesCleartextTraffic="true"/>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.MICROPHONE" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.microphone" />
-    <!-- For Unity-WebView -->
-	
-  <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
-</manifest>
-```
-#### Oculus Integration
+- Target API Level: 30 (Unity 2021), 31 ~ 32 (Unity 2022)
 - ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
+
+#### Oculus Integration
 - Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
 - ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
 	- Url: WebViewの初期化時にロードするURL  
@@ -93,7 +70,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 	- Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
 
 #### XR Interaction Toolkit
-- ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
 - Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unityを開く
 - ヒエラルキーからTLabWebViewVR_XRToolkit/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
 	- Url: WebViewの初期化時にロードするURL  
@@ -101,6 +77,15 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 	- SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
 	- Web (Width/Height): WebViewの解像度 (デフォルト 1024 * 1024)  
 	- Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
+
+## チュートリアル
+### アセット移行チュートリアル (Youtube)
+- [Oculus Integration Sample](https://youtu.be/tAY8gM8EgvI)
+- [XR Interaction ToolkitSample](https://youtu.be/1OhMEAv6Qok)
+
+### サンプルリポジトリ for Unity 2022
+- [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
+- [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)
 
 ## リンク
 [使用したJavaプラグインのソースコード](https://github.com/TLabAltoh/TLabWebViewPlugin)

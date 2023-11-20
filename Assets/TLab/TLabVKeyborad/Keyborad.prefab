@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8923245456895927563}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -147,7 +146,7 @@ GameObject:
   - component: {fileID: 6886582466620475291}
   - component: {fileID: 8503438441666401824}
   - component: {fileID: 7764923566514502187}
-  - component: {fileID: 1008881883268931340}
+  - component: {fileID: 6649351823998474036}
   m_Layer: 5
   m_Name: i_I
   m_TagString: Untagged
@@ -169,7 +168,6 @@ RectTransform:
   m_Children:
   - {fileID: 7404824878928060693}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -258,7 +256,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1008881883268931340}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -270,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1008881883268931340
+--- !u!114 &6649351823998474036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,15 +277,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 185502075026929725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: i
-  lowercase: i
-  uppercase: I
-  lowercaseDisp: i
-  uppercaseDisp: I
-  keyText: {fileID: 321804313400442115}
+  m_current: i
+  m_lowercase: i
+  m_uppercase: I
+  m_lowercaseDisp: i
+  m_uppercaseDisp: I
+  m_keyText: {fileID: 321804313400442115}
 --- !u!1 &337099171102701020
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +318,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8144478534777151587}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -409,7 +406,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8822872873491101550}
+      - m_Target: {fileID: 1076458849379266349}
         m_TargetAssemblyTypeName: TLab.InputField.TLabInputField, Assembly-CSharp
         m_MethodName: OnFocus
         m_Mode: 6
@@ -452,7 +449,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1568102858118648559}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -509,7 +505,7 @@ GameObject:
   - component: {fileID: 7777343252197181519}
   - component: {fileID: 3816974879541061991}
   - component: {fileID: 2103620954023943941}
-  - component: {fileID: 5355252542306000044}
+  - component: {fileID: 1969843024210895375}
   m_Layer: 5
   m_Name: ',_<'
   m_TagString: Untagged
@@ -531,12 +527,11 @@ RectTransform:
   m_Children:
   - {fileID: 7262894486124876100}
   m_Father: {fileID: 2520853296012300434}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 94.65909, y: -31.938887}
+  m_SizeDelta: {x: 69.040886, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7777343252197181519
 CanvasRenderer:
@@ -620,7 +615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5355252542306000044}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -632,7 +627,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5355252542306000044
+--- !u!114 &1969843024210895375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -641,15 +636,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 398263908057924040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: ','
-  lowercase: ','
-  uppercase: <
-  lowercaseDisp: ','
-  uppercaseDisp: <
-  keyText: {fileID: 8387699989763125386}
+  m_current: ','
+  m_lowercase: ','
+  m_uppercase: <
+  m_lowercaseDisp: ','
+  m_uppercaseDisp: <
+  m_keyText: {fileID: 8387699989763125386}
 --- !u!1 &459409345532197510
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +677,6 @@ RectTransform:
   - {fileID: 1584731325124826365}
   - {fileID: 1042081404679060079}
   m_Father: {fileID: 474902394863546037}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -727,7 +721,7 @@ GameObject:
   - component: {fileID: 1637794920422280070}
   - component: {fileID: 8343764832917865492}
   - component: {fileID: 5287776002273623891}
-  - component: {fileID: 3473745984688987239}
+  - component: {fileID: 3808495804815903467}
   m_Layer: 5
   m_Name: 7_'
   m_TagString: Untagged
@@ -749,12 +743,11 @@ RectTransform:
   m_Children:
   - {fileID: 1213858030529379242}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 471.22726, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1637794920422280070
 CanvasRenderer:
@@ -838,7 +831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3473745984688987239}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -850,7 +843,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3473745984688987239
+--- !u!114 &3808495804815903467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -859,15 +852,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 617155099419745151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 7
-  lowercase: 7
-  uppercase: ''''
-  lowercaseDisp: 7
-  uppercaseDisp: ''''
-  keyText: {fileID: 7259187354956685158}
+  m_current: 7
+  m_lowercase: 7
+  m_uppercase: ''''
+  m_lowercaseDisp: 7
+  m_uppercaseDisp: ''''
+  m_keyText: {fileID: 7259187354956685158}
 --- !u!1 &672546822727803443
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +892,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4838994243515265301}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1034,7 +1026,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2071771521131531689}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1169,7 +1160,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4841797890174473557}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1304,7 +1294,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 311777558671495815}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1420,7 +1409,7 @@ GameObject:
   - component: {fileID: 3171662904772633728}
   - component: {fileID: 6994383183249158618}
   - component: {fileID: 582348682568805164}
-  - component: {fileID: 9134955055110560218}
+  - component: {fileID: 1869960899602589946}
   m_Layer: 5
   m_Name: SPACE
   m_TagString: Untagged
@@ -1442,7 +1431,6 @@ RectTransform:
   m_Children:
   - {fileID: 2569845331645364688}
   m_Father: {fileID: 5697573676933354869}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1531,7 +1519,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9134955055110560218}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -1543,7 +1531,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9134955055110560218
+--- !u!114 &1869960899602589946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1552,15 +1540,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 904910048138448979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: SPACE
-  lowercase: SPACE
-  uppercase: SPACE
-  lowercaseDisp: Space
-  uppercaseDisp: Space
-  keyText: {fileID: 3244129612701019832}
+  m_current: SPACE
+  m_lowercase: SPACE
+  m_uppercase: SPACE
+  m_lowercaseDisp: Space
+  m_uppercaseDisp: Space
+  m_keyText: {fileID: 3244129612701019832}
 --- !u!1 &917698622640642059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1580,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1693901199182220137}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1727,7 +1714,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6489715192085273046}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1862,7 +1848,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7962796811267535540}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2006,7 +1991,6 @@ RectTransform:
   - {fileID: 7962796811267535540}
   - {fileID: 355614695489335154}
   m_Father: {fileID: 4354002691400699235}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2070,7 +2054,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5112726108443390330}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2186,7 +2169,7 @@ GameObject:
   - component: {fileID: 5094400849318880776}
   - component: {fileID: 6661112523130719825}
   - component: {fileID: 7452257079211360087}
-  - component: {fileID: 4168452078217686584}
+  - component: {fileID: 6610064005560569004}
   m_Layer: 5
   m_Name: w_W
   m_TagString: Untagged
@@ -2208,7 +2191,6 @@ RectTransform:
   m_Children:
   - {fileID: 1038685520792559521}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2297,7 +2279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4168452078217686584}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -2309,7 +2291,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4168452078217686584
+--- !u!114 &6610064005560569004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2318,15 +2300,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1338886690766292652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: w
-  lowercase: w
-  uppercase: W
-  lowercaseDisp: w
-  uppercaseDisp: W
-  keyText: {fileID: 5657212496729680172}
+  m_current: w
+  m_lowercase: w
+  m_uppercase: W
+  m_lowercaseDisp: w
+  m_uppercaseDisp: W
+  m_keyText: {fileID: 5657212496729680172}
 --- !u!1 &1356437528021355316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2340,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1049841048975201274}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2493,7 +2474,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2781737090862699345}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2628,7 +2608,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 187742475934962303}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2744,7 +2723,7 @@ GameObject:
   - component: {fileID: 5518310119173395439}
   - component: {fileID: 1325144025183497144}
   - component: {fileID: 4249711639655229411}
-  - component: {fileID: 7767170519351457861}
+  - component: {fileID: 3692675126806152504}
   m_Layer: 5
   m_Name: k_K
   m_TagString: Untagged
@@ -2766,7 +2745,6 @@ RectTransform:
   m_Children:
   - {fileID: 2320559269602269775}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2855,7 +2833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7767170519351457861}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -2867,7 +2845,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7767170519351457861
+--- !u!114 &3692675126806152504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2876,15 +2854,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1562883464891922621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: k
-  lowercase: k
-  uppercase: K
-  lowercaseDisp: k
-  uppercaseDisp: K
-  keyText: {fileID: 5733995320796472706}
+  m_current: k
+  m_lowercase: k
+  m_uppercase: K
+  m_lowercaseDisp: k
+  m_uppercaseDisp: K
+  m_keyText: {fileID: 5733995320796472706}
 --- !u!1 &1805544521572660283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,7 +2894,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7450734383867334928}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3032,7 +3009,7 @@ GameObject:
   - component: {fileID: 6221490648088345325}
   - component: {fileID: 1735375176094120750}
   - component: {fileID: 6107059116872091278}
-  - component: {fileID: 3570216597974986624}
+  - component: {fileID: 8507975528173158361}
   m_Layer: 5
   m_Name: b_B
   m_TagString: Untagged
@@ -3054,7 +3031,6 @@ RectTransform:
   m_Children:
   - {fileID: 565785563833979180}
   m_Father: {fileID: 685514042899021452}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3143,7 +3119,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3570216597974986624}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -3155,7 +3131,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3570216597974986624
+--- !u!114 &8507975528173158361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3164,15 +3140,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1825225579191140638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: b
-  lowercase: b
-  uppercase: B
-  lowercaseDisp: b
-  uppercaseDisp: B
-  keyText: {fileID: 2466433967518149370}
+  m_current: b
+  m_lowercase: b
+  m_uppercase: B
+  m_lowercaseDisp: b
+  m_uppercaseDisp: B
+  m_keyText: {fileID: 2466433967518149370}
 --- !u!1 &1838309116185689398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,7 +3161,7 @@ GameObject:
   - component: {fileID: 5755377556434637860}
   - component: {fileID: 4699664042699681811}
   - component: {fileID: 3641180070797297786}
-  - component: {fileID: 1070575206248403290}
+  - component: {fileID: 3718544418321405077}
   m_Layer: 5
   m_Name: h_H
   m_TagString: Untagged
@@ -3207,7 +3183,6 @@ RectTransform:
   m_Children:
   - {fileID: 2534035973693107572}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3296,7 +3271,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1070575206248403290}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -3308,7 +3283,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1070575206248403290
+--- !u!114 &3718544418321405077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3317,15 +3292,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838309116185689398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: h
-  lowercase: h
-  uppercase: H
-  lowercaseDisp: h
-  uppercaseDisp: H
-  keyText: {fileID: 4984430582521751208}
+  m_current: h
+  m_lowercase: h
+  m_uppercase: H
+  m_lowercaseDisp: h
+  m_uppercaseDisp: H
+  m_keyText: {fileID: 4984430582521751208}
 --- !u!1 &1839135724920756815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,7 +3332,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1783346323566066637}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3473,7 +3447,7 @@ GameObject:
   - component: {fileID: 553949485918557270}
   - component: {fileID: 4791240994166581450}
   - component: {fileID: 1518210576360931241}
-  - component: {fileID: 2245429426804123133}
+  - component: {fileID: 7526864231382834810}
   m_Layer: 5
   m_Name: \__
   m_TagString: Untagged
@@ -3495,12 +3469,11 @@ RectTransform:
   m_Children:
   - {fileID: 1968607521428707590}
   m_Father: {fileID: 2520853296012300434}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 332.61362, y: -31.938887}
+  m_SizeDelta: {x: 69.040886, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &553949485918557270
 CanvasRenderer:
@@ -3584,7 +3557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2245429426804123133}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -3596,7 +3569,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2245429426804123133
+--- !u!114 &7526864231382834810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3605,15 +3578,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1890119297947972094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: \
-  lowercase: \
-  uppercase: _
-  lowercaseDisp: \
-  uppercaseDisp: _
-  keyText: {fileID: 8261876485871599641}
+  m_current: 
+  m_lowercase: 
+  m_uppercase: 
+  m_lowercaseDisp: 
+  m_uppercaseDisp: 
+  m_keyText: {fileID: 8261876485871599641}
 --- !u!1 &1902891138071465100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,7 +3599,7 @@ GameObject:
   - component: {fileID: 7581055945992485617}
   - component: {fileID: 4957170185799491313}
   - component: {fileID: 5502011005317464979}
-  - component: {fileID: 6748662257377252867}
+  - component: {fileID: 5081022639728538767}
   m_Layer: 5
   m_Name: ENTER
   m_TagString: Untagged
@@ -3648,7 +3621,6 @@ RectTransform:
   m_Children:
   - {fileID: 2160117385988699235}
   m_Father: {fileID: 468469810373439624}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3737,7 +3709,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6748662257377252867}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -3749,7 +3721,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6748662257377252867
+--- !u!114 &5081022639728538767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3758,15 +3730,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902891138071465100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: ENTER
-  lowercase: ENTER
-  uppercase: ENTER
-  lowercaseDisp: Enter
-  uppercaseDisp: Enter
-  keyText: {fileID: 1258318536587063083}
+  m_current: ENTER
+  m_lowercase: ENTER
+  m_uppercase: ENTER
+  m_lowercaseDisp: Enter
+  m_uppercaseDisp: Enter
+  m_keyText: {fileID: 1258318536587063083}
 --- !u!1 &2012670728065796799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,7 +3768,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4830018069829583180}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3837,12 +3808,11 @@ RectTransform:
   - {fileID: 6293769966413598835}
   - {fileID: 6082573449289708330}
   m_Father: {fileID: 5986317103184295914}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 363.63635, y: -179.4389}
+  m_SizeDelta: {x: 727.2727, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6254256794218306837
 MonoBehaviour:
@@ -3882,7 +3852,7 @@ GameObject:
   - component: {fileID: 4736500495203826644}
   - component: {fileID: 2027189797943152763}
   - component: {fileID: 7810344603565979146}
-  - component: {fileID: 4102057963093365205}
+  - component: {fileID: 7815650636143692892}
   m_Layer: 5
   m_Name: s_S
   m_TagString: Untagged
@@ -3904,7 +3874,6 @@ RectTransform:
   m_Children:
   - {fileID: 5566668656950822754}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3993,7 +3962,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4102057963093365205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -4005,7 +3974,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4102057963093365205
+--- !u!114 &7815650636143692892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4014,15 +3983,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2099586896638735852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: s
-  lowercase: s
-  uppercase: S
-  lowercaseDisp: s
-  uppercaseDisp: S
-  keyText: {fileID: 2346181456174218558}
+  m_current: s
+  m_lowercase: s
+  m_uppercase: S
+  m_lowercaseDisp: s
+  m_uppercaseDisp: S
+  m_keyText: {fileID: 2346181456174218558}
 --- !u!1 &2196222551119645278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,7 +4023,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1314988508371570756}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4189,7 +4157,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7170392085378048714}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4324,7 +4291,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5602590945619400428}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4459,7 +4425,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6082573449289708330}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4594,7 +4559,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1042081404679060079}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4729,7 +4693,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5668851342227927726}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4864,7 +4827,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4393841344855865600}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4997,7 +4959,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 474902394863546037}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5016,7 +4977,7 @@ GameObject:
   - component: {fileID: 996576587040445826}
   - component: {fileID: 6097567592574731787}
   - component: {fileID: 7227713412341501507}
-  - component: {fileID: 6018907553670203746}
+  - component: {fileID: 1048388609889740263}
   m_Layer: 5
   m_Name: q_Q
   m_TagString: Untagged
@@ -5038,7 +4999,6 @@ RectTransform:
   m_Children:
   - {fileID: 5468289641716773619}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5127,7 +5087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6018907553670203746}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -5139,7 +5099,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6018907553670203746
+--- !u!114 &1048388609889740263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5148,15 +5108,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2733826161887568426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: q
-  lowercase: q
-  uppercase: Q
-  lowercaseDisp: q
-  uppercaseDisp: Q
-  keyText: {fileID: 164003718022310994}
+  m_current: q
+  m_lowercase: q
+  m_uppercase: Q
+  m_lowercaseDisp: q
+  m_uppercaseDisp: Q
+  m_keyText: {fileID: 164003718022310994}
 --- !u!1 &2762258380984506351
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,7 +5129,7 @@ GameObject:
   - component: {fileID: 7138888918017154055}
   - component: {fileID: 6316917427352061671}
   - component: {fileID: 8377940635378992309}
-  - component: {fileID: 2857585898202769751}
+  - component: {fileID: 7476084883893579112}
   m_Layer: 5
   m_Name: TAB
   m_TagString: Untagged
@@ -5191,7 +5151,6 @@ RectTransform:
   m_Children:
   - {fileID: 8306873640082423486}
   m_Father: {fileID: 5697573676933354869}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5280,7 +5239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2857585898202769751}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -5292,7 +5251,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2857585898202769751
+--- !u!114 &7476084883893579112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5301,15 +5260,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2762258380984506351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: TAB
-  lowercase: TAB
-  uppercase: TAB
-  lowercaseDisp: Tab
-  uppercaseDisp: Tab
-  keyText: {fileID: 5046287483102300939}
+  m_current: TAB
+  m_lowercase: TAB
+  m_uppercase: TAB
+  m_lowercaseDisp: Tab
+  m_uppercaseDisp: Tab
+  m_keyText: {fileID: 5046287483102300939}
 --- !u!1 &2846713629939910589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5322,7 +5281,7 @@ GameObject:
   - component: {fileID: 2055147971381268274}
   - component: {fileID: 2203537723277405887}
   - component: {fileID: 6628715869460011940}
-  - component: {fileID: 5100843738502341290}
+  - component: {fileID: 1491249170968117338}
   m_Layer: 5
   m_Name: 1_!
   m_TagString: Untagged
@@ -5344,12 +5303,11 @@ RectTransform:
   m_Children:
   - {fileID: 6065719080247397120}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40.863636, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2055147971381268274
 CanvasRenderer:
@@ -5433,7 +5391,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5100843738502341290}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -5445,7 +5403,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5100843738502341290
+--- !u!114 &1491249170968117338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5454,15 +5412,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2846713629939910589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 1
-  lowercase: 1
-  uppercase: '!'
-  lowercaseDisp: 1
-  uppercaseDisp: '!'
-  keyText: {fileID: 5040341914979093361}
+  m_current: 1
+  m_lowercase: 1
+  m_uppercase: '!'
+  m_lowercaseDisp: 1
+  m_uppercaseDisp: '!'
+  m_keyText: {fileID: 5040341914979093361}
 --- !u!1 &2874659382385785128
 GameObject:
   m_ObjectHideFlags: 0
@@ -5495,7 +5453,6 @@ RectTransform:
   - {fileID: 6969235485771161585}
   - {fileID: 4393841344855865600}
   m_Father: {fileID: 474902394863546037}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5559,7 +5516,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5775725132949874673}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5675,7 +5631,7 @@ GameObject:
   - component: {fileID: 3210624507540796749}
   - component: {fileID: 4132927990898275303}
   - component: {fileID: 1476308595479409287}
-  - component: {fileID: 7295169401139920672}
+  - component: {fileID: 7534927348340839528}
   m_Layer: 5
   m_Name: e_E
   m_TagString: Untagged
@@ -5697,7 +5653,6 @@ RectTransform:
   m_Children:
   - {fileID: 8887244233524277950}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5786,7 +5741,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7295169401139920672}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -5798,7 +5753,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7295169401139920672
+--- !u!114 &7534927348340839528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5807,15 +5762,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3001998904768182695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: e
-  lowercase: e
-  uppercase: E
-  lowercaseDisp: e
-  uppercaseDisp: E
-  keyText: {fileID: 2037459962491952574}
+  m_current: e
+  m_lowercase: e
+  m_uppercase: E
+  m_lowercaseDisp: e
+  m_uppercaseDisp: E
+  m_keyText: {fileID: 2037459962491952574}
 --- !u!1 &3048928583068475010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,7 +5802,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4127877817482498051}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5963,7 +5917,7 @@ GameObject:
   - component: {fileID: 6646487040677542812}
   - component: {fileID: 3964727371460266512}
   - component: {fileID: 8909249960915929553}
-  - component: {fileID: 4919058255452420921}
+  - component: {fileID: 5248481911011759760}
   m_Layer: 5
   m_Name: l_L
   m_TagString: Untagged
@@ -5985,7 +5939,6 @@ RectTransform:
   m_Children:
   - {fileID: 6742955381485456073}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6074,7 +6027,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4919058255452420921}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -6086,7 +6039,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4919058255452420921
+--- !u!114 &5248481911011759760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6095,15 +6048,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3097244383417103440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: l
-  lowercase: l
-  uppercase: L
-  lowercaseDisp: l
-  uppercaseDisp: L
-  keyText: {fileID: 3439820372066884827}
+  m_current: l
+  m_lowercase: l
+  m_uppercase: L
+  m_lowercaseDisp: l
+  m_uppercaseDisp: L
+  m_keyText: {fileID: 3439820372066884827}
 --- !u!1 &3148882900283772996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6135,7 +6088,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5479827430504956152}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6270,7 +6222,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1568102858118648559}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6346,7 +6297,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6609845468660306481}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6462,7 +6412,7 @@ GameObject:
   - component: {fileID: 5831602927520811980}
   - component: {fileID: 6098516579811753147}
   - component: {fileID: 4346859192173627082}
-  - component: {fileID: 5802354729479488493}
+  - component: {fileID: 8471054853570757484}
   m_Layer: 5
   m_Name: u_U
   m_TagString: Untagged
@@ -6484,7 +6434,6 @@ RectTransform:
   m_Children:
   - {fileID: 4048776575429704088}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6573,7 +6522,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5802354729479488493}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -6585,7 +6534,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5802354729479488493
+--- !u!114 &8471054853570757484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6594,15 +6543,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3273443076395299645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: u
-  lowercase: u
-  uppercase: U
-  lowercaseDisp: u
-  uppercaseDisp: U
-  keyText: {fileID: 2020975647399705732}
+  m_current: u
+  m_lowercase: u
+  m_uppercase: U
+  m_lowercaseDisp: u
+  m_uppercaseDisp: U
+  m_keyText: {fileID: 2020975647399705732}
 --- !u!1 &3286433260190290760
 GameObject:
   m_ObjectHideFlags: 0
@@ -6615,7 +6564,7 @@ GameObject:
   - component: {fileID: 4365115902328349824}
   - component: {fileID: 8651813524741227007}
   - component: {fileID: 2385155028720677339}
-  - component: {fileID: 9085932957675438374}
+  - component: {fileID: 9160032197321760531}
   m_Layer: 5
   m_Name: f_F
   m_TagString: Untagged
@@ -6637,7 +6586,6 @@ RectTransform:
   m_Children:
   - {fileID: 1539348462095496633}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6726,7 +6674,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9085932957675438374}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -6738,7 +6686,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9085932957675438374
+--- !u!114 &9160032197321760531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6747,15 +6695,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3286433260190290760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: f
-  lowercase: f
-  uppercase: F
-  lowercaseDisp: f
-  uppercaseDisp: F
-  keyText: {fileID: 2439673813978533079}
+  m_current: f
+  m_lowercase: f
+  m_uppercase: F
+  m_lowercaseDisp: f
+  m_uppercaseDisp: F
+  m_keyText: {fileID: 2439673813978533079}
 --- !u!1 &3376722743802839000
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,7 +6716,7 @@ GameObject:
   - component: {fileID: 185180958156795372}
   - component: {fileID: 2427026501612935423}
   m_Layer: 5
-  m_Name: InputText(TMPro)
+  m_Name: InputText (TMPro)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6787,7 +6735,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8144478534777151587}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6922,7 +6869,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5682136101810560160}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7057,7 +7003,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3869769594411217695}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7192,7 +7137,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5031132486055062657}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7308,7 +7252,7 @@ GameObject:
   - component: {fileID: 6606014700987446028}
   - component: {fileID: 3973734066904777835}
   - component: {fileID: 3466774136236520617}
-  - component: {fileID: 1264942823405743501}
+  - component: {fileID: 631353668179878338}
   m_Layer: 5
   m_Name: 3_#
   m_TagString: Untagged
@@ -7330,12 +7274,11 @@ RectTransform:
   m_Children:
   - {fileID: 8708063278037430521}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 184.31818, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6606014700987446028
 CanvasRenderer:
@@ -7419,7 +7362,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1264942823405743501}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -7431,7 +7374,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1264942823405743501
+--- !u!114 &631353668179878338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7440,15 +7383,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3474977091958691170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 3
-  lowercase: 3
-  uppercase: '#'
-  lowercaseDisp: 3
-  uppercaseDisp: '#'
-  keyText: {fileID: 2982391207423222893}
+  m_current: 3
+  m_lowercase: 3
+  m_uppercase: '#'
+  m_lowercaseDisp: 3
+  m_uppercaseDisp: '#'
+  m_keyText: {fileID: 2982391207423222893}
 --- !u!1 &3537329889440524438
 GameObject:
   m_ObjectHideFlags: 0
@@ -7461,7 +7404,7 @@ GameObject:
   - component: {fileID: 5613691574218668620}
   - component: {fileID: 5156035396071643452}
   - component: {fileID: 797615020913837014}
-  - component: {fileID: 2118412257294671632}
+  - component: {fileID: 734092922327394878}
   m_Layer: 5
   m_Name: '[_{'
   m_TagString: Untagged
@@ -7483,12 +7426,11 @@ RectTransform:
   m_Children:
   - {fileID: 6043225720479127026}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 281.7571, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5613691574218668620
 CanvasRenderer:
@@ -7572,7 +7514,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2118412257294671632}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -7584,7 +7526,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2118412257294671632
+--- !u!114 &734092922327394878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7593,15 +7535,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3537329889440524438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: '['
-  lowercase: '['
-  uppercase: '{'
-  lowercaseDisp: '['
-  uppercaseDisp: '{'
-  keyText: {fileID: 1959057516027181308}
+  m_current: '['
+  m_lowercase: '['
+  m_uppercase: '{'
+  m_lowercaseDisp: '['
+  m_uppercaseDisp: '{'
+  m_keyText: {fileID: 1959057516027181308}
 --- !u!1 &3798298664279580189
 GameObject:
   m_ObjectHideFlags: 0
@@ -7636,7 +7578,6 @@ RectTransform:
   - {fileID: 5682136101810560160}
   - {fileID: 3869769594411217695}
   m_Father: {fileID: 474902394863546037}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7681,7 +7622,7 @@ GameObject:
   - component: {fileID: 9109195766178882546}
   - component: {fileID: 1668717093719765939}
   - component: {fileID: 3307162572438555307}
-  - component: {fileID: 4331482371129261087}
+  - component: {fileID: 8862575614887159308}
   m_Layer: 5
   m_Name: p_P
   m_TagString: Untagged
@@ -7703,7 +7644,6 @@ RectTransform:
   m_Children:
   - {fileID: 1329766260473718603}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7792,7 +7732,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4331482371129261087}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -7804,7 +7744,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4331482371129261087
+--- !u!114 &8862575614887159308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7813,15 +7753,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3893130842539456766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: p
-  lowercase: p
-  uppercase: P
-  lowercaseDisp: p
-  uppercaseDisp: P
-  keyText: {fileID: 5783370539348779553}
+  m_current: p
+  m_lowercase: p
+  m_uppercase: P
+  m_lowercaseDisp: p
+  m_uppercaseDisp: P
+  m_keyText: {fileID: 5783370539348779553}
 --- !u!1 &4020379850368473907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7853,7 +7793,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6362689129071674877}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7988,7 +7927,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4547862427221126562}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8126,7 +8064,6 @@ RectTransform:
   - {fileID: 468469810373439624}
   - {fileID: 5697573676933354869}
   m_Father: {fileID: 5744883512403485094}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8171,7 +8108,7 @@ GameObject:
   - component: {fileID: 851489157441679979}
   - component: {fileID: 5263748463117485861}
   - component: {fileID: 3473787937439258878}
-  - component: {fileID: 5296520190025628278}
+  - component: {fileID: 7034503690630223285}
   m_Layer: 5
   m_Name: 2_"
   m_TagString: Untagged
@@ -8193,12 +8130,11 @@ RectTransform:
   m_Children:
   - {fileID: 1404654346581796732}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 112.59091, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &851489157441679979
 CanvasRenderer:
@@ -8282,7 +8218,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5296520190025628278}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -8294,7 +8230,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5296520190025628278
+--- !u!114 &7034503690630223285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8303,15 +8239,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4167518263478363695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 2
-  lowercase: 2
-  uppercase: '"'
-  lowercaseDisp: 2
-  uppercaseDisp: '"'
-  keyText: {fileID: 2088354169796479849}
+  m_current: 2
+  m_lowercase: 2
+  m_uppercase: '"'
+  m_lowercaseDisp: 2
+  m_uppercaseDisp: '"'
+  m_keyText: {fileID: 2088354169796479849}
 --- !u!1 &4169806388631694312
 GameObject:
   m_ObjectHideFlags: 0
@@ -8343,7 +8279,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7985516152478111706}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8459,7 +8394,7 @@ GameObject:
   - component: {fileID: 8007565809013977039}
   - component: {fileID: 1852757181599701418}
   - component: {fileID: 5454904718164230494}
-  - component: {fileID: 3626464606360028465}
+  - component: {fileID: 8315138025814735909}
   m_Layer: 5
   m_Name: 5_%
   m_TagString: Untagged
@@ -8481,12 +8416,11 @@ RectTransform:
   m_Children:
   - {fileID: 6915800296020982073}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 327.77274, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8007565809013977039
 CanvasRenderer:
@@ -8570,7 +8504,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3626464606360028465}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -8582,7 +8516,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3626464606360028465
+--- !u!114 &8315138025814735909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8591,15 +8525,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4309941699177422211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 5
-  lowercase: 5
-  uppercase: '%'
-  lowercaseDisp: 5
-  uppercaseDisp: '%'
-  keyText: {fileID: 6685100438160986941}
+  m_current: 5
+  m_lowercase: 5
+  m_uppercase: '%'
+  m_lowercaseDisp: 5
+  m_uppercaseDisp: '%'
+  m_keyText: {fileID: 6685100438160986941}
 --- !u!1 &4355755429692736566
 GameObject:
   m_ObjectHideFlags: 0
@@ -8612,7 +8546,7 @@ GameObject:
   - component: {fileID: 7322879688032797169}
   - component: {fileID: 6491072919324457915}
   - component: {fileID: 3096963838737874260}
-  - component: {fileID: 1097067394900755076}
+  - component: {fileID: 4830886909052258593}
   m_Layer: 5
   m_Name: '@_`'
   m_TagString: Untagged
@@ -8634,12 +8568,11 @@ RectTransform:
   m_Children:
   - {fileID: 8858628244744350604}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 208.25278, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7322879688032797169
 CanvasRenderer:
@@ -8723,7 +8656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1097067394900755076}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -8735,7 +8668,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1097067394900755076
+--- !u!114 &4830886909052258593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8744,15 +8677,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4355755429692736566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: '@'
-  lowercase: '@'
-  uppercase: '`'
-  lowercaseDisp: '@'
-  uppercaseDisp: '`'
-  keyText: {fileID: 1101051243761571050}
+  m_current: '@'
+  m_lowercase: '@'
+  m_uppercase: '`'
+  m_lowercaseDisp: '@'
+  m_uppercaseDisp: '`'
+  m_keyText: {fileID: 1101051243761571050}
 --- !u!1 &4380787241901664566
 GameObject:
   m_ObjectHideFlags: 0
@@ -8792,7 +8725,6 @@ RectTransform:
   - {fileID: 4838994243515265301}
   - {fileID: 1049841048975201274}
   m_Father: {fileID: 4354002691400699235}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8856,7 +8788,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4922052489682021880}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8972,7 +8903,7 @@ GameObject:
   - component: {fileID: 469406360484412063}
   - component: {fileID: 4464255129844327163}
   - component: {fileID: 5357767476512106868}
-  - component: {fileID: 436353711039567523}
+  - component: {fileID: 955622406101080856}
   m_Layer: 5
   m_Name: a_A
   m_TagString: Untagged
@@ -8994,7 +8925,6 @@ RectTransform:
   m_Children:
   - {fileID: 4363219556073719533}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9083,7 +9013,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 436353711039567523}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -9095,7 +9025,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &436353711039567523
+--- !u!114 &955622406101080856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9104,15 +9034,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4631526337937026531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: a
-  lowercase: a
-  uppercase: A
-  lowercaseDisp: a
-  uppercaseDisp: A
-  keyText: {fileID: 3098184573647631720}
+  m_current: a
+  m_lowercase: a
+  m_uppercase: A
+  m_lowercaseDisp: a
+  m_uppercaseDisp: A
+  m_keyText: {fileID: 3098184573647631720}
 --- !u!1 &4734468813570560127
 GameObject:
   m_ObjectHideFlags: 0
@@ -9124,8 +9054,8 @@ GameObject:
   - component: {fileID: 8144478534777151587}
   - component: {fileID: 1894316927131866667}
   - component: {fileID: 2628628934032442434}
-  - component: {fileID: 8822872873491101550}
   - component: {fileID: 504689172044613616}
+  - component: {fileID: 1076458849379266349}
   m_Layer: 5
   m_Name: TLabInputField
   m_TagString: Untagged
@@ -9149,7 +9079,6 @@ RectTransform:
   - {fileID: 8277524399439746144}
   - {fileID: 3378067375893935522}
   m_Father: {fileID: 3063154159034142251}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9194,32 +9123,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8822872873491101550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4734468813570560127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0825f131e3736642b2141c54382e39e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 504689172044613616}
-  keyStroke: {fileID: 8300000, guid: 9345228ac344efe41bb6155734f8a149, type: 3}
-  lockButtonPress: {fileID: 8300000, guid: 9556601aaf768bf40b1cce8fa7216344, type: 3}
-  keyBOX: {fileID: 5674754589941070759}
-  romajiBOX: {fileID: 5572544816999795458}
-  symbolBOX: {fileID: 6014961633439098267}
-  operatorBOX: {fileID: 4108242326666228828}
-  inputText: {fileID: 2427026501612935423}
-  placeholder: {fileID: 18712571303950289}
-  openImage: {fileID: 339214291701173883}
-  lockImage: {fileID: 3154577053413042835}
-  inputFieldButton: {fileID: 337099171102701020}
-  hideObjects: []
-  isMobile: 0
 --- !u!82 &504689172044613616
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9316,6 +9219,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1076458849379266349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734468813570560127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8470c03f5ff39b347ad7ad28e52d3b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_keyborad: {fileID: 4449721481549372445}
+  m_inputText: {fileID: 2427026501612935423}
+  m_placeholder: {fileID: 18712571303950289}
+  m_openImage: {fileID: 339214291701173883}
+  m_lockImage: {fileID: 3154577053413042835}
+  m_inputFieldButton: {fileID: 337099171102701020}
+  m_hideObjects: []
+  m_audioSource: {fileID: 504689172044613616}
+  m_lockKeyborad: {fileID: 8300000, guid: 9556601aaf768bf40b1cce8fa7216344, type: 3}
 --- !u!1 &4740083426634351893
 GameObject:
   m_ObjectHideFlags: 0
@@ -9347,7 +9271,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4158921477709493982}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9463,7 +9386,7 @@ GameObject:
   - component: {fileID: 3559745901700270484}
   - component: {fileID: 6854314568761967133}
   - component: {fileID: 6820250443665810445}
-  - component: {fileID: 687874625990389269}
+  - component: {fileID: 1116087196899206167}
   m_Layer: 5
   m_Name: 6_&
   m_TagString: Untagged
@@ -9485,12 +9408,11 @@ RectTransform:
   m_Children:
   - {fileID: 5683533533832896938}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 399.5, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3559745901700270484
 CanvasRenderer:
@@ -9574,7 +9496,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 687874625990389269}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -9586,7 +9508,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &687874625990389269
+--- !u!114 &1116087196899206167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9595,15 +9517,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4857411042806187165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 6
-  lowercase: 6
-  uppercase: '&'
-  lowercaseDisp: 6
-  uppercaseDisp: '&'
-  keyText: {fileID: 3500344739987563383}
+  m_current: 6
+  m_lowercase: 6
+  m_uppercase: '&'
+  m_lowercaseDisp: 6
+  m_uppercaseDisp: '&'
+  m_keyText: {fileID: 3500344739987563383}
 --- !u!1 &4944742511691693820
 GameObject:
   m_ObjectHideFlags: 0
@@ -9616,7 +9538,7 @@ GameObject:
   - component: {fileID: 5464488148178896028}
   - component: {fileID: 6043401043241901141}
   - component: {fileID: 2630289682061256559}
-  - component: {fileID: 798628658324059019}
+  - component: {fileID: 407898319074468971}
   m_Layer: 5
   m_Name: SYMBOL
   m_TagString: Untagged
@@ -9638,7 +9560,6 @@ RectTransform:
   m_Children:
   - {fileID: 3664250824290415374}
   m_Father: {fileID: 5697573676933354869}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9727,7 +9648,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 798628658324059019}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -9739,7 +9660,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &798628658324059019
+--- !u!114 &407898319074468971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9748,15 +9669,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4944742511691693820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: SYMBOL
-  lowercase: SYMBOL
-  uppercase: SYMBOL
-  lowercaseDisp: ?123
-  uppercaseDisp: ?123
-  keyText: {fileID: 1952063133975053372}
+  m_current: SYMBOL
+  m_lowercase: SYMBOL
+  m_uppercase: SYMBOL
+  m_lowercaseDisp: ?123
+  m_uppercaseDisp: ?123
+  m_keyText: {fileID: 1952063133975053372}
 --- !u!1 &5039031198905453714
 GameObject:
   m_ObjectHideFlags: 0
@@ -9769,7 +9690,7 @@ GameObject:
   - component: {fileID: 164034102228689571}
   - component: {fileID: 8369777058117375477}
   - component: {fileID: 1882306685470839599}
-  - component: {fileID: 7989980049263136721}
+  - component: {fileID: 8113307821730639687}
   m_Layer: 5
   m_Name: m_M
   m_TagString: Untagged
@@ -9791,7 +9712,6 @@ RectTransform:
   m_Children:
   - {fileID: 3554532886512765487}
   m_Father: {fileID: 685514042899021452}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9880,7 +9800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7989980049263136721}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -9892,7 +9812,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7989980049263136721
+--- !u!114 &8113307821730639687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9901,15 +9821,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5039031198905453714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: m
-  lowercase: m
-  uppercase: M
-  lowercaseDisp: m
-  uppercaseDisp: M
-  keyText: {fileID: 7760349428799372059}
+  m_current: m
+  m_lowercase: m
+  m_uppercase: M
+  m_lowercaseDisp: m
+  m_uppercaseDisp: M
+  m_keyText: {fileID: 7760349428799372059}
 --- !u!1 &5053808520636846818
 GameObject:
   m_ObjectHideFlags: 0
@@ -9947,7 +9867,6 @@ RectTransform:
   - {fileID: 4939304493424634517}
   - {fileID: 9210476943923583379}
   m_Father: {fileID: 4354002691400699235}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10011,7 +9930,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9210476943923583379}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10146,7 +10064,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2721589034244394778}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10262,7 +10179,7 @@ GameObject:
   - component: {fileID: 6559945142987951482}
   - component: {fileID: 7075907948364019291}
   - component: {fileID: 1899736062290549390}
-  - component: {fileID: 5832291545702414697}
+  - component: {fileID: 3759780696593940829}
   m_Layer: 5
   m_Name: n_N
   m_TagString: Untagged
@@ -10284,7 +10201,6 @@ RectTransform:
   m_Children:
   - {fileID: 659056719703101604}
   m_Father: {fileID: 685514042899021452}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10373,7 +10289,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5832291545702414697}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -10385,7 +10301,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5832291545702414697
+--- !u!114 &3759780696593940829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10394,15 +10310,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5160727805578841644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: n
-  lowercase: n
-  uppercase: N
-  lowercaseDisp: n
-  uppercaseDisp: N
-  keyText: {fileID: 3370939104989034445}
+  m_current: n
+  m_lowercase: n
+  m_uppercase: N
+  m_lowercaseDisp: n
+  m_uppercaseDisp: N
+  m_keyText: {fileID: 3370939104989034445}
 --- !u!1 &5226168679331214564
 GameObject:
   m_ObjectHideFlags: 0
@@ -10434,7 +10350,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7145170350818974611}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10550,7 +10465,7 @@ GameObject:
   - component: {fileID: 4347346063032096975}
   - component: {fileID: 1526360773504369536}
   - component: {fileID: 5485256923092552624}
-  - component: {fileID: 7073215603749641819}
+  - component: {fileID: 8079032629910144535}
   m_Layer: 5
   m_Name: 8_(
   m_TagString: Untagged
@@ -10572,12 +10487,11 @@ RectTransform:
   m_Children:
   - {fileID: 6420745002218242417}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 542.9545, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4347346063032096975
 CanvasRenderer:
@@ -10661,7 +10575,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7073215603749641819}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -10673,7 +10587,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7073215603749641819
+--- !u!114 &8079032629910144535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10682,15 +10596,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5275449422429558230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 8
-  lowercase: 8
-  uppercase: (
-  lowercaseDisp: 8
-  uppercaseDisp: (
-  keyText: {fileID: 2518253655834812861}
+  m_current: 8
+  m_lowercase: 8
+  m_uppercase: (
+  m_lowercaseDisp: 8
+  m_uppercaseDisp: (
+  m_keyText: {fileID: 2518253655834812861}
 --- !u!1 &5442836085706254998
 GameObject:
   m_ObjectHideFlags: 0
@@ -10722,7 +10636,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 345763092368313354}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10860,7 +10773,6 @@ RectTransform:
   - {fileID: 6505345034687435856}
   - {fileID: 9131507458080232342}
   m_Father: {fileID: 3063154159034142251}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10949,7 +10861,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8822872873491101550}
+      - m_Target: {fileID: 1076458849379266349}
         m_TargetAssemblyTypeName: TLab.InputField.TLabInputField, Assembly-CSharp
         m_MethodName: OnFocus
         m_Mode: 6
@@ -10991,12 +10903,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5986317103184295914}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 363.63635, y: -253.1889}
+  m_SizeDelta: {x: 727.2727, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1958292211020625444
 MonoBehaviour:
@@ -11058,7 +10969,6 @@ RectTransform:
   - {fileID: 685514042899021452}
   - {fileID: 2370704948855781727}
   m_Father: {fileID: 5744883512403485094}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11103,7 +11013,7 @@ GameObject:
   - component: {fileID: 2377648382433129568}
   - component: {fileID: 4856191079989948949}
   m_Layer: 5
-  m_Name: MobileKeyboard
+  m_Name: VirtualKeyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11125,7 +11035,6 @@ RectTransform:
   - {fileID: 5986317103184295914}
   - {fileID: 474902394863546037}
   m_Father: {fileID: 3063154159034142251}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11182,7 +11091,7 @@ GameObject:
   - component: {fileID: 1852943631376974559}
   - component: {fileID: 4261352914157419367}
   - component: {fileID: 8693757604197142859}
-  - component: {fileID: 6982885011794266386}
+  - component: {fileID: 2078751553181626642}
   m_Layer: 5
   m_Name: o_O
   m_TagString: Untagged
@@ -11204,7 +11113,6 @@ RectTransform:
   m_Children:
   - {fileID: 6689856484199434902}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11293,7 +11201,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6982885011794266386}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -11305,7 +11213,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6982885011794266386
+--- !u!114 &2078751553181626642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11314,15 +11222,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5711004442744193298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: o
-  lowercase: o
-  uppercase: O
-  lowercaseDisp: o
-  uppercaseDisp: O
-  keyText: {fileID: 3867045363247510749}
+  m_current: o
+  m_lowercase: o
+  m_uppercase: O
+  m_lowercaseDisp: o
+  m_uppercaseDisp: O
+  m_keyText: {fileID: 3867045363247510749}
 --- !u!1 &5775296825045417893
 GameObject:
   m_ObjectHideFlags: 0
@@ -11335,7 +11243,7 @@ GameObject:
   - component: {fileID: 3823032701263829551}
   - component: {fileID: 7135066683772834819}
   - component: {fileID: 4311292691947496875}
-  - component: {fileID: 3985541233704027972}
+  - component: {fileID: 6306675850507636704}
   m_Layer: 5
   m_Name: /_?
   m_TagString: Untagged
@@ -11357,12 +11265,11 @@ RectTransform:
   m_Children:
   - {fileID: 5063792956040509622}
   m_Father: {fileID: 2520853296012300434}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 253.29544, y: -31.938887}
+  m_SizeDelta: {x: 69.040886, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3823032701263829551
 CanvasRenderer:
@@ -11446,7 +11353,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3985541233704027972}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -11458,7 +11365,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3985541233704027972
+--- !u!114 &6306675850507636704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11467,15 +11374,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5775296825045417893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: /
-  lowercase: /
-  uppercase: '?'
-  lowercaseDisp: /
-  uppercaseDisp: '?'
-  keyText: {fileID: 2062150338229817123}
+  m_current: /
+  m_lowercase: /
+  m_uppercase: '?'
+  m_lowercaseDisp: /
+  m_uppercaseDisp: '?'
+  m_keyText: {fileID: 2062150338229817123}
 --- !u!1 &5818039906450922214
 GameObject:
   m_ObjectHideFlags: 0
@@ -11507,7 +11414,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 85069823720771812}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11642,7 +11548,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3808667810441108617}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11786,12 +11691,11 @@ RectTransform:
   - {fileID: 4841797890174473557}
   - {fileID: 7660768552130042433}
   m_Father: {fileID: 5986317103184295914}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 363.63635, y: -31.811117}
+  m_SizeDelta: {x: 727.2727, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6947065666956294815
 MonoBehaviour:
@@ -11831,7 +11735,7 @@ GameObject:
   - component: {fileID: 6013231710792092955}
   - component: {fileID: 211975388240993185}
   - component: {fileID: 6652866846195609057}
-  - component: {fileID: 8916801083999448146}
+  - component: {fileID: 941752255088840405}
   m_Layer: 5
   m_Name: \_|
   m_TagString: Untagged
@@ -11853,12 +11757,11 @@ RectTransform:
   m_Children:
   - {fileID: 3892232683070451694}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 575.64746, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6013231710792092955
 CanvasRenderer:
@@ -11942,7 +11845,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8916801083999448146}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -11954,7 +11857,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8916801083999448146
+--- !u!114 &941752255088840405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11963,15 +11866,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5868790859260507168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: \
-  lowercase: \
-  uppercase: '|'
-  lowercaseDisp: \
-  uppercaseDisp: '|'
-  keyText: {fileID: 7604656662835151665}
+  m_current: \
+  m_lowercase: \
+  m_uppercase: '|'
+  m_lowercaseDisp: \
+  m_uppercaseDisp: '|'
+  m_keyText: {fileID: 7604656662835151665}
 --- !u!1 &6014961633439098267
 GameObject:
   m_ObjectHideFlags: 0
@@ -12006,7 +11909,6 @@ RectTransform:
   - {fileID: 2520853296012300434}
   - {fileID: 2788408652098550967}
   m_Father: {fileID: 5744883512403485094}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12070,7 +11972,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5380160174736768151}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12205,7 +12106,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3759568367270319949}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12321,7 +12221,7 @@ GameObject:
   - component: {fileID: 7394807308648764805}
   - component: {fileID: 3442765997055828783}
   - component: {fileID: 1214502391506201630}
-  - component: {fileID: 2201169718719770583}
+  - component: {fileID: 2711243930283142914}
   m_Layer: 5
   m_Name: y_Y
   m_TagString: Untagged
@@ -12343,7 +12243,6 @@ RectTransform:
   m_Children:
   - {fileID: 6971428361581062975}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12432,7 +12331,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2201169718719770583}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -12444,7 +12343,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2201169718719770583
+--- !u!114 &2711243930283142914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12453,15 +12352,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6177197940071509107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: y
-  lowercase: y
-  uppercase: Y
-  lowercaseDisp: y
-  uppercaseDisp: Y
-  keyText: {fileID: 8510495227205357886}
+  m_current: y
+  m_lowercase: y
+  m_uppercase: Y
+  m_lowercaseDisp: y
+  m_uppercaseDisp: Y
+  m_keyText: {fileID: 8510495227205357886}
 --- !u!1 &6230527624761660214
 GameObject:
   m_ObjectHideFlags: 0
@@ -12474,7 +12373,7 @@ GameObject:
   - component: {fileID: 8070138709704293964}
   - component: {fileID: 9021942821554703361}
   - component: {fileID: 4531256089942456105}
-  - component: {fileID: 2718947674968564595}
+  - component: {fileID: 4974925943147522068}
   m_Layer: 5
   m_Name: t_T
   m_TagString: Untagged
@@ -12496,7 +12395,6 @@ RectTransform:
   m_Children:
   - {fileID: 6168627887161775130}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12585,7 +12483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2718947674968564595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -12597,7 +12495,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2718947674968564595
+--- !u!114 &4974925943147522068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12606,15 +12504,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6230527624761660214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: t
-  lowercase: t
-  uppercase: T
-  lowercaseDisp: t
-  uppercaseDisp: T
-  keyText: {fileID: 1474170999806390374}
+  m_current: t
+  m_lowercase: t
+  m_uppercase: T
+  m_lowercaseDisp: t
+  m_uppercaseDisp: T
+  m_keyText: {fileID: 1474170999806390374}
 --- !u!1 &6238423158188083102
 GameObject:
   m_ObjectHideFlags: 0
@@ -12644,7 +12542,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 468469810373439624}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12663,7 +12560,7 @@ GameObject:
   - component: {fileID: 6572800653990184948}
   - component: {fileID: 2063145662226441349}
   - component: {fileID: 2128392761832816722}
-  - component: {fileID: 4403939944574822945}
+  - component: {fileID: 8222551232272675020}
   m_Layer: 5
   m_Name: 4_$
   m_TagString: Untagged
@@ -12685,12 +12582,11 @@ RectTransform:
   m_Children:
   - {fileID: 3622251286771871249}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 256.04547, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6572800653990184948
 CanvasRenderer:
@@ -12774,7 +12670,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4403939944574822945}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -12786,7 +12682,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4403939944574822945
+--- !u!114 &8222551232272675020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12795,15 +12691,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6486933986238797137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 4
-  lowercase: 4
-  uppercase: $
-  lowercaseDisp: 4
-  uppercaseDisp: $
-  keyText: {fileID: 8107852522832729422}
+  m_current: 4
+  m_lowercase: 4
+  m_uppercase: $
+  m_lowercaseDisp: 4
+  m_uppercaseDisp: $
+  m_keyText: {fileID: 8107852522832729422}
 --- !u!1 &6580799146941755338
 GameObject:
   m_ObjectHideFlags: 0
@@ -12835,7 +12731,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4191472925800839944}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12970,7 +12865,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6293769966413598835}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13086,7 +12980,7 @@ GameObject:
   - component: {fileID: 8628928921543423316}
   - component: {fileID: 4407381031313163465}
   - component: {fileID: 3344322672609616204}
-  - component: {fileID: 2244394753143058179}
+  - component: {fileID: 6153449619456062539}
   m_Layer: 5
   m_Name: ^_~
   m_TagString: Untagged
@@ -13108,12 +13002,11 @@ RectTransform:
   m_Children:
   - {fileID: 3116426040534223147}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 134.87546, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8628928921543423316
 CanvasRenderer:
@@ -13197,7 +13090,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2244394753143058179}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -13209,7 +13102,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2244394753143058179
+--- !u!114 &6153449619456062539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13218,15 +13111,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6854173214140056055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: ^
-  lowercase: ^
-  uppercase: ~
-  lowercaseDisp: ^
-  uppercaseDisp: ~
-  keyText: {fileID: 2173712304520464813}
+  m_current: ^
+  m_lowercase: ^
+  m_uppercase: ~
+  m_lowercaseDisp: ^
+  m_uppercaseDisp: ~
+  m_keyText: {fileID: 2173712304520464813}
 --- !u!1 &6929034620379116789
 GameObject:
   m_ObjectHideFlags: 0
@@ -13257,7 +13150,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4354002691400699235}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13302,7 +13194,7 @@ GameObject:
   - component: {fileID: 3032357038472367992}
   - component: {fileID: 3476631597344661651}
   - component: {fileID: 932862766721714583}
-  - component: {fileID: 2379714375090563350}
+  - component: {fileID: 3522866958753344493}
   m_Layer: 5
   m_Name: ']_}'
   m_TagString: Untagged
@@ -13324,12 +13216,11 @@ RectTransform:
   m_Children:
   - {fileID: 6467663143920595499}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 502.2701, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3032357038472367992
 CanvasRenderer:
@@ -13413,7 +13304,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2379714375090563350}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -13425,7 +13316,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2379714375090563350
+--- !u!114 &3522866958753344493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13434,15 +13325,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6989656348196308733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: ']'
-  lowercase: ']'
-  uppercase: '}'
-  lowercaseDisp: ']'
-  uppercaseDisp: '}'
-  keyText: {fileID: 246330189459249900}
+  m_current: ']'
+  m_lowercase: ']'
+  m_uppercase: '}'
+  m_lowercaseDisp: ']'
+  m_uppercaseDisp: '}'
+  m_keyText: {fileID: 246330189459249900}
 --- !u!1 &6993434287078010387
 GameObject:
   m_ObjectHideFlags: 0
@@ -13474,7 +13365,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5132895039881199084}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13590,7 +13480,7 @@ GameObject:
   - component: {fileID: 1117231526154482869}
   - component: {fileID: 3914622104906940233}
   - component: {fileID: 6843387281248281743}
-  - component: {fileID: 6738494932694743422}
+  - component: {fileID: 5802378241463132541}
   m_Layer: 5
   m_Name: 0_
   m_TagString: Untagged
@@ -13612,12 +13502,11 @@ RectTransform:
   m_Children:
   - {fileID: 639426844013079295}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 686.4091, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1117231526154482869
 CanvasRenderer:
@@ -13701,7 +13590,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6738494932694743422}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -13713,7 +13602,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6738494932694743422
+--- !u!114 &5802378241463132541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13722,15 +13611,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7021610782292394491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 0
-  lowercase: 0
-  uppercase: 
-  lowercaseDisp: 0
-  uppercaseDisp: 
-  keyText: {fileID: 585229172249660794}
+  m_current: 0
+  m_lowercase: 0
+  m_uppercase: 
+  m_lowercaseDisp: 0
+  m_uppercaseDisp: 
+  m_keyText: {fileID: 585229172249660794}
 --- !u!1 &7080640460636786048
 GameObject:
   m_ObjectHideFlags: 0
@@ -13740,8 +13629,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3063154159034142251}
+  - component: {fileID: 7775150997293162039}
+  - component: {fileID: 4449721481549372445}
   m_Layer: 5
-  m_Name: MobileKeyborad
+  m_Name: Keyborad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13763,13 +13654,127 @@ RectTransform:
   - {fileID: 8144478534777151587}
   - {fileID: 5744883512403485094}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -130}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &7775150997293162039
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080640460636786048}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4449721481549372445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080640460636786048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30781e215bec0be449adcdfe5d2a9a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioSource: {fileID: 7775150997293162039}
+  m_keyStroke: {fileID: 8300000, guid: 9556601aaf768bf40b1cce8fa7216344, type: 3}
+  m_keyBOX: {fileID: 5674754589941070759}
+  m_romajiBOX: {fileID: 5572544816999795458}
+  m_symbolBOX: {fileID: 6014961633439098267}
+  m_operatorBOX: {fileID: 4108242326666228828}
+  m_inputFieldBase: {fileID: 0}
 --- !u!1 &7118965853204549547
 GameObject:
   m_ObjectHideFlags: 0
@@ -13782,7 +13787,7 @@ GameObject:
   - component: {fileID: 8460596299330732883}
   - component: {fileID: 4953959384264887622}
   - component: {fileID: 3999683127967709797}
-  - component: {fileID: 2583174882831468190}
+  - component: {fileID: 4241490036889127836}
   m_Layer: 5
   m_Name: j_J
   m_TagString: Untagged
@@ -13804,7 +13809,6 @@ RectTransform:
   m_Children:
   - {fileID: 8319247049967622811}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13893,7 +13897,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2583174882831468190}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -13905,7 +13909,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2583174882831468190
+--- !u!114 &4241490036889127836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13914,15 +13918,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7118965853204549547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: j
-  lowercase: j
-  uppercase: J
-  lowercaseDisp: j
-  uppercaseDisp: J
-  keyText: {fileID: 3084932118309284650}
+  m_current: j
+  m_lowercase: j
+  m_uppercase: J
+  m_lowercaseDisp: j
+  m_uppercaseDisp: J
+  m_keyText: {fileID: 3084932118309284650}
 --- !u!1 &7132358607363281812
 GameObject:
   m_ObjectHideFlags: 0
@@ -13954,7 +13958,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7752565904942884701}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14089,7 +14092,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4939304493424634517}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14205,7 +14207,7 @@ GameObject:
   - component: {fileID: 8770910488820524749}
   - component: {fileID: 6893652415683558259}
   - component: {fileID: 3176583305158321582}
-  - component: {fileID: 660579987817215178}
+  - component: {fileID: 4664866302558382149}
   m_Layer: 5
   m_Name: z_Z
   m_TagString: Untagged
@@ -14227,7 +14229,6 @@ RectTransform:
   m_Children:
   - {fileID: 5169661140852644531}
   m_Father: {fileID: 685514042899021452}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14316,7 +14317,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660579987817215178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -14328,7 +14329,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &660579987817215178
+--- !u!114 &4664866302558382149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14337,15 +14338,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7203200668319959035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: z
-  lowercase: z
-  uppercase: Z
-  lowercaseDisp: z
-  uppercaseDisp: Z
-  keyText: {fileID: 3919930685673118797}
+  m_current: z
+  m_lowercase: z
+  m_uppercase: Z
+  m_lowercaseDisp: z
+  m_uppercaseDisp: Z
+  m_keyText: {fileID: 3919930685673118797}
 --- !u!1 &7247407838503282058
 GameObject:
   m_ObjectHideFlags: 0
@@ -14377,7 +14378,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7377022986594325507}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14512,7 +14512,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5462411615184843195}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14628,7 +14627,7 @@ GameObject:
   - component: {fileID: 4607030339920866418}
   - component: {fileID: 901791382725554197}
   - component: {fileID: 5826317803225319161}
-  - component: {fileID: 5991283474471313210}
+  - component: {fileID: 5283909569324553415}
   m_Layer: 5
   m_Name: BACKSPACE
   m_TagString: Untagged
@@ -14650,7 +14649,6 @@ RectTransform:
   m_Children:
   - {fileID: 2407593493297170590}
   m_Father: {fileID: 4830018069829583180}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14739,7 +14737,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5991283474471313210}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -14751,7 +14749,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5991283474471313210
+--- !u!114 &5283909569324553415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14760,15 +14758,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7365286371257974944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: BACKSPACE
-  lowercase: BACKSPACE
-  uppercase: BACKSPACE
-  lowercaseDisp: <x
-  uppercaseDisp: <x
-  keyText: {fileID: 5271370026991848286}
+  m_current: BACKSPACE
+  m_lowercase: BACKSPACE
+  m_uppercase: BACKSPACE
+  m_lowercaseDisp: <x
+  m_uppercaseDisp: <x
+  m_keyText: {fileID: 5271370026991848286}
 --- !u!1 &7525899876419803018
 GameObject:
   m_ObjectHideFlags: 0
@@ -14781,7 +14779,7 @@ GameObject:
   - component: {fileID: 2251266671184661430}
   - component: {fileID: 1057215522568568661}
   - component: {fileID: 8553304935402404382}
-  - component: {fileID: 3126811058697550073}
+  - component: {fileID: 4205433197188917438}
   m_Layer: 5
   m_Name: d_D
   m_TagString: Untagged
@@ -14803,7 +14801,6 @@ RectTransform:
   m_Children:
   - {fileID: 8315441127106750144}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14892,7 +14889,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3126811058697550073}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -14904,7 +14901,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3126811058697550073
+--- !u!114 &4205433197188917438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14913,15 +14910,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7525899876419803018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: d
-  lowercase: d
-  uppercase: D
-  lowercaseDisp: d
-  uppercaseDisp: D
-  keyText: {fileID: 5959873874442484742}
+  m_current: d
+  m_lowercase: d
+  m_uppercase: D
+  m_lowercaseDisp: d
+  m_uppercaseDisp: D
+  m_keyText: {fileID: 5959873874442484742}
 --- !u!1 &7686338714717766416
 GameObject:
   m_ObjectHideFlags: 0
@@ -14953,7 +14950,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7660768552130042433}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15069,7 +15065,7 @@ GameObject:
   - component: {fileID: 8020387534115106372}
   - component: {fileID: 542792169586592822}
   - component: {fileID: 2980609691519098649}
-  - component: {fileID: 3552547991931676336}
+  - component: {fileID: 4259232853420333875}
   m_Layer: 5
   m_Name: g_G
   m_TagString: Untagged
@@ -15091,7 +15087,6 @@ RectTransform:
   m_Children:
   - {fileID: 6115637086382874442}
   m_Father: {fileID: 8925547770762123736}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15180,7 +15175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3552547991931676336}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -15192,7 +15187,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3552547991931676336
+--- !u!114 &4259232853420333875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15201,15 +15196,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7892791906462686390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: g
-  lowercase: g
-  uppercase: G
-  lowercaseDisp: g
-  uppercaseDisp: G
-  keyText: {fileID: 6722215063486327312}
+  m_current: g
+  m_lowercase: g
+  m_uppercase: G
+  m_lowercaseDisp: g
+  m_uppercaseDisp: G
+  m_keyText: {fileID: 6722215063486327312}
 --- !u!1 &7910728197324297210
 GameObject:
   m_ObjectHideFlags: 0
@@ -15222,7 +15217,7 @@ GameObject:
   - component: {fileID: 7223614402678247928}
   - component: {fileID: 1072751483615963938}
   - component: {fileID: 8569222392844187369}
-  - component: {fileID: 4707964237506057588}
+  - component: {fileID: 6402647774231065861}
   m_Layer: 5
   m_Name: :_*
   m_TagString: Untagged
@@ -15244,12 +15239,11 @@ RectTransform:
   m_Children:
   - {fileID: 6841892571530200724}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 428.76578, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7223614402678247928
 CanvasRenderer:
@@ -15333,7 +15327,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4707964237506057588}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -15345,7 +15339,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4707964237506057588
+--- !u!114 &6402647774231065861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15354,15 +15348,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7910728197324297210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: ':'
-  lowercase: ':'
-  uppercase: '*'
-  lowercaseDisp: ':'
-  uppercaseDisp: '*'
-  keyText: {fileID: 2204448278863881959}
+  m_current: ':'
+  m_lowercase: ':'
+  m_uppercase: '*'
+  m_lowercaseDisp: ':'
+  m_uppercaseDisp: '*'
+  m_keyText: {fileID: 2204448278863881959}
 --- !u!1 &7962403354705368224
 GameObject:
   m_ObjectHideFlags: 0
@@ -15394,7 +15388,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1003429298501820470}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15510,7 +15503,7 @@ GameObject:
   - component: {fileID: 657297317872554098}
   - component: {fileID: 980609727939714008}
   - component: {fileID: 5859002561832787538}
-  - component: {fileID: 8644528158767784178}
+  - component: {fileID: 5205718606221188625}
   m_Layer: 5
   m_Name: SHIFT
   m_TagString: Untagged
@@ -15532,7 +15525,6 @@ RectTransform:
   m_Children:
   - {fileID: 2461815632705467457}
   m_Father: {fileID: 5697573676933354869}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15621,7 +15613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8644528158767784178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -15633,7 +15625,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8644528158767784178
+--- !u!114 &5205718606221188625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15642,15 +15634,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8115776393280715840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: SHIFT
-  lowercase: SHIFT
-  uppercase: SHIFT
-  lowercaseDisp: Shift
-  uppercaseDisp: Shift
-  keyText: {fileID: 6066559949396716890}
+  m_current: SHIFT
+  m_lowercase: SHIFT
+  m_uppercase: SHIFT
+  m_lowercaseDisp: Shift
+  m_uppercaseDisp: Shift
+  m_keyText: {fileID: 6066559949396716890}
 --- !u!1 &8218656655685000894
 GameObject:
   m_ObjectHideFlags: 0
@@ -15663,7 +15655,7 @@ GameObject:
   - component: {fileID: 1112625473341476167}
   - component: {fileID: 5653683114976665341}
   - component: {fileID: 2702180133257549953}
-  - component: {fileID: 5777404947357135614}
+  - component: {fileID: 4953334315781759746}
   m_Layer: 5
   m_Name: c_C
   m_TagString: Untagged
@@ -15685,7 +15677,6 @@ RectTransform:
   m_Children:
   - {fileID: 6751525056889941134}
   m_Father: {fileID: 685514042899021452}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15774,7 +15765,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5777404947357135614}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -15786,7 +15777,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5777404947357135614
+--- !u!114 &4953334315781759746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15795,15 +15786,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8218656655685000894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: c
-  lowercase: c
-  uppercase: C
-  lowercaseDisp: c
-  uppercaseDisp: C
-  keyText: {fileID: 3514895568172390127}
+  m_current: c
+  m_lowercase: c
+  m_uppercase: C
+  m_lowercaseDisp: c
+  m_uppercaseDisp: C
+  m_keyText: {fileID: 3514895568172390127}
 --- !u!1 &8302631199730487218
 GameObject:
   m_ObjectHideFlags: 0
@@ -15816,7 +15807,7 @@ GameObject:
   - component: {fileID: 6565688066474129676}
   - component: {fileID: 7394071415248675379}
   - component: {fileID: 9143820290800146578}
-  - component: {fileID: 5589898442096802175}
+  - component: {fileID: 4249356487043106393}
   m_Layer: 5
   m_Name: ._>
   m_TagString: Untagged
@@ -15838,12 +15829,11 @@ RectTransform:
   m_Children:
   - {fileID: 5488502260279861442}
   m_Father: {fileID: 2520853296012300434}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 173.97726, y: -31.938887}
+  m_SizeDelta: {x: 69.040886, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6565688066474129676
 CanvasRenderer:
@@ -15927,7 +15917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5589898442096802175}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -15939,7 +15929,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5589898442096802175
+--- !u!114 &4249356487043106393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15948,15 +15938,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8302631199730487218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: .
-  lowercase: .
-  uppercase: '>'
-  lowercaseDisp: .
-  uppercaseDisp: '>'
-  keyText: {fileID: 2931226677892662277}
+  m_current: .
+  m_lowercase: .
+  m_uppercase: '>'
+  m_lowercaseDisp: .
+  m_uppercaseDisp: '>'
+  m_keyText: {fileID: 2931226677892662277}
 --- !u!1 &8332977858569771597
 GameObject:
   m_ObjectHideFlags: 0
@@ -15969,7 +15959,7 @@ GameObject:
   - component: {fileID: 6455387819234734345}
   - component: {fileID: 9098296589629818523}
   - component: {fileID: 8529323309127536480}
-  - component: {fileID: 2019033166758771378}
+  - component: {fileID: 1079810571228687617}
   m_Layer: 5
   m_Name: ;_+
   m_TagString: Untagged
@@ -15991,12 +15981,11 @@ RectTransform:
   m_Children:
   - {fileID: 481649973554079380}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 355.26144, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6455387819234734345
 CanvasRenderer:
@@ -16080,7 +16069,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019033166758771378}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -16092,7 +16081,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2019033166758771378
+--- !u!114 &1079810571228687617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16101,15 +16090,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8332977858569771597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: ;
-  lowercase: ;
-  uppercase: +
-  lowercaseDisp: ;
-  uppercaseDisp: +
-  keyText: {fileID: 1774362274192422999}
+  m_current: ;
+  m_lowercase: ;
+  m_uppercase: +
+  m_lowercaseDisp: ;
+  m_uppercaseDisp: +
+  m_keyText: {fileID: 1774362274192422999}
 --- !u!1 &8382244953515017452
 GameObject:
   m_ObjectHideFlags: 0
@@ -16141,7 +16130,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 355614695489335154}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16257,7 +16245,7 @@ GameObject:
   - component: {fileID: 6609526440250937466}
   - component: {fileID: 1023433982292059057}
   - component: {fileID: 4661986191707262353}
-  - component: {fileID: 2981630211828418327}
+  - component: {fileID: 4842398048069856570}
   m_Layer: 5
   m_Name: v_V
   m_TagString: Untagged
@@ -16279,7 +16267,6 @@ RectTransform:
   m_Children:
   - {fileID: 9108153760215378674}
   m_Father: {fileID: 685514042899021452}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16368,7 +16355,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2981630211828418327}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -16380,7 +16367,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2981630211828418327
+--- !u!114 &4842398048069856570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16389,15 +16376,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8411690749041295635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: v
-  lowercase: v
-  uppercase: V
-  lowercaseDisp: v
-  uppercaseDisp: V
-  keyText: {fileID: 1938071100701037041}
+  m_current: v
+  m_lowercase: v
+  m_uppercase: V
+  m_lowercaseDisp: v
+  m_uppercaseDisp: V
+  m_keyText: {fileID: 1938071100701037041}
 --- !u!1 &8439474768478969635
 GameObject:
   m_ObjectHideFlags: 0
@@ -16436,12 +16423,11 @@ RectTransform:
   - {fileID: 6362689129071674877}
   - {fileID: 7014739520298979728}
   m_Father: {fileID: 5986317103184295914}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 363.63635, y: -105.56113}
+  m_SizeDelta: {x: 727.2727, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5369796166634254813
 MonoBehaviour:
@@ -16481,7 +16467,7 @@ GameObject:
   - component: {fileID: 7846976862613781638}
   - component: {fileID: 7430668518740772718}
   - component: {fileID: 2557277609839945482}
-  - component: {fileID: 8745014506245469102}
+  - component: {fileID: 3845747470247222240}
   m_Layer: 5
   m_Name: 9_)
   m_TagString: Untagged
@@ -16503,12 +16489,11 @@ RectTransform:
   m_Children:
   - {fileID: 9052849062174824731}
   m_Father: {fileID: 3284960760656414421}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 614.6818, y: -31.811117}
+  m_SizeDelta: {x: 61.727272, y: 63.622234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7846976862613781638
 CanvasRenderer:
@@ -16592,7 +16577,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8745014506245469102}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -16604,7 +16589,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8745014506245469102
+--- !u!114 &3845747470247222240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16613,15 +16598,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8450421424688337210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 9
-  lowercase: 9
-  uppercase: )
-  lowercaseDisp: 9
-  uppercaseDisp: )
-  keyText: {fileID: 667043164165075019}
+  m_current: 9
+  m_lowercase: 9
+  m_uppercase: )
+  m_lowercaseDisp: 9
+  m_uppercaseDisp: )
+  m_keyText: {fileID: 667043164165075019}
 --- !u!1 &8571756650686245561
 GameObject:
   m_ObjectHideFlags: 0
@@ -16634,7 +16619,7 @@ GameObject:
   - component: {fileID: 3680285788604878741}
   - component: {fileID: 18712571303950289}
   m_Layer: 5
-  m_Name: Placeholder(TMPro)
+  m_Name: Placeholder (TMPro)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16653,7 +16638,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8144478534777151587}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16788,7 +16772,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4877032233121299381}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16923,7 +16906,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7014739520298979728}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -17058,7 +17040,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6766067581760257661}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -17174,7 +17155,7 @@ GameObject:
   - component: {fileID: 5509038272069395031}
   - component: {fileID: 6697833807468142062}
   - component: {fileID: 1616043904847197982}
-  - component: {fileID: 5624059038351760679}
+  - component: {fileID: 3661715253665700227}
   m_Layer: 5
   m_Name: x_X
   m_TagString: Untagged
@@ -17196,7 +17177,6 @@ RectTransform:
   m_Children:
   - {fileID: 6314337497578473097}
   m_Father: {fileID: 685514042899021452}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17285,7 +17265,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5624059038351760679}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -17297,7 +17277,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5624059038351760679
+--- !u!114 &3661715253665700227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17306,15 +17286,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8809012703867270379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: x
-  lowercase: x
-  uppercase: X
-  lowercaseDisp: x
-  uppercaseDisp: X
-  keyText: {fileID: 2096604241651811095}
+  m_current: x
+  m_lowercase: x
+  m_uppercase: X
+  m_lowercaseDisp: x
+  m_uppercaseDisp: X
+  m_keyText: {fileID: 2096604241651811095}
 --- !u!1 &8877445378144135096
 GameObject:
   m_ObjectHideFlags: 0
@@ -17327,7 +17307,7 @@ GameObject:
   - component: {fileID: 2020598658857411800}
   - component: {fileID: 66152786183807708}
   - component: {fileID: 107809991965644046}
-  - component: {fileID: 740443032505115413}
+  - component: {fileID: 6942176490536308214}
   m_Layer: 5
   m_Name: r_R
   m_TagString: Untagged
@@ -17349,7 +17329,6 @@ RectTransform:
   m_Children:
   - {fileID: 107166927987050801}
   m_Father: {fileID: 2419574735945718093}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17438,7 +17417,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 740443032505115413}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -17450,7 +17429,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &740443032505115413
+--- !u!114 &6942176490536308214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17459,15 +17438,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8877445378144135096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: r
-  lowercase: r
-  uppercase: R
-  lowercaseDisp: r
-  uppercaseDisp: R
-  keyText: {fileID: 5773580543851951321}
+  m_current: r
+  m_lowercase: r
+  m_uppercase: R
+  m_lowercaseDisp: r
+  m_uppercaseDisp: R
+  m_keyText: {fileID: 5773580543851951321}
 --- !u!1 &9106614744176916910
 GameObject:
   m_ObjectHideFlags: 0
@@ -17480,7 +17459,7 @@ GameObject:
   - component: {fileID: 6779529028056127838}
   - component: {fileID: 6680775589452470971}
   - component: {fileID: 7692693849060307619}
-  - component: {fileID: 2620883479330231825}
+  - component: {fileID: 7887803039506002695}
   m_Layer: 5
   m_Name: -_=
   m_TagString: Untagged
@@ -17502,12 +17481,11 @@ RectTransform:
   m_Children:
   - {fileID: 804380640354352900}
   m_Father: {fileID: 240729484320025597}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 61.625153, y: -31.938887}
+  m_SizeDelta: {x: 63.25031, y: 63.877773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6779529028056127838
 CanvasRenderer:
@@ -17591,7 +17569,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2620883479330231825}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TLabKey, Assembly-CSharp
         m_MethodName: Press
         m_Mode: 1
@@ -17603,7 +17581,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2620883479330231825
+--- !u!114 &7887803039506002695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17612,12 +17590,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9106614744176916910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300160d85e0da54b92ba4d2719a8d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecc9c0415a281458394170d33c46b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: '-'
-  lowercase: '-'
-  uppercase: =
-  lowercaseDisp: '-'
-  uppercaseDisp: =
-  keyText: {fileID: 8757560531598309197}
+  m_current: '-'
+  m_lowercase: '-'
+  m_uppercase: =
+  m_lowercaseDisp: '-'
+  m_uppercaseDisp: =
+  m_keyText: {fileID: 8757560531598309197}

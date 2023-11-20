@@ -29,7 +29,7 @@ namespace TLab.Android.WebView
         {
             if (screenRect == null)
             {
-                Debug.Log("toucheventmanager: screenRect is null");
+                Debug.Log("screenRect is null");
                 return;
             }
 
@@ -43,8 +43,6 @@ namespace TLab.Android.WebView
             for (int i = 0; i < screenCorners.Length; i++)
             {
                 screenCorners[i] = RectTransformUtility.WorldToScreenPoint(Camera.main, screenCorners[i]);
-                Vector3 tmp = screenCorners[i];
-                Debug.Log("toucheventmanager: screenCorners[" + i + "]: " + tmp.x + ", " + tmp.y);
             }
 
             screenEdge = new float[4];
@@ -72,43 +70,34 @@ namespace TLab.Android.WebView
         {
             if (tlabWebView == null) return;
 
-#if !UNITY_EDITOR
-        foreach(Touch t in Input.touches)
-        {
-#if false
-            float x = t.position.x;
-            float y = t.position.y;
-#endif
-
-            int x = TouchHorizontal(t.position.x);
-            int y = TouchVertical(t.position.y);
-
-            int eventNum = (int)TouchPhase.Stationary;
-
-            if (t.phase == TouchPhase.Ended || t.phase == TouchPhase.Canceled) eventNum = TOUCH_UP;
-            else if (t.phase == TouchPhase.Began) eventNum = TOUCH_DOWN;
-            else if (t.phase == TouchPhase.Moved) eventNum = TOUCH_MOVE;
-
-            if (x > tlabWebView.WebWidth || x < 0 || y > tlabWebView.WebHeight || y < 0)
+#if UNITY_ANDROID
+            foreach(Touch t in Input.touches)
             {
-                if (onTheWeb == true && t.phase == TouchPhase.Moved)
-                    eventNum = TOUCH_UP;
+                int x = TouchHorizontal(t.position.x);
+                int y = TouchVertical(t.position.y);
+
+                int eventNum = (int)TouchPhase.Stationary;
+
+                if (t.phase == TouchPhase.Ended || t.phase == TouchPhase.Canceled) eventNum = TOUCH_UP;
+                else if (t.phase == TouchPhase.Began) eventNum = TOUCH_DOWN;
+                else if (t.phase == TouchPhase.Moved) eventNum = TOUCH_MOVE;
+
+                if (x > tlabWebView.WebWidth || x < 0 || y > tlabWebView.WebHeight || y < 0)
+                {
+                    if (onTheWeb == true && t.phase == TouchPhase.Moved)
+                        eventNum = TOUCH_UP;
+                    else
+                        eventNum = (int)TouchPhase.Stationary;
+
+                    onTheWeb = false;
+                }
                 else
-                    eventNum = (int)TouchPhase.Stationary;
+                {
+                    onTheWeb = true;
+                }
 
-                onTheWeb = false;
+                tlabWebView.TouchEvent(x, y, eventNum);
             }
-            else
-            {
-                onTheWeb = true;
-            }
-
-#if false
-            Debug.Log("toucheventmanager: mouse pos (" + x.ToString() + ", " + y.ToString() + ")");
-#endif
-
-            tlabWebView.TouchEvent(x, y, eventNum);
-        }
 #endif
         }
     }

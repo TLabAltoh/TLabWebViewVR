@@ -12,13 +12,14 @@ Support for both Oculus Integration and XR Interaction Toolkit.
 ![output](Media/tlab-webview-vr.gif)
 
 # Note
-The input system for WebView has been significantly changed
+- The input system for WebView has been significantly changed
 ```
 TLabWebViewVRTouchEventManager.cs --> TLabWebViewVRTouchEventListener.cs
 ```
 ```
 TLabWebViewXRInputManager.cs --> TLabWebViewXRInputListener.cs
 ```
+- Now officially compatible with Unity 2021 ~ 2022.
 
 ## Operating Environment
 - Oculus Quest 2
@@ -57,43 +58,10 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - Color Space: Linear
 - Graphics: OpenGLES3
 - Minimux API Level: 29 
-- Create Assets/Plugins/Android/AndroidManifest.xml and copy the following text
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
-  <application android:label="@string/app_name" android:icon="@mipmap/app_icon" android:allowBackup="false">
-    <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:configChanges="locale|fontScale|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:launchMode="singleTask" android:name="com.unity3d.player.UnityPlayerActivity" android:excludeFromRecents="true">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
-    <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="false" />
-    <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only" />
-  </application>
-	
-    <!-- For Unity-WebView -->
-    <application android:allowBackup="true"/>
-    <application android:supportsRtl="true"/>
-    <application android:hardwareAccelerated="true"/>
-    <application android:usesCleartextTraffic="true"/>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.MICROPHONE" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.microphone" />
-    <!-- For Unity-WebView -->
-	
-  <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
-</manifest>
-```
-#### Oculus Integration
+- Target API Level: 30 (Unity 2021), 31 ~ 32 (Unity 2022) 
 - ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> Oculus
+
+#### Oculus Integration
 - Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
 - Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
 	- Url: URL to load during WebView initialization  
@@ -103,7 +71,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 	- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 
 #### XR Interaction Toolkit
-- ProjectSettings/XRPlugin-Manegement  AndroidSettings --> Plugin-Provider --> OpenXR
 - Open Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
 - Change any parameter of TLabWebView attached to TLabWebViewVR_XRToolkit/TLabWebView/WebView from the hierarchy
 	- Url: URL to load during WebView initialization  
@@ -111,6 +78,15 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 	- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
 	- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
 	- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
+
+## Tutorial Videos
+### Asset Migration Tutorial (Youtube)
+- [Oculus Integration Sample](https://youtu.be/tAY8gM8EgvI)
+- [XR Interaction ToolkitSample](https://youtu.be/1OhMEAv6Qok)
+
+### Sample Repository for Unity 2022
+- [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
+- [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)
 
 ## Link
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)

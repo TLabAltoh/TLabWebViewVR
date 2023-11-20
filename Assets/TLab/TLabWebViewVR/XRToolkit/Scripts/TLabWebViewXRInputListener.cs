@@ -13,6 +13,7 @@ namespace TLab.XR.Oculus
         [SerializeField] private TLabWebView m_tlabWebView;
 
         [Header("XR Input Settings")]
+        [SerializeField] private XRRayInteractor m_rayInteractor;
         [SerializeField] private RectTransform m_webViewRect;
         [SerializeField] private InputActionReference m_triggerPress;
         //[SerializeField] private XRNode m_controllerNode = XRNode.RightHand;
@@ -83,16 +84,15 @@ namespace TLab.XR.Oculus
         void TouchRelease()
         {
             if (m_onTheWeb)
-            {
                 m_tlabWebView.TouchEvent(m_lastXPos, m_lastYPos, TOUCH_UP);
-            }
 
             m_onTheWeb = false;
         }
 
         void Update()
         {
-            Vector3 invertPositoin = m_webViewRect.transform.InverseTransformPoint(m_lineRenderer.GetPosition(m_lineRenderer.positionCount - 1));
+            m_rayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidate);
+            Vector3 invertPositoin = m_webViewRect.transform.InverseTransformPoint(position);
 
             float uvX = invertPositoin.x / m_webViewRect.rect.width + 0.5f;
             float uvY = 1.0f - (invertPositoin.y / m_webViewRect.rect.height + 0.5f);
