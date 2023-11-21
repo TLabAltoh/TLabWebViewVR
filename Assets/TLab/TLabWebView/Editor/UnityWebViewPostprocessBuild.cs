@@ -233,6 +233,7 @@ internal class AndroidManifest : AndroidXmlDocument
     internal bool AddMicrophone()
     {
         bool changed = false;
+
         if (SelectNodes("/manifest/uses-permission[@android:name='android.permission.MICROPHONE']", nsMgr).Count == 0)
         {
             var elem = CreateElement("uses-permission");
@@ -247,6 +248,7 @@ internal class AndroidManifest : AndroidXmlDocument
             ManifestElement.AppendChild(elem);
             changed = true;
         }
+
         // cf. https://github.com/gree/unity-webview/issues/679
         // cf. https://github.com/fluttercommunity/flutter_webview_plugin/issues/138#issuecomment-559307558
         // cf. https://stackoverflow.com/questions/38917751/webview-webrtc-not-working/68024032#68024032
@@ -262,6 +264,28 @@ internal class AndroidManifest : AndroidXmlDocument
         {
             var elem = CreateElement("uses-permission");
             elem.Attributes.Append(CreateAndroidAttribute("name", "android.permission.RECORD_AUDIO"));
+            ManifestElement.AppendChild(elem);
+            changed = true;
+        }
+
+        if (SelectNodes("/manifest/uses-permission[@android:name='android.permission.INTERNET']", nsMgr).Count == 0)
+        {
+            var elem = CreateElement("uses-permission");
+            elem.Attributes.Append(CreateAndroidAttribute("name", "android.permission.INTERNET"));
+            ManifestElement.AppendChild(elem);
+            changed = true;
+        }
+        if (SelectNodes("/manifest/uses-permission[@android:name='android.permission.ACCESS_NETWORK_STATE']", nsMgr).Count == 0)
+        {
+            var elem = CreateElement("uses-permission");
+            elem.Attributes.Append(CreateAndroidAttribute("name", "android.permission.ACCESS_NETWORK_STATE"));
+            ManifestElement.AppendChild(elem);
+            changed = true;
+        }
+        if (SelectNodes("/manifest/uses-permission[@android:name='android.permission.WRITE_EXTERNAL_STORAGE']", nsMgr).Count == 0)
+        {
+            var elem = CreateElement("uses-permission");
+            elem.Attributes.Append(CreateAndroidAttribute("name", "android.permission.WRITE_EXTERNAL_STORAGE"));
             ManifestElement.AppendChild(elem);
             changed = true;
         }

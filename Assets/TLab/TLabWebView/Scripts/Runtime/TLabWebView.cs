@@ -82,7 +82,6 @@ namespace TLab.Android.WebView
 			AndroidJNI.CallStaticVoidMethod(jniClass, jniFunc, new jvalue[] { });
 			Debug.Log("jni call method done !");
 
-			// https://stackoverflow.com/questions/7940484/jni-passing-multiple-parameters-in-the-function-signature-for-getmethodid
 			//jniFunc = AndroidJNI.GetStaticMethodID(jniClass, "generateSharedTexture", "(Ljava/lang/Integer;Ljava/lang/Integer;)V");
 			jniFunc = AndroidJNI.GetStaticMethodID(jniClass, "generateSharedTexture", "(II)V");
 			if (jniFunc != IntPtr.Zero && jniFunc != null) Debug.Log("jni function found ! : " + jniFunc);
