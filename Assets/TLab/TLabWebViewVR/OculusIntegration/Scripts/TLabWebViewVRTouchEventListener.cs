@@ -25,6 +25,10 @@ namespace TLab.XR.Oculus
 
         private const float m_rectZThreshold = 0.05f;
 
+        public OVRInput.Controller controller { get => m_controller; set => m_controller = value; }
+
+        public OVRInput.Button touchButton { get => m_touchButton; set => m_touchButton = value; }
+
         void TouchRelease()
         {
             if (m_onTheWeb)
@@ -39,8 +43,11 @@ namespace TLab.XR.Oculus
         {
             Vector3 invertPositoin = m_webViewRect.transform.InverseTransformPoint(m_pointerPos.position);
 
-            float uvX = invertPositoin.x / m_webViewRect.rect.width + 0.5f;
-            float uvY = 1.0f - (invertPositoin.y / m_webViewRect.rect.height + 0.5f);
+            // https://docs.unity3d.com/jp/2018.4/ScriptReference/Transform.InverseTransformPoint.html
+            invertPositoin.z *= m_webViewRect.transform.lossyScale.z;
+
+            float uvX = invertPositoin.x / m_webViewRect.rect.width + m_webViewRect.pivot.x;
+            float uvY = 1.0f - (invertPositoin.y / m_webViewRect.rect.height + m_webViewRect.pivot.x);
 
             if (Mathf.Abs(invertPositoin.z) < m_rectZThreshold &&
                 uvX >= 0.0f && uvX <= 1.0f && uvY >= 0.0f && uvY <= 1.0f)

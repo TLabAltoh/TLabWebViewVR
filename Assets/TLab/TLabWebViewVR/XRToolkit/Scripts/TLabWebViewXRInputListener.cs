@@ -93,9 +93,10 @@ namespace TLab.XR.Oculus
         {
             m_rayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidate);
             Vector3 invertPositoin = m_webViewRect.transform.InverseTransformPoint(position);
+            invertPositoin.z *= m_webViewRect.transform.lossyScale.z;
 
-            float uvX = invertPositoin.x / m_webViewRect.rect.width + 0.5f;
-            float uvY = 1.0f - (invertPositoin.y / m_webViewRect.rect.height + 0.5f);
+            float uvX = invertPositoin.x / m_webViewRect.rect.width + m_webViewRect.pivot.x;
+            float uvY = 1.0f - (invertPositoin.y / m_webViewRect.rect.height + m_webViewRect.pivot.x);
 
             if (Mathf.Abs(invertPositoin.z) < m_rectZThreshold &&
                 uvX >= 0.0f && uvX <= 1.0f && uvY >= 0.0f && uvY <= 1.0f)

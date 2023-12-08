@@ -16278,6 +16278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_keyborad: {fileID: 2196997257074658422}
+  m_activeOnAwake: 0
   m_webview: {fileID: 6272470167859563041}
 --- !u!114 &2196997257074658422
 MonoBehaviour:
@@ -16297,6 +16298,10 @@ MonoBehaviour:
   m_romajiBOX: {fileID: 7488771226739310331}
   m_symbolBOX: {fileID: 8930438032436807276}
   m_operatorBOX: {fileID: 8328552708890240001}
+  m_anchor: {fileID: 0}
+  m_onHide:
+    m_PersistentCalls:
+      m_Calls: []
   m_inputFieldBase: {fileID: 0}
 --- !u!1 &8534746349408697207
 GameObject:
@@ -16672,6 +16677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_keyborad: {fileID: 2196997257074658422}
+  m_activeOnAwake: 0
   m_webview: {fileID: 6272470167859563041}
   m_searchBar: {fileID: 1766985903239461336}
 --- !u!1 &8762454070760670616

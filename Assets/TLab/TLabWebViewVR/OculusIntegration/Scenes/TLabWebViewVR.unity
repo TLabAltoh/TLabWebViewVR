@@ -8889,16 +8889,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f3aebcb2d745047a7ca1149adece5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveController: 1
-  m_jumpButton: 1
-  m_runButton: 2
-  m_centerEyeAnchor: {fileID: 617356000}
+  m_directionAnchor: {fileID: 617356000}
   m_runSpeed: 1.5
   m_moveSpeed: 1
+  m_groundThreshold: 0.2
   m_jumpHeight: 1.5
   m_jumpInertia: 0.5
   m_gravity: 1
   m_controller: {fileID: 617356004}
+  m_moveController: 1
+  m_jumpButton: 1
+  m_runButton: 2
 --- !u!143 &617356004
 CharacterController:
   m_ObjectHideFlags: 0

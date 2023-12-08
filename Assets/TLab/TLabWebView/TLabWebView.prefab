@@ -3777,7 +3777,7 @@ GameObject:
   - component: {fileID: 4322460698287699718}
   - component: {fileID: 1296943328814292584}
   - component: {fileID: 6905492866619264919}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WebView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12168,7 +12168,7 @@ GameObject:
   - component: {fileID: 6721217010310261596}
   - component: {fileID: 8345417720722456429}
   - component: {fileID: 7155534287284649268}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TLabWebView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13298,6 +13298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_keyborad: {fileID: 6753869837092791372}
+  m_activeOnAwake: 1
   m_webview: {fileID: 6905492866619264919}
 --- !u!114 &6753869837092791372
 MonoBehaviour:
@@ -13317,6 +13318,10 @@ MonoBehaviour:
   m_romajiBOX: {fileID: 88249798458680302}
   m_symbolBOX: {fileID: 1716121224064343940}
   m_operatorBOX: {fileID: 7897465551085816136}
+  m_anchor: {fileID: 0}
+  m_onHide:
+    m_PersistentCalls:
+      m_Calls: []
   m_inputFieldBase: {fileID: 0}
 --- !u!82 &6835187605676784082
 AudioSource:

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TLab.InputField
 {
@@ -103,6 +103,12 @@ namespace TLab.InputField
         [SerializeField] private GameObject m_symbolBOX;
         [SerializeField] private GameObject m_operatorBOX;
 
+        [Header("Transform Anchor")]
+        [SerializeField] private Transform m_anchor;
+
+        [Header("Hide Keyborad Callback")]
+        [SerializeField] private UnityEvent<TLabVKeyborad, bool> m_onHide;
+
         [SerializeField, HideInInspector]
         private TLabInputFieldBase m_inputFieldBase;
 
@@ -111,16 +117,45 @@ namespace TLab.InputField
         private float m_backSpaceKeyTime = 0.0f;
         private List<string> m_inputBuffer = new List<string>();
 
+        private const string BACKSPACE = "BACKSPACE";
+        private const string ENTER = "ENTER";
+        private const string SHIFT = "SHIFT";
+        private const string SPACE = "SPACE";
+        private const string TAB = "TAB";
+        private const string SYMBOL = "SYMBOL";
+
+        private const float IMMEDIATELY = 0f;
+        private const float BACKSPACE_DELAY = 0.1f;
+
         public bool isMobile => m_isMobile;
 
-        public void SwitchInputField(TLabInputFieldBase inputFieldBase)
+        public TLabInputFieldBase inputFieldBase => m_inputFieldBase;
+
+        public void SwitchInputField(TLabInputFieldBase inputFieldBase) => m_inputFieldBase = inputFieldBase;
+
+        // Keyboradを子階層に持つTransformを動かす
+        // TODO: RectTransform対応
+        public void SetTransform(Vector3 position, Vector3 target, Vector3 worldUp)
         {
-            m_inputFieldBase = inputFieldBase;
+            m_anchor.position = position;
+
+            m_anchor.LookAt(target, worldUp);
         }
 
-        public void HideKeyborad(bool active)
+        public void HideKeyborad(bool active, bool callbackSync = false)
         {
             m_keyBOX.SetActive(!active);
+
+            // callback
+
+            if (callbackSync)
+            {
+                SyncUtility.AfterFrame(delegate { m_onHide.Invoke(this, active); }, 1);
+            }
+            else
+            {
+                m_onHide.Invoke(this, active);
+            }
         }
 
         #region PLATFORM_UTIL
@@ -146,14 +181,22 @@ namespace TLab.InputField
 
         void Awake()
         {
+            // awakeからonHideを呼び出すとき，また目的のインスタンスが生成されていない可能性がある．
+            // そのため，onHideを1フレーム待ってから実行する
+
             if (!CheckIfMobile())
             {
-                HideKeyborad(true);
+                HideKeyborad(true, callbackSync: true);
             }
         }
 
         void Start()
         {
+            if (m_anchor == null)
+            {
+                m_anchor = this.transform;
+            }
+
             // For desktops, set up the system assuming a keyboard is used.
             if (m_isMobile)
             {
@@ -183,40 +226,40 @@ namespace TLab.InputField
                     {
                         switch (input)
                         {
-                            case "BACKSPACE":
+                            case BACKSPACE:
                                 m_inputFieldBase?.OnBackSpacePressed();
-                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, 0.0f);
+                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, IMMEDIATELY);
                                 break;
-                            case "ENTER":
+                            case ENTER:
                                 m_inputFieldBase?.OnEnterPressed();
-                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, 0.0f);
+                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, IMMEDIATELY);
                                 break;
-                            case "SHIFT":
+                            case SHIFT:
                                 foreach (TLabKey key in TLabKey.Keys(m_keyBOX))
                                 {
                                     key.ShiftPressed();
                                 }
                                 m_inputFieldBase?.OnShiftPressed();
-                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, 0.0f);
+                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, IMMEDIATELY);
                                 break;
-                            case "SPACE":
+                            case SPACE:
                                 m_inputFieldBase?.OnSpacePressed();
-                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, 0.0f);
+                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, IMMEDIATELY);
                                 break;
-                            case "TAB":
+                            case TAB:
                                 m_inputFieldBase?.OnTabPressed();
-                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, 0.0f);
+                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, IMMEDIATELY);
                                 break;
-                            case "SYMBOL":
+                            case SYMBOL:
                                 bool active = m_romajiBOX.activeSelf;
                                 m_romajiBOX.SetActive(!active);
                                 m_symbolBOX.SetActive(active);
                                 m_inputFieldBase?.OnSymbolPressed();
-                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, 0.0f);
+                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, IMMEDIATELY);
                                 break;
                             default:
                                 m_inputFieldBase?.OnKeyPressed(input);
-                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, 0.0f);
+                                AudioUtility.ShotAudio(m_audioSource, m_keyStroke, IMMEDIATELY);
                                 break;
                         }
                     }
@@ -246,7 +289,7 @@ namespace TLab.InputField
                         {
                             m_inputFieldBase?.OnSpacePressed();
                         }
-                        else if (Input.GetKey(KeyCode.Backspace) && m_backSpaceKeyTime > 0.1f)
+                        else if (Input.GetKey(KeyCode.Backspace) && m_backSpaceKeyTime > BACKSPACE_DELAY)
                         {
                             m_inputFieldBase?.OnBackSpacePressed();
                             m_backSpaceKeyTime = 0.0f;

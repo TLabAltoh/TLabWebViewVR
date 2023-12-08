@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace TLab.InputField
 {
+    [RequireComponent(typeof(AudioSource))]
     public class TLabInputField : TLabInputFieldBase
     {
         [Header("Text (TMPro)")]
@@ -14,7 +16,7 @@ namespace TLab.InputField
         [SerializeField] private GameObject m_lockImage;
 
         [Header("Button")]
-        [SerializeField] private GameObject m_inputFieldButton;
+        [SerializeField] private Button m_focusButton;
 
         [Header("HideObject")]
         [SerializeField] private GameObject[] m_hideObjects;
@@ -23,33 +25,26 @@ namespace TLab.InputField
         [SerializeField] private AudioSource m_audioSource;
         [SerializeField] private AudioClip m_lockKeyborad;
 
-        [System.NonSerialized] public string m_text = "";
+        [System.NonSerialized] public string text = "";
+
+        private const float IMMEDIATELY = 0f;
 
         #region KEY_EVENT
 
         public override void OnBackSpacePressed()
         {
-            if (m_text != "")
+            if (text != "")
             {
-                m_text = m_text.Remove(m_text.Length - 1);
+                text = text.Remove(text.Length - 1);
                 Display();
             }
         }
 
-        public override void OnSpacePressed()
-        {
-            AddKey(" ");
-        }
+        public override void OnSpacePressed() => AddKey(" ");
 
-        public override void OnTabPressed()
-        {
-            AddKey("    ");
-        }
+        public override void OnTabPressed() => AddKey("    ");
 
-        public override void OnKeyPressed(string input)
-        {
-            AddKey(input);
-        }
+        public override void OnKeyPressed(string input) => AddKey(input);
 
         #endregion KEY_EVENT
 
@@ -61,7 +56,8 @@ namespace TLab.InputField
 
             m_openImage.SetActive(active);
             m_lockImage.SetActive(!active);
-            m_inputFieldButton.SetActive(!active);
+
+            m_focusButton.enabled = !active;
 
             if (m_keyborad.isMobile)
             {
@@ -73,7 +69,7 @@ namespace TLab.InputField
                 m_keyborad.HideKeyborad(!active);
             }
 
-            AudioUtility.ShotAudio(m_audioSource, m_lockKeyborad, 0.0f);
+            AudioUtility.ShotAudio(m_audioSource, m_lockKeyborad, IMMEDIATELY);
         }
 
         #endregion FOUCUS_EVENET
@@ -92,20 +88,20 @@ namespace TLab.InputField
 
         public void Display()
         {
-            m_inputText.text = m_text;
+            m_inputText.text = text;
 
             SwitchPlaseholder();
         }
 
         public void AddKey(string key)
         {
-            m_text += key;
+            text += key;
             Display();
         }
 
         public void SetPlaceHolder(string text)
         {
-            this.m_text = "";
+            this.text = "";
             m_placeholder.text = text;
             Display();
         }
@@ -114,7 +110,7 @@ namespace TLab.InputField
         {
             OnFocus(false);
 
-            m_text = m_inputText.text;
+            text = m_inputText.text;
 
             SwitchPlaseholder();
         }
@@ -122,8 +118,11 @@ namespace TLab.InputField
 #if UNITY_EDITOR
         void OnValidate()
         {
-            m_audioSource = GetComponent<AudioSource>();
-            UnityEditor.EditorUtility.SetDirty(this);
+            if (m_audioSource == null)
+            {
+                m_audioSource = GetComponent<AudioSource>();
+                UnityEditor.EditorUtility.SetDirty(this);
+            }
         }
 #endif
     }

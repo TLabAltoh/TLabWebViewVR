@@ -7,6 +7,11 @@ namespace TLab.InputField
         [Header("Keyborad")]
         [SerializeField] protected TLabVKeyborad m_keyborad;
 
+        [Header("Option")]
+        [SerializeField] protected bool m_activeOnAwake = false;
+
+        public bool inputFieldIsActive => m_keyborad.inputFieldBase == this;
+
         #region KEY_EVENT
 
         public virtual void OnBackSpacePressed() { }
@@ -27,14 +32,21 @@ namespace TLab.InputField
 
         #region FOUCUS_EVENET
 
-        public virtual void OnFocus(bool active)
-        {
-            m_keyborad.SwitchInputField(active ? this : null);
-        }
+        protected virtual void SwitchInputField(bool active) => m_keyborad.SwitchInputField(active ? this : null);
+
+        public virtual void OnFocus(bool active) => SwitchInputField(active);
+
+        public virtual void OnFocus() => SwitchInputField(!inputFieldIsActive);
 
         #endregion FOUCUS_EVENT
 
-        protected virtual void Start() { }
+        protected virtual void Start()
+        {
+            if (m_activeOnAwake)
+            {
+                m_keyborad.SwitchInputField(this);
+            }
+        }
 
         protected virtual void Update() { }
     }
