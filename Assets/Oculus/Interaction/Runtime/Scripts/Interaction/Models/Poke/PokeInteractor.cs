@@ -727,6 +727,7 @@ namespace Oculus.Interaction
         protected override void HandleDisabled()
         {
             _hitInteractable = null;
+            IsPassedSurface = false;
             base.HandleDisabled();
         }
 

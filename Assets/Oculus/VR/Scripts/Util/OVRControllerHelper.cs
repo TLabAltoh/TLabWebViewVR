@@ -23,6 +23,7 @@ using UnityEngine;
 /// <summary>
 /// Simple helper script that conditionally enables rendering of a controller if it is connected.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_controller_helper")]
 public class OVRControllerHelper : MonoBehaviour
 {
     /// <summary>

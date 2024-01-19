@@ -41,7 +41,7 @@ namespace TLab.Android.WebView
         {
             var notActive = !inputFieldIsActive;
 
-            if (m_keyborad.isMobile && notActive)
+            if (m_keyborad.mobile && notActive)
             {
                 m_keyborad.SwitchInputField(this);
                 m_keyborad.HideKeyborad(false);
@@ -50,7 +50,6 @@ namespace TLab.Android.WebView
 
         public void AddKey(string key)
         {
-            Debug.Log(key);
             m_webview.KeyEvent(key.ToCharArray()[0]);
         }
     }

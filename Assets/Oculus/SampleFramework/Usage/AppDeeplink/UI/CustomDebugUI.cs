@@ -20,16 +20,6 @@ public class CustomDebugUI : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public RectTransform AddTextField(string label, int targetCanvas = 0)
     {
         RectTransform textRT = GameObject.Instantiate(textPrefab).GetComponent<RectTransform>();

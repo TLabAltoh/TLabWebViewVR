@@ -359,6 +359,12 @@ public class OVRSkeleton : MonoBehaviour
                 }
             }
 
+            // if allocated bone here before, make sure the name is correct.
+            if (GetBoneTransform(bone.Id) == null)
+            {
+                bone.Transform.name = BoneLabelFromBoneId(_skeletonType, bone.Id);
+            }
+
             var pose = _skeleton.Bones[i].Pose;
 
             if (_applyBoneTranslations)

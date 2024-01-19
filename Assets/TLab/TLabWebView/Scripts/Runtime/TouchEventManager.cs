@@ -29,14 +29,10 @@ namespace TLab.Android.WebView
         {
             if (screenRect == null)
             {
-                Debug.Log("screenRect is null");
+                Debug.LogError("screenRect is null");
                 return;
             }
 
-            // Screen Corners[0] : Left bottom
-            // Screen Corners[1] : Left tops
-            // Screen Corners[2] : Right tops
-            // Screen Corners[3] : Right bottom
             Vector3[] screenCorners = new Vector3[4];
             screenRect.GetWorldCorners(screenCorners);
 
@@ -68,10 +64,13 @@ namespace TLab.Android.WebView
 
         void Update()
         {
-            if (tlabWebView == null) return;
+            if (tlabWebView == null)
+            {
+                return;
+            }
 
 #if UNITY_ANDROID
-            foreach(Touch t in Input.touches)
+            foreach (Touch t in Input.touches)
             {
                 int x = TouchHorizontal(t.position.x);
                 int y = TouchVertical(t.position.y);

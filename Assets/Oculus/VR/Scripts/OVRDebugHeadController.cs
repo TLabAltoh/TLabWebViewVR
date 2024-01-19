@@ -48,6 +48,7 @@ using UnityEngine.Experimental.XR;
 /// platform.
 /// In general, this behavior should be disabled when not debugging.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_debug_head_controller")]
 public class OVRDebugHeadController : MonoBehaviour
 {
     [SerializeField]

@@ -6,22 +6,24 @@ namespace TLab.InputField.Editor
     [CustomEditor(typeof(TLabVKeyborad))]
     public class TLabVKeyboradEditor : UnityEditor.Editor
     {
+        private TLabVKeyborad m_instance;
+
+        private void OnEnable()
+        {
+            m_instance = target as TLabVKeyborad;
+        }
+
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            serializedObject.Update();
-
             EditorGUILayout.Space();
 
-            TLabVKeyborad inputField = target as TLabVKeyborad;
-            if (GUILayout.Button("Initialize"))
+            if (GUILayout.Button("CheckTLabKeyExist"))
             {
-                inputField.InitializeTLabKey();
-                EditorUtility.SetDirty(inputField);
+                m_instance.CheckTLabKeyExist();
+                EditorUtility.SetDirty(m_instance);
             }
-
-            serializedObject.ApplyModifiedProperties();
         }
     }
 }

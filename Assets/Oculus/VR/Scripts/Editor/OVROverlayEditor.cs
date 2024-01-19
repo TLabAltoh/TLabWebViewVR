@@ -54,58 +54,15 @@ public class OVROverlayEditor : Editor
     private bool sourceRectsVisible = false;
     private bool destRectsVisible = false;
 
-    private Material _SrcRectMaterial;
+    private bool _DidLookupSrcRectShader;
+    private bool _DidLookupDestRectShader;
+    private Shader _SrcRectShader;
+    private Shader _DestRectShader;
 
-    protected Material SrcRectMaterial
-    {
-        get
-        {
-            if (_SrcRectMaterial == null)
-            {
-                string[] shaders = AssetDatabase.FindAssets("OVROverlaySrcRectEditor");
-
-                if (shaders.Length > 0)
-                {
-                    Shader shader = (Shader)AssetDatabase.LoadAssetAtPath(
-                        AssetDatabase.GUIDToAssetPath(shaders[0]), typeof(Shader));
-
-                    if (shader != null)
-                    {
-                        _SrcRectMaterial = new Material(shader);
-                    }
-                }
-            }
-
-            return _SrcRectMaterial;
-        }
-    }
-
-    private Material _DestRectMaterial;
-
-    protected Material DestRectMaterial
-    {
-        get
-        {
-            if (_DestRectMaterial == null)
-            {
-                string[] shaders = AssetDatabase.FindAssets("OVROverlayDestRectEditor");
-
-                if (shaders.Length > 0)
-                {
-                    Shader shader =
-                        (Shader)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(shaders[0]),
-                            typeof(Shader));
-
-                    if (shader != null)
-                    {
-                        _DestRectMaterial = new Material(shader);
-                    }
-                }
-            }
-
-            return _DestRectMaterial;
-        }
-    }
+    private Material _SrcRectMaterialLeft;
+    private Material _SrcRectMaterialRight;
+    private Material _DestRectMaterialLeft;
+    private Material _DestRectMaterialRight;
 
     private TextureRect _DraggingRect;
     private Side _DraggingSide;
@@ -251,6 +208,8 @@ public class OVROverlayEditor : Editor
                 new GUIContent("Overlay Shape", "The shape of this overlay"), ref currentShapeIndex,
                 selectableShapeNames, ref modified);
             overlay.currentOverlayShape = selectableShapeValues[currentShapeIndex];
+            if (modified && overlay.previewInEditor)
+                overlay.ResetEditorPreview();
         }
 
         if (overlay.currentOverlayShape == OVROverlay.OverlayShape.Cubemap)
@@ -387,17 +346,26 @@ public class OVROverlayEditor : Editor
 
             if (overlay.overrideTextureRectMatrix)
             {
+                const float displaySize = 128;
+                const float padding = 4;
                 sourceRectsVisible = EditorGUILayout.Foldout(sourceRectsVisible,
                     new GUIContent("Source Rects",
                         "What portion of the source texture will ultimately be shown in each eye."));
 
+                Color backgroundColor = new Color32(56, 56, 56, 255);
+                Color dragLeftColor = Color.red;
+                Color dragRightColor = Color.green;
+
+                if (PlayerSettings.colorSpace == ColorSpace.Linear)
+                {
+                    backgroundColor = backgroundColor.gamma;
+                }
+
                 if (sourceRectsVisible)
                 {
-                    var mat = SrcRectMaterial;
-
-                    if (mat != null)
+                    if (TryGetSrcRectMaterials(out var leftMat, out var rightMat))
                     {
-                        Rect drawRect = EditorGUILayout.GetControlRect(GUILayout.Height(128 + 8));
+                        Rect drawRect = EditorGUILayout.GetControlRect(GUILayout.Height(displaySize + padding * 2));
                         Vector4 srcLeft = new Vector4(Mathf.Max(0.0f, overlay.srcRectLeft.x),
                             Mathf.Max(0.0f, overlay.srcRectLeft.y),
                             Mathf.Min(1.0f - overlay.srcRectLeft.x, overlay.srcRectLeft.width),
@@ -413,31 +381,53 @@ public class OVROverlayEditor : Editor
                             srcRight.y = 1 - srcRight.y - srcRight.w;
                         }
 
-                        mat.SetVector("_SrcRectLeft", srcLeft);
-                        mat.SetVector("_SrcRectRight", srcRight);
-                        // center our draw rect
-                        var drawRectCentered = new Rect(drawRect.x + drawRect.width / 2 - 128 - 4, drawRect.y, 256 + 8,
-                            drawRect.height);
-                        EditorGUI.DrawPreviewTexture(drawRectCentered, overlay.textures[0] ?? Texture2D.blackTexture,
-                            mat);
+                        float aspect = overlay.textures[0] != null
+                            ? overlay.textures[0].width / overlay.textures[0].height
+                            : 1;
 
-                        var drawRectInset = new Rect(drawRectCentered.x + 4, drawRectCentered.y + 4,
-                            drawRectCentered.width - 8, drawRectCentered.height - 8);
-                        UpdateRectDragging(drawRectInset, drawRectInset, TextureRect.SrcLeft, TextureRect.SrcRight,
+                        float maxWidth = (drawRect.width - padding * 6) / 2;
+                        float width = Mathf.Round(Mathf.Min(maxWidth, aspect * displaySize));
+                        float height = Mathf.Round(Mathf.Min(displaySize, maxWidth / aspect));
+
+                        // Populate our material properties
+                        leftMat.SetVector("_PaddingAndSize", new Vector4(padding, padding, width, height));
+                        leftMat.SetVector("_SrcRect", srcLeft);
+                        leftMat.SetColor("_DragColor", dragLeftColor);
+                        leftMat.SetColor("_BackgroundColor", backgroundColor);
+
+                        rightMat.SetVector("_PaddingAndSize", new Vector4(padding, padding, width, height));
+                        rightMat.SetVector("_SrcRect", srcRight);
+                        rightMat.SetColor("_DragColor", dragRightColor);
+                        rightMat.SetColor("_BackgroundColor", backgroundColor);
+
+                        // center our draw rect
+                        var drawRectLeft = new Rect(drawRect.center.x - width - padding * 3, drawRect.center.y - height / 2 - padding, width + padding * 2,
+                            height + padding * 2);
+                        var drawRectRight = new Rect(drawRect.center.x + padding, drawRect.center.y - height / 2 - padding, width + padding * 2,
+                            height + padding * 2);
+                        EditorGUI.DrawPreviewTexture(drawRectLeft, overlay.textures[0] ?? Texture2D.blackTexture,
+                            leftMat);
+                        EditorGUI.DrawPreviewTexture(drawRectRight, overlay.textures[1] ?? overlay.textures[0] ?? Texture2D.blackTexture,
+                            rightMat);
+
+                        var drawRectInsetLeft = new Rect(drawRectLeft.x + padding, drawRectLeft.y + padding, width, height);
+                        var drawRectInsetRight = new Rect(drawRectRight.x + padding, drawRectRight.y + padding, width, height);
+
+                        UpdateRectDragging(drawRectInsetLeft, drawRectInsetRight, TextureRect.SrcLeft, TextureRect.SrcRight,
                             overlay.invertTextureRects, ref overlay.srcRectLeft, ref overlay.srcRectRight);
-                        CreateCursorRects(drawRectInset, overlay.srcRectLeft, overlay.invertTextureRects);
-                        CreateCursorRects(drawRectInset, overlay.srcRectRight, overlay.invertTextureRects);
+                        CreateCursorRects(drawRectInsetLeft, overlay.srcRectLeft, overlay.invertTextureRects);
+                        CreateCursorRects(drawRectInsetRight, overlay.srcRectRight, overlay.invertTextureRects);
                     }
 
                     var labelControlRect = EditorGUILayout.GetControlRect();
                     EditorGUI.LabelField(
-                        new Rect(labelControlRect.x, labelControlRect.y, labelControlRect.width / 2,
+                        new Rect(labelControlRect.x + padding, labelControlRect.y, labelControlRect.width / 2 - padding * 2,
                             labelControlRect.height),
                         new GUIContent("Left Source Rect",
                             "The rect in the source image that will be displayed on the left eye layer"));
                     EditorGUI.LabelField(
-                        new Rect(labelControlRect.x + labelControlRect.width / 2, labelControlRect.y,
-                            labelControlRect.width / 2, labelControlRect.height),
+                        new Rect(labelControlRect.center.x + padding, labelControlRect.y,
+                            labelControlRect.width / 2 - padding * 2, labelControlRect.height),
                         new GUIContent("Right Source Rect",
                             "The rect in the source image that will be displayed on the right eye layer"));
 
@@ -445,11 +435,11 @@ public class OVROverlayEditor : Editor
 
                     EditorGUI.BeginChangeCheck();
                     var srcRectLeft = Clamp01(EditorGUI.RectField(
-                        new Rect(rectControlRect.x, rectControlRect.y, rectControlRect.width / 2 - 20,
+                        new Rect(rectControlRect.x + padding, rectControlRect.y, rectControlRect.width / 2 - padding * 2,
                             rectControlRect.height), overlay.srcRectLeft));
                     var srcRectRight = Clamp01(EditorGUI.RectField(
-                        new Rect(rectControlRect.x + rectControlRect.width / 2, rectControlRect.y,
-                            rectControlRect.width / 2 - 20, rectControlRect.height), overlay.srcRectRight));
+                        new Rect(rectControlRect.center.x + padding, rectControlRect.y,
+                            rectControlRect.width / 2 - padding * 2, rectControlRect.height), overlay.srcRectRight));
 
                     if (EditorGUI.EndChangeCheck())
                     {
@@ -494,11 +484,9 @@ public class OVROverlayEditor : Editor
                         "What portion of the destination texture that the source will be rendered into."));
                 if (destRectsVisible)
                 {
-                    var mat = DestRectMaterial;
-
-                    if (mat != null)
+                    if (TryGetDestRectMaterials(out var leftMat, out var rightMat))
                     {
-                        Rect drawRect = EditorGUILayout.GetControlRect(GUILayout.Height(128 + 8));
+                        Rect drawRect = EditorGUILayout.GetControlRect(GUILayout.Height(displaySize + padding * 2));
 
                         Vector4 srcLeft = new Vector4(Mathf.Max(0.0f, overlay.srcRectLeft.x),
                             Mathf.Max(0.0f, overlay.srcRectLeft.y),
@@ -525,25 +513,38 @@ public class OVROverlayEditor : Editor
                             destRight.y = 1 - destRight.y - destRight.w;
                         }
 
-                        mat.SetVector("_SrcRectLeft", srcLeft);
-                        mat.SetVector("_SrcRectRight", srcRight);
-                        mat.SetVector("_DestRectLeft", destLeft);
-                        mat.SetVector("_DestRectRight", destRight);
-                        mat.SetColor("_BackgroundColor",
-                            EditorGUIUtility.isProSkin
-                                ? (Color)new Color32(56, 56, 56, 255)
-                                : (Color)new Color32(194, 194, 194, 255));
+                        float aspect = overlay.transform.lossyScale.x / overlay.transform.lossyScale.y;
 
-                        var drawRectCentered = new Rect(drawRect.x + drawRect.width / 2 - 128 - 16 - 4, drawRect.y,
-                            256 + 32 + 8, drawRect.height);
+                        float maxWidth = (drawRect.width - padding * 6) / 2;
+                        float width = Mathf.Round(Mathf.Min(maxWidth, aspect * displaySize));
+                        float height = Mathf.Round(Mathf.Min(displaySize, maxWidth / aspect));
+
+                        // Populate our material properties
+                        leftMat.SetVector("_PaddingAndSize", new Vector4(padding, padding, width, height));
+                        leftMat.SetVector("_SrcRect", srcLeft);
+                        leftMat.SetVector("_DestRect", destLeft);
+                        leftMat.SetColor("_DragColor", dragLeftColor);
+                        leftMat.SetColor("_BackgroundColor", backgroundColor);
+
+                        rightMat.SetVector("_PaddingAndSize", new Vector4(padding, padding, width, height));
+                        rightMat.SetVector("_SrcRect", srcRight);
+                        rightMat.SetVector("_DestRect", destRight);
+                        rightMat.SetColor("_DragColor", dragRightColor);
+                        rightMat.SetColor("_BackgroundColor", backgroundColor);
+
+                        var drawRectLeft = new Rect(drawRect.center.x - width - padding * 3, drawRect.center.y - height / 2 - padding, width + padding * 2,
+                            height + padding * 2);
+                        var drawRectRight = new Rect(drawRect.center.x + padding, drawRect.center.y - height / 2 - padding, width + padding * 2,
+                            height + padding * 2);
+
                         // center our draw rect
-                        EditorGUI.DrawPreviewTexture(drawRectCentered, overlay.textures[0] ?? Texture2D.blackTexture,
-                            mat);
+                        EditorGUI.DrawPreviewTexture(drawRectLeft, overlay.textures[0] ?? Texture2D.blackTexture,
+                            leftMat);
+                        EditorGUI.DrawPreviewTexture(drawRectRight, overlay.textures[1] ?? overlay.textures[0] ?? Texture2D.blackTexture,
+                            rightMat);
 
-                        var drawRectInsetLeft = new Rect(drawRectCentered.x + 4, drawRectCentered.y + 4,
-                            drawRectCentered.width / 2 - 20, drawRectCentered.height - 8);
-                        var drawRectInsetRight = new Rect(drawRectCentered.x + drawRectCentered.width / 2 + 16,
-                            drawRectCentered.y + 4, drawRectCentered.width / 2 - 20, drawRectCentered.height - 8);
+                        var drawRectInsetLeft = new Rect(drawRectLeft.x + padding, drawRectLeft.y + padding, width, height);
+                        var drawRectInsetRight = new Rect(drawRectRight.x + padding, drawRectRight.y + padding, width, height);
                         UpdateRectDragging(drawRectInsetLeft, drawRectInsetRight, TextureRect.DestLeft,
                             TextureRect.DestRight, overlay.invertTextureRects, ref overlay.destRectLeft,
                             ref overlay.destRectRight);
@@ -554,13 +555,13 @@ public class OVROverlayEditor : Editor
 
                     var labelControlRect = EditorGUILayout.GetControlRect();
                     EditorGUI.LabelField(
-                        new Rect(labelControlRect.x, labelControlRect.y, labelControlRect.width / 2,
+                        new Rect(labelControlRect.x + padding, labelControlRect.y, labelControlRect.width / 2 - padding * 2,
                             labelControlRect.height),
                         new GUIContent("Left Destination Rect",
                             "The rect in the destination layer the left eye will display to"));
                     EditorGUI.LabelField(
-                        new Rect(labelControlRect.x + labelControlRect.width / 2, labelControlRect.y,
-                            labelControlRect.width / 2, labelControlRect.height),
+                        new Rect(labelControlRect.center.x + padding, labelControlRect.y,
+                            labelControlRect.width / 2 - padding, labelControlRect.height),
                         new GUIContent("Right Destination Rect",
                             "The rect in the destination layer the right eye will display to"));
 
@@ -568,11 +569,11 @@ public class OVROverlayEditor : Editor
 
                     EditorGUI.BeginChangeCheck();
                     var destRectLeft = Clamp01(EditorGUI.RectField(
-                        new Rect(rectControlRect.x, rectControlRect.y, rectControlRect.width / 2 - 20,
+                        new Rect(rectControlRect.x + padding, rectControlRect.y, rectControlRect.width / 2 - padding * 2,
                             rectControlRect.height), overlay.destRectLeft));
                     var destRectRight = Clamp01(EditorGUI.RectField(
-                        new Rect(rectControlRect.x + rectControlRect.width / 2, rectControlRect.y,
-                            rectControlRect.width / 2 - 20, rectControlRect.height), overlay.destRectRight));
+                        new Rect(rectControlRect.center.x + padding, rectControlRect.y,
+                            rectControlRect.width / 2 - padding * 2, rectControlRect.height), overlay.destRectRight));
 
                     if (EditorGUI.EndChangeCheck())
                     {
@@ -629,10 +630,11 @@ public class OVROverlayEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Preview", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_propPreviewInEditor,
-            new GUIContent("Preview in Editor (Experimental)",
-                "Preview the overlay in the editor using a mesh renderer."));
+            new GUIContent("Preview in Editor",
+                "Creates a visual preview of the overlay for visualization purposes which will not be saved to the scene."));
 
         _propNoDepthBufferTesting.boolValue = !tmpEnableDepthBufferTest;
+        overlay.previewInEditor = _propPreviewInEditor.boolValue;
         serializedObject.ApplyModifiedProperties();
     }
 
@@ -899,5 +901,100 @@ public class OVROverlayEditor : Editor
                 rect.height = Mathf.Max(0, y - rect.y);
                 break;
         }
+    }
+
+
+
+    private bool TryGetSrcRectShader(out Shader srcRectShader)
+    {
+        srcRectShader = _SrcRectShader;
+        if (_DidLookupSrcRectShader)
+        {
+            return srcRectShader != null;
+        }
+
+        _DidLookupSrcRectShader = true;
+        string[] shaders = AssetDatabase.FindAssets("OVROverlaySrcRectEditor");
+
+        if (shaders.Length > 0)
+        {
+            Shader shader = (Shader)AssetDatabase.LoadAssetAtPath(
+                AssetDatabase.GUIDToAssetPath(shaders[0]), typeof(Shader));
+
+            if (shader != null)
+            {
+                _SrcRectShader = shader;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool TryGetDestRectShader(out Shader destRectShader)
+    {
+        destRectShader = _DestRectShader;
+        if (_DidLookupDestRectShader)
+        {
+            return destRectShader != null;
+        }
+
+        _DidLookupDestRectShader = true;
+        string[] shaders = AssetDatabase.FindAssets("OVROverlayDestRectEditor");
+
+        if (shaders.Length > 0)
+        {
+            Shader shader = (Shader)AssetDatabase.LoadAssetAtPath(
+                AssetDatabase.GUIDToAssetPath(shaders[0]), typeof(Shader));
+
+            if (shader != null)
+            {
+                _DestRectShader = shader;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    private bool TryGetSrcRectMaterials(out Material srcRectMaterialLeft, out Material srcRectMaterialRight)
+    {
+        srcRectMaterialLeft = _SrcRectMaterialLeft;
+        srcRectMaterialRight = _SrcRectMaterialRight;
+
+        if (_SrcRectMaterialLeft != null && _SrcRectMaterialRight != null)
+        {
+            return true;
+        }
+
+        if (!TryGetSrcRectShader(out var shader))
+        {
+            return false;
+        }
+
+        srcRectMaterialLeft = _SrcRectMaterialLeft = new Material(shader);
+        srcRectMaterialRight = _SrcRectMaterialRight = new Material(shader);
+        return true;
+    }
+
+    private bool TryGetDestRectMaterials(out Material destRectMaterialLeft, out Material destRectMaterialRight)
+    {
+        destRectMaterialLeft = _DestRectMaterialLeft;
+        destRectMaterialRight = _DestRectMaterialRight;
+
+        if (_DestRectMaterialLeft != null && _DestRectMaterialRight != null)
+        {
+            return true;
+        }
+
+        if (!TryGetDestRectShader(out var shader))
+        {
+            return false;
+        }
+
+        destRectMaterialLeft = _DestRectMaterialLeft = new Material(shader);
+        destRectMaterialRight = _DestRectMaterialRight = new Material(shader);
+        return true;
     }
 }

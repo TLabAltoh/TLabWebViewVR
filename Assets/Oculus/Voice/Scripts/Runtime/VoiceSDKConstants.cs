@@ -62,7 +62,7 @@ namespace Oculus.Voice
             }
         }
         // Overridden by build process
-        private static string _sdkVersion = "56.0.0.170.155";
+        private static string _sdkVersion = "57.0.0.193.153";
 
         // User agent prefix
         private const string _userAgentPrefix = "voice-sdk-";

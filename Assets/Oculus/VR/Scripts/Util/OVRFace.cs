@@ -30,6 +30,7 @@ using UnityEngine.Assertions;
 /// Needs to be linked to an <see cref="OVRFaceExpressions"/> component to fetch tracking data from.
 /// </remarks>
 [RequireComponent(typeof(SkinnedMeshRenderer))]
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_face")]
 public class OVRFace : MonoBehaviour
 {
     /// <summary>

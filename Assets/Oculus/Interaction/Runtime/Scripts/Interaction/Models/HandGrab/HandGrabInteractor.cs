@@ -49,7 +49,13 @@ namespace Oculus.Interaction.HandGrab
         [SerializeField]
         private GrabTypeFlags _supportedGrabTypes = GrabTypeFlags.All;
 
+        /// <summary>
+        /// When enabled, nearby interactables can become candidates even if the finger
+        /// strength is 0.
+        /// </summary>
         [SerializeField]
+        [Tooltip("When enabled, nearby interactables can become candidates even if the" +
+            "finger strength is 0")]
         private bool _hoverOnZeroStrength = false;
         public bool HoverOnZeroStrength
         {
@@ -194,6 +200,7 @@ namespace Oculus.Interaction.HandGrab
             }
         }
 
+
         protected override void InteractableSet(HandGrabInteractable interactable)
         {
             base.InteractableSet(interactable);
@@ -223,6 +230,8 @@ namespace Oculus.Interaction.HandGrab
                 _handGrabShouldUnselect = true;
                 return;
             }
+
+            UpdateTargetSliding(SelectedInteractable);
 
             Pose handGrabPose = this.GetHandGrabPose();
             Movement.UpdateTarget(handGrabPose);
@@ -375,7 +384,6 @@ namespace Oculus.Interaction.HandGrab
             {
                 fingerScore = HandGrabInteraction.ComputeHandGrabScore(this, interactable, out selectingGrabTypes);
             }
-
             if (fingerScore < minFingerScoreRequired)
             {
                 return GrabTypeFlags.None;
@@ -490,6 +498,20 @@ namespace Oculus.Interaction.HandGrab
             GrabTypeFlags selectingGrabTypes = SelectingGrabTypes(interactable, float.NegativeInfinity, out float grabStrength);
             TrySetTarget(interactable, selectingGrabTypes);
             SetGrabStrength(grabStrength);
+        }
+
+        private void UpdateTargetSliding(HandGrabInteractable interactable)
+        {
+            if (interactable.Slippiness <= 0f)
+            {
+                return;
+            }
+            float grabStrength = HandGrabInteraction.ComputeHandGrabScore(this, interactable,
+                out GrabTypeFlags selectingGrabTypes, true);
+            if (grabStrength <= interactable.Slippiness)
+            {
+                TrySetTarget(interactable, selectingGrabTypes);
+            }
         }
 
         private bool TrySetTarget(IHandGrabInteractable interactable, GrabTypeFlags selectingGrabTypes)

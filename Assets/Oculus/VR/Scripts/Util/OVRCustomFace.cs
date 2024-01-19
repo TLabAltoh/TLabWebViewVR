@@ -34,6 +34,7 @@ using UnityEngine.Assertions;
 /// See <see cref="OVRCustomFaceEditor"/> for more information.
 /// </remarks>
 [RequireComponent(typeof(SkinnedMeshRenderer))]
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_custom_face")]
 public class OVRCustomFace : OVRFace
 {
     public OVRFaceExpressions.FaceExpression[] Mappings

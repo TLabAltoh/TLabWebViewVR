@@ -579,6 +579,20 @@ public class OVRManifestPreprocessor
             OVRPermissionsRequester.GetPermissionId(OVRPermissionsRequester.Permission.Scene),
             sceneEntryNeeded,
             modifyIfFound);
+
+        //============================================================================
+        // Processor Favor
+        var processorFavor = OVRProjectConfig.GetProjectConfig().processorFavor;
+        bool tradeCpuForGpuAmountNeeded = processorFavor != OVRProjectConfig.ProcessorFavor.FavorEqually;
+
+        AddOrRemoveTag(doc,
+            androidNamespaceURI,
+            "/manifest/application",
+            "meta-data",
+            "com.oculus.trade_cpu_for_gpu_amount",
+            required: tradeCpuForGpuAmountNeeded,
+            modifyIfFound: true,
+            "value", ((int)processorFavor).ToString());
     }
 
 

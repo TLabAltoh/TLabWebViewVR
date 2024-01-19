@@ -19,13 +19,15 @@
  */
 
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace UnityEngine.EventSystems
 {
     /// <summary>
     /// Simple event system using physics raycasts. Very closely based on UnityEngine.EventSystems.PhysicsRaycaster
     /// </summary>
-    [RequireComponent(typeof(OVRCameraRig))]
+    [HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_physics_raycaster")]
+
     public class OVRPhysicsRaycaster : BaseRaycaster
     {
         /// <summary>

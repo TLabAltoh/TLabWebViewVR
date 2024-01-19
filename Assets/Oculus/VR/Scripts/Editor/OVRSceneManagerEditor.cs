@@ -29,6 +29,7 @@ internal class OVRSceneManagerEditor : Editor
     private SerializedProperty _verboseLogging;
     private SerializedProperty _maxSceneAnchorUpdatesPerFrame;
     private SerializedProperty _initialAnchorParent;
+    private SerializedProperty _activeRoomsOnly;
     private bool _showAdvanced;
 
     private void OnEnable()
@@ -39,6 +40,8 @@ internal class OVRSceneManagerEditor : Editor
         _verboseLogging = serializedObject.FindProperty(nameof(OVRSceneManager.VerboseLogging));
         _maxSceneAnchorUpdatesPerFrame =
             serializedObject.FindProperty(nameof(OVRSceneManager.MaxSceneAnchorUpdatesPerFrame));
+        _activeRoomsOnly = serializedObject.FindProperty(nameof(OVRSceneManager.ActiveRoomsOnly));
+        _initialAnchorParent = serializedObject.FindProperty(nameof(OVRSceneManager._initialAnchorParent));
     }
 
     public override void OnInspectorGUI()
@@ -48,11 +51,13 @@ internal class OVRSceneManagerEditor : Editor
         EditorGUILayout.PropertyField(_planePrefab);
         EditorGUILayout.PropertyField(_volumePrefab);
         EditorGUILayout.PropertyField(_prefabOverrides);
+        EditorGUILayout.PropertyField(_activeRoomsOnly);
         _showAdvanced = EditorGUILayout.Foldout(_showAdvanced, "Advanced");
         if (_showAdvanced)
         {
             EditorGUILayout.PropertyField(_verboseLogging);
             EditorGUILayout.PropertyField(_maxSceneAnchorUpdatesPerFrame);
+            EditorGUILayout.PropertyField(_initialAnchorParent);
         }
 
         serializedObject.ApplyModifiedProperties();

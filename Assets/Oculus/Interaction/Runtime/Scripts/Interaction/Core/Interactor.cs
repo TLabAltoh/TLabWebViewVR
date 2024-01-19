@@ -41,14 +41,26 @@ namespace Oculus.Interaction
         protected ulong _nativeId = DefaultNativeId;
         #endregion Oculus Library Methods and Constants
 
+        /// <summary>
+        /// An ActiveState whose value determines if the interactor is enabled or disabled.
+        /// </summary>
+        [Tooltip("An ActiveState whose value determines if the interactor is enabled or disabled.")]
         [SerializeField, Interface(typeof(IActiveState)), Optional]
         private UnityEngine.Object _activeState;
         private IActiveState ActiveState = null;
 
+        /// <summary>
+        /// The interactables this interactor can or can't use. Is determined by comparing this interactor's TagSetFilter component(s) to the TagSet component on the interactables.
+        /// </summary>
+        [Tooltip("The interactables this interactor can or can't use. Is determined by comparing this interactor's TagSetFilter component(s) to the TagSet component on the interactables.")]
         [SerializeField, Interface(typeof(IGameObjectFilter)), Optional]
         private List<UnityEngine.Object> _interactableFilters = new List<UnityEngine.Object>();
         private List<IGameObjectFilter> InteractableFilters = null;
 
+        /// <summary>
+        /// Custom logic used to determine the best interactable candidate.
+        /// </summary>
+        [Tooltip("Custom logic used to determine the best interactable candidate.")]
         [SerializeField, Interface(nameof(CandidateTiebreaker)), Optional]
         private UnityEngine.Object _candidateTiebreaker;
         private IComparer<TInteractable> CandidateTiebreaker;
@@ -146,6 +158,10 @@ namespace Oculus.Interaction
 
         private ISelector _selector = null;
 
+        /// <summary>
+        /// The maximum number of state changes that can occur per frame. For example, the interactor switching from normal to hover or vice-versa counts as one state change.
+        /// </summary>
+        [Tooltip("The maximum number of state changes that can occur per frame. For example, the interactor switching from normal to hover or vice-versa counts as one state change.")]
         [SerializeField]
         private int _maxIterationsPerFrame = 3;
         public int MaxIterationsPerFrame
@@ -268,6 +284,10 @@ namespace Oculus.Interaction
         private UniqueIdentifier _identifier;
         public int Identifier => _identifier.ID;
 
+        /// <summary>
+        /// Can supply additional data (ex. data from an Interactable about a given Interactor, or vice-versa), or pass data along with events like PointerEvent (ex. the associated Interactor generating the event).
+        /// </summary>
+        [Tooltip("Can supply additional data (ex. data from an Interactable about a given Interactor, or vice-versa), or pass data along with events like PointerEvent (ex. the associated Interactor generating the event).")]
         [SerializeField, Optional]
         private UnityEngine.Object _data = null;
         public object Data { get; protected set; } = null;
@@ -640,11 +660,11 @@ namespace Oculus.Interaction
 
         private bool UpdateActiveState()
         {
-            if (ActiveState == null || ActiveState.Active)
+            if (ActiveState != null)
             {
-                return true;
+                return ActiveState.Active;
             }
-            return false;
+            return this.enabled;
         }
 
         public bool IsRootDriver { get; set; } = true;

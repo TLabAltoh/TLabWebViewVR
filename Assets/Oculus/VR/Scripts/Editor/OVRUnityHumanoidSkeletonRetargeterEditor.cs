@@ -18,3 +18,17 @@
  * limitations under the License.
  */
 
+using UnityEditor;
+
+[CustomEditor(typeof(OVRUnityHumanoidSkeletonRetargeter))]
+public class OVRUnityHumanoidSkeletonRetargeterEditor : OVRSkeletonEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        serializedObject.Update();
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}

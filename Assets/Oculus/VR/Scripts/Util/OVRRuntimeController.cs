@@ -22,6 +22,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_runtime_controller")]
 public class OVRRuntimeController : MonoBehaviour
 {
     /// <summary>

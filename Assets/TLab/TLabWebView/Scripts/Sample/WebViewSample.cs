@@ -9,9 +9,9 @@ public class WebViewSample : MonoBehaviour
     public void LoadHTML()
     {
         string html = "";
-        string baseHRL = "";
+        string base_url = "";
 
-        m_webView.LoadHTML(html, baseHRL);
+        m_webView.LoadHTML(html, base_url);
     }
 
     public void ClearCache()
@@ -57,7 +57,7 @@ public class WebViewSample : MonoBehaviour
     {
         m_webView.CaptureUserAgent();
 
-        await Task.Delay(500);
+        await Task.Delay(500);  // wait for finish capture element
         Debug.Log("User Agent: " + m_webView.GetUserAgent());
     }
 
@@ -80,10 +80,10 @@ public class WebViewSample : MonoBehaviour
             });
         */
 
-        string eventName = "scroll";
-        string tagName = "window";
-        string callback = "window.addEventListener('scroll',function(){ });";
+        string event_name = "scroll";
+        string tag_name = "window";
+        string callback = tag_name + ".addEventListener('" + event_name + "'), function(){ });";
 
-        m_webView.EvaluateJS(tagName + ".addEventListener('" + eventName + "'), function() {" + callback + "});");
+        m_webView.EvaluateJS(callback);
     }
 }

@@ -64,6 +64,11 @@
             "name": "com.unity.xr.oculus",
             "expression": "3.3.0",
             "define": "OCULUS_XR_3_3_0_OR_NEWER"
+        },
+        {
+            "name": "com.meta.xr.simulator",
+            "expression": "",
+            "define": "USING_META_XR_SIMULATOR"
         }
     ],
     "noEngineReferences": false

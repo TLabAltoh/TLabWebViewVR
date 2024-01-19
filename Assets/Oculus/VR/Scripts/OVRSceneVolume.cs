@@ -25,6 +25,7 @@ using UnityEngine;
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(OVRSceneAnchor))]
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_scene_volume")]
 public class OVRSceneVolume : MonoBehaviour, IOVRSceneComponent
 {
     /// <summary>

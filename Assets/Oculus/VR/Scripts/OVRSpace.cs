@@ -19,6 +19,7 @@
  */
 
 using System;
+using UnityEngine;
 
 /// <summary>
 /// Represents a "space" in the Oculus Runtime.

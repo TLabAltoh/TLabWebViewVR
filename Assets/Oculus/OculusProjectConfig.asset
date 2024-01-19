@@ -36,5 +36,6 @@ MonoBehaviour:
   experimentalFeaturesEnabled: 0
   insightPassthroughEnabled: 0
   _insightPassthroughSupport: 0
+  _processorFavor: 0
   systemSplashScreen: {fileID: 0}
   systemSplashScreenType: 0

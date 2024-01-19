@@ -22,8 +22,9 @@ namespace TLab.InputField
         [SerializeField] private GameObject[] m_hideObjects;
 
         [Header("Audio")]
-        [SerializeField] private AudioSource m_audioSource;
         [SerializeField] private AudioClip m_lockKeyborad;
+
+        private AudioSource m_audioSource;
 
         [System.NonSerialized] public string text = "";
 
@@ -59,12 +60,10 @@ namespace TLab.InputField
 
             m_focusButton.enabled = !active;
 
-            if (m_keyborad.isMobile)
+            if (m_keyborad.mobile)
             {
                 foreach (GameObject hideObject in m_hideObjects)
-                {
                     hideObject.SetActive(!active);
-                }
 
                 m_keyborad.HideKeyborad(!active);
             }
@@ -76,13 +75,17 @@ namespace TLab.InputField
 
         private void SwitchPlaseholder()
         {
+            var color = m_placeholder.color;
+
             if (m_inputText.text == "")
             {
-                m_placeholder.color = new Color(0.196f, 0.196f, 0.196f, 0.5f);
+                color.a = 0.5f;
+                m_placeholder.color = color;
             }
             else
             {
-                m_placeholder.color = new Color(0.196f, 0.196f, 0.196f, 0.0f);
+                color.a = 0f;
+                m_placeholder.color = color;
             }
         }
 
@@ -108,22 +111,14 @@ namespace TLab.InputField
 
         protected override void Start()
         {
-            OnFocus(false);
+            base.Start();
 
             text = m_inputText.text;
 
             SwitchPlaseholder();
-        }
 
-#if UNITY_EDITOR
-        void OnValidate()
-        {
             if (m_audioSource == null)
-            {
                 m_audioSource = GetComponent<AudioSource>();
-                UnityEditor.EditorUtility.SetDirty(this);
-            }
         }
-#endif
     }
 }

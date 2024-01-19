@@ -25,6 +25,7 @@ using System.Collections;
 /// Diagnostic display with a regular grid of cubes for visual testing of
 /// tracking and distortion.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_grid_cube")]
 public class OVRGridCube : MonoBehaviour
 {
     /// <summary>

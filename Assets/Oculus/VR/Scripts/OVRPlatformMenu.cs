@@ -25,6 +25,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Shows the Oculus plaform UI.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_platform_menu")]
 public class OVRPlatformMenu : MonoBehaviour
 {
     /// <summary>

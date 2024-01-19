@@ -25,6 +25,7 @@ using System.Collections;
 /// <summary>
 /// Visualizes progress for operations such as loading.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_progress_indicator")]
 public class OVRProgressIndicator : MonoBehaviour
 {
     public MeshRenderer progressImage;

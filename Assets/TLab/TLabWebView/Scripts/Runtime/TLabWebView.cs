@@ -1,21 +1,18 @@
 ﻿#define DEBUG
 //#undef DEBUG
-#define ADVANCED
-//#undef ADVANCED
 
 using System.Collections;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 namespace TLab.Android.WebView
 {
 	public class TLabWebView : MonoBehaviour
 	{
 		private enum DownloadOption
-        {
+		{
 			applicationFolder,
 			downloadFolder
 		}
@@ -40,10 +37,10 @@ namespace TLab.Android.WebView
 		public bool WebViewEnabled
 		{
 			get => m_webViewEnable;
-            set
-            {
+			set
+			{
 				m_webViewEnable = value && m_webViewInitialized;
-            }
+			}
 		}
 
 		private bool m_webViewEnable = false;
@@ -71,24 +68,21 @@ namespace TLab.Android.WebView
 			AndroidJNI.AttachCurrentThread();
 
 			IntPtr jniClass = AndroidJNI.FindClass("com/tlab/libwebview/UnityConnect");
-			if (jniClass != IntPtr.Zero && jniClass != null) Debug.Log("jni class found ! : " + jniClass);
-			else return;
+			if (jniClass == IntPtr.Zero || jniClass == null)
+			{
+				Debug.Log($"jni class not found: {jniClass}");
+				return;
+			}
 
 			IntPtr jniFunc;
-			jniFunc = AndroidJNI.GetStaticMethodID(jniClass, "checkEGLContextExist", "()V");
-			if (jniFunc != IntPtr.Zero && jniFunc != null) Debug.Log("jni function found ! : " + jniFunc);
-			else return;
-
-			AndroidJNI.CallStaticVoidMethod(jniClass, jniFunc, new jvalue[] { });
-			Debug.Log("jni call method done !");
-
-			//jniFunc = AndroidJNI.GetStaticMethodID(jniClass, "generateSharedTexture", "(Ljava/lang/Integer;Ljava/lang/Integer;)V");
 			jniFunc = AndroidJNI.GetStaticMethodID(jniClass, "generateSharedTexture", "(II)V");
-			if (jniFunc != IntPtr.Zero && jniFunc != null) Debug.Log("jni function found ! : " + jniFunc);
-			else return;
+			if (jniFunc == IntPtr.Zero || jniFunc == null)
+			{
+				Debug.Log($"jni function not found !:{jniFunc} ");
+				return;
+			}
 
 			AndroidJNI.CallStaticVoidMethod(jniClass, jniFunc, m_jniArgs);
-			Debug.Log("jni call method done !");
 
 			AndroidJNI.DetachCurrentThread();
 		}
@@ -101,7 +95,7 @@ namespace TLab.Android.WebView
 		{
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			if (m_NativePlugin != null)
-            {
+			{
 				m_NativePlugin.Call("initialize", webWidth, webHeight, tWidth, tHeight, sWidth, sHeight, url, dlOption, subDir);
 			}
 #endif
@@ -136,14 +130,12 @@ namespace TLab.Android.WebView
 		{
 			// If textures can be updated with a pointer, this will not be used.
 
-			if (!m_webViewEnable) return new byte[0];
+			if (!m_webViewEnable)
+            {
+				return new byte[0];
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
-			// https://www.dbu9.site/post/2023-03-31-androidjnihelper-getsignature-using-byte-parameters-is-obsolete-use-sbyte-parameters-instead/
-			//sbyte[] sdata = m_NativePlugin.Call<sbyte[]>("getPixel");
-			//byte[] data = new byte[sdata.Length];
-			//Buffer.BlockCopy(sdata, 0, data, 0, sdata.Length);
-			// https://stackoverflow.com/questions/829983/how-to-convert-a-sbyte-to-byte-in-c
 			return (byte[])(Array)m_NativePlugin.Call<sbyte[]>("getPixel");
 #else
 			return new byte[0];
@@ -151,8 +143,11 @@ namespace TLab.Android.WebView
 		}
 
 		public IntPtr GetTexturePtr()
-        {
-			if (!m_webViewEnable) return IntPtr.Zero;
+		{
+			if (!m_webViewEnable)
+            {
+				return IntPtr.Zero;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			return (IntPtr)m_NativePlugin.Call<int>("getTexturePtr");
@@ -162,7 +157,7 @@ namespace TLab.Android.WebView
 		}
 
 		public string GetUrl()
-        {
+		{
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			return m_NativePlugin.Call<string>("getCurrentUrl");
 #else
@@ -171,8 +166,11 @@ namespace TLab.Android.WebView
 		}
 
 		public void CaptureHTMLSource()
-        {
-			if (!m_webViewEnable) return;
+		{
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("capturePage");
@@ -181,7 +179,10 @@ namespace TLab.Android.WebView
 
 		public void CaptureElementById(string id)
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("captureElementById", id);
@@ -189,8 +190,11 @@ namespace TLab.Android.WebView
 		}
 
 		public string CurrentHTMLCaptured()
-        {
-			if (!m_webViewEnable) return null;
+		{
+			if (!m_webViewEnable)
+            {
+				return null;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			return m_NativePlugin.Call<string>("getCaptured");
@@ -200,8 +204,11 @@ namespace TLab.Android.WebView
 		}
 
 		public void CaptureUserAgent()
-        {
-			if (!m_webViewEnable) return;
+		{
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("captureUserAgent");
@@ -209,8 +216,11 @@ namespace TLab.Android.WebView
 		}
 
 		public string GetUserAgent()
-        {
-			if (!m_webViewEnable) return "";
+		{
+			if (!m_webViewEnable)
+            {
+				return "";
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			return m_NativePlugin.Call<string>("getUserAgent");
@@ -220,8 +230,11 @@ namespace TLab.Android.WebView
 		}
 
 		public void SetUserAgent(string ua, bool reload)
-        {
-			if (!m_webViewEnable) return;
+		{
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("setUserAgent", ua, reload);
@@ -230,7 +243,10 @@ namespace TLab.Android.WebView
 
 		public void LoadUrl(string url)
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("loadUrl", url);
@@ -238,8 +254,11 @@ namespace TLab.Android.WebView
 		}
 
 		public void LoadHTML(string html, string baseURL)
-        {
-			if (!m_webViewEnable) return;
+		{
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("loadHtml", html, baseURL);
@@ -248,7 +267,10 @@ namespace TLab.Android.WebView
 
 		public void ZoomIn()
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("zoomIn");
@@ -257,7 +279,10 @@ namespace TLab.Android.WebView
 
 		public void ZoomOut()
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("zoomOut");
@@ -265,8 +290,11 @@ namespace TLab.Android.WebView
 		}
 
 		public void EvaluateJS(string js)
-        {
-			if (!m_webViewEnable) return;
+		{
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("evaluateJS", js);
@@ -275,7 +303,10 @@ namespace TLab.Android.WebView
 
 		public void GoForward()
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("goForward");
@@ -284,7 +315,10 @@ namespace TLab.Android.WebView
 
 		public void GoBack()
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("goBack");
@@ -293,7 +327,10 @@ namespace TLab.Android.WebView
 
 		public void TouchEvent(int x, int y, int eventNum)
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("touchEvent", x, y, eventNum);
@@ -302,7 +339,10 @@ namespace TLab.Android.WebView
 
 		public void KeyEvent(char key)
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("keyEvent", key);
@@ -311,7 +351,10 @@ namespace TLab.Android.WebView
 
 		public void BackSpace()
 		{
-			if (!m_webViewEnable) return;
+			if (!m_webViewEnable)
+            {
+				return;
+			}
 
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("backSpaceKey");
@@ -328,7 +371,7 @@ namespace TLab.Android.WebView
 		}
 
 		public void ClearCache(bool includeDiskFiles)
-        {
+		{
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("clearCash", includeDiskFiles);
 #endif
@@ -342,38 +385,42 @@ namespace TLab.Android.WebView
 		}
 
 		public void ClearHistory()
-        {
+		{
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin.Call("clearHistory");
 #endif
 		}
 
-		private IEnumerable AfterFrame(UnityEvent uEvent, float deley)
-        {
-			yield return new WaitForSeconds(deley);
+		public bool CheckForPermission(UnityEngine.Android.Permission permission)
+		{
+#if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
+			return UnityEngine.Android.Permission.HasUserAuthorizedPermission(permission.ToString());
+#else
+			return false;
+#endif
+		}
 
-			uEvent.Invoke();
-        }
+		public void RequestPermission(UnityEngine.Android.Permission permission)
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
+			UnityEngine.Android.Permission.RequestUserPermission(permission.ToString());
+#endif
+		}
 
 		private static void SetJNIParam(int[] args)
-        {
+		{
 			m_jniArgs = new jvalue[args.Length];
-			for(int i = 0; i < args.Length; i++)
-            {
+			for (int i = 0; i < args.Length; i++)
+			{
 				m_jniArgs[i] = new jvalue { i = args[i] };
-            }
-			// https://forum.unity.com/threads/trying-to-implement-jni.147419/
-			//m_jniArgs = AndroidJNIHelper.CreateJNIArgArray();
-        }
+			}
+		}
 
 		private IEnumerator StartWebViewTask()
 		{
 			if (m_NativeClass == null)
 			{
-				Debug.Log("native class no exists");
-				Debug.Log("create native class");
 				m_NativeClass = new AndroidJavaClass("com.tlab.libwebview.UnityConnect");
-				Debug.Log("create native class done !");
 			}
 
 			yield return new WaitForEndOfFrame();
@@ -381,105 +428,93 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID && !UNITY_EDITOR || DEBUG
 			m_NativePlugin = new AndroidJavaObject("com.tlab.libwebview.UnityConnect");
 
-            yield return new WaitForEndOfFrame();
+			yield return new WaitForEndOfFrame();
 
-            switch (SystemInfo.renderingThreadingMode)
-            {
-                case UnityEngine.Rendering.RenderingThreadingMode.MultiThreaded:
-					SetJNIParam(new int[] { m_texWidth, m_texHeight } );
-                    GL.IssuePluginEvent(RenderThreadHandlePtr, 0);
-                    break;
-                default:
-                    m_NativePlugin.CallStatic("checkEGLContextExist");
+			switch (SystemInfo.renderingThreadingMode)
+			{
+				case UnityEngine.Rendering.RenderingThreadingMode.MultiThreaded:
+					SetJNIParam(new int[] { m_texWidth, m_texHeight });
+					GL.IssuePluginEvent(RenderThreadHandlePtr, 0);
+					break;
+				default:
+					m_NativePlugin.CallStatic("checkEGLContextExist");
 					m_NativePlugin.CallStatic("generateSharedTexture", m_texWidth, m_texHeight);
-                    break;
-            }
+					break;
+			}
 
-            yield return new WaitForEndOfFrame();
+			yield return new WaitForEndOfFrame();
 
 			m_webViewTexture = new Texture2D(m_texWidth, m_texHeight, TextureFormat.ARGB32, false, false);
 			m_webViewTexture.name = "WebImage";
 
 			m_rawImage.texture = m_webViewTexture;
 
-            Init(
-                m_webWidth, m_webHeight,
-                m_texWidth, m_texHeight,
-                Screen.width, Screen.height,
-                m_url, (int)m_dlOption, m_subdir);
+			Init(
+				m_webWidth, m_webHeight,
+				m_texWidth, m_texHeight,
+				Screen.width, Screen.height,
+				m_url, (int)m_dlOption, m_subdir);
 
-            yield return new WaitForEndOfFrame();
+			yield return new WaitForEndOfFrame();
 
-            while (!IsInitialized()) yield return new WaitForEndOfFrame();
+			while (!IsInitialized())
+            {
+				yield return new WaitForEndOfFrame();
+			}
 
 			yield return new WaitForEndOfFrame();
 
 			m_webViewInitialized = true;
-            m_webViewEnable = true;
+			m_webViewEnable = true;
 
-            m_webvieStartTask = null;
+			m_webvieStartTask = null;
 #endif
-		}
-
-		public void DebugTexturePtr()
-		{
-			IntPtr pluginNativePtr = m_webViewTexture.GetNativeTexturePtr();
-			IntPtr textureNativePtr = m_rawImage.texture.GetNativeTexturePtr();
-			Debug.Log("plugin ptr: " + pluginNativePtr + " , " + "texture ptr: " + textureNativePtr);
 		}
 
 		public void StartWebView()
 		{
-			if(m_webvieStartTask == null && !m_webViewInitialized)
-            {
+			if (m_webvieStartTask == null && !m_webViewInitialized)
+			{
 				m_webvieStartTask = StartCoroutine(StartWebViewTask());
 			}
 		}
 
 		public void UpdateFrame()
 		{
-            if (!m_webViewEnable) return;
-
-#if !ADVANCED
-			byte[] data = GetWebTexturePixel();
-
-            if (data.Length > 0)
+			if (!m_webViewEnable)
             {
-                m_webViewTexture.LoadRawTextureData(data);
-                m_webViewTexture.Apply();
-            }
-#else
+				return;
+			}
+
 			IntPtr texId = GetTexturePtr();
-			if(m_texId != texId)
-            {
+			if (m_texId != texId)
+			{
 				m_texId = texId;
 				m_webViewTexture.UpdateExternalTexture(texId);
-            }
+			}
+		}
+
+		public void Destroy()
+        {
+#if UNITY_ANDROID
+			if (m_NativePlugin == null)
+			{
+				return;
+			}
+
+			m_NativePlugin.Call("Destroy");
+			m_NativePlugin = null;
 #endif
 		}
 
 		private void OnDestroy()
 		{
-#if UNITY_ANDROID
-			if (m_NativePlugin == null) return;
-
-			m_NativePlugin.Call("Destroy");
-			m_NativePlugin = null;
-
-			Debug.Log("[tlabwebview] destroy webview");
-#endif
+			Destroy();
 		}
 
 		private void OnApplicationQuit()
 		{
-#if UNITY_ANDROID
-			if (m_NativePlugin == null) return;
-
-			m_NativePlugin.Call("Destroy");
-			m_NativePlugin = null;
-
-			Debug.Log("[tlabwebview] destroy webview");
-#endif
+			Destroy();
 		}
 	}
 }

@@ -61,6 +61,27 @@ namespace Oculus.Interaction.HandGrab
 
         [Space]
         /// <summary>
+        /// Defines the slippiness threshold so the interactor can slide along the interactable based on the
+        /// strength of the grip. GrabSurfaces are required to slide. At min slippiness = 0, the interactor never moves.
+        /// </summary>
+        [SerializeField, Optional, Range(0f, 1f)]
+        [Tooltip("Defines the slippiness threshold so the interactor can slide along the interactable based on the" +
+            "strength of the grip. GrabSurfaces are required to slide. At min slippiness = 0, the interactor never moves.")]
+        private float _slippiness = 0f;
+        public float Slippiness
+        {
+            get
+            {
+                return _slippiness;
+            }
+            set
+            {
+                _slippiness = value;
+            }
+        }
+
+        [Space]
+        /// <summary>
         /// The available grab types dictates the available gestures for grabbing
         /// this interactable.
         /// </summary>

@@ -74,13 +74,6 @@ namespace Oculus.Voice.Bindings.Android
         /// </summary>
         public void onStartListening(string requestId)
         {
-            // Request callbacks
-            var request = GetRequest(requestId);
-            if (request is VoiceSDKImplRequest implRequest)
-            {
-                implRequest.HandleStartListening();
-            }
-
             // Event callbacks
             VoiceEvents.OnStartListening?.Invoke();
         }
@@ -93,10 +86,6 @@ namespace Oculus.Voice.Bindings.Android
         {
             // Request callbacks
             var request = GetRequest(requestId);
-            if (request is VoiceSDKImplRequest implRequest)
-            {
-                implRequest.HandleStopListening();
-            }
 
             // Event callbacks
             VoiceEvents.OnStoppedListening?.Invoke();
@@ -105,12 +94,15 @@ namespace Oculus.Voice.Bindings.Android
                     break;
                 case StoppedListeningReason.Inactivity:
                     VoiceEvents.OnStoppedListeningDueToInactivity?.Invoke();
+                    request.Cancel();
                     break;
                 case StoppedListeningReason.Timeout:
                     VoiceEvents.OnStoppedListeningDueToTimeout?.Invoke();
+                    request.Cancel();
                     break;
                 case StoppedListeningReason.Deactivation:
                     VoiceEvents.OnStoppedListeningDueToDeactivation?.Invoke();
+                    request.Cancel();
                     break;
             }
         }

@@ -24,8 +24,14 @@ using UnityEngine;
 
 namespace Oculus.Interaction
 {
+    /// <summary>
+    /// Causes one or more fingers to glow when the Active State is true.
+    /// </summary>
     public class ActiveStateFingerVisual : MonoBehaviour
     {
+        /// <summary>
+        /// The Active State to check.
+        /// </summary>
         [SerializeField, Interface(typeof(IActiveState))]
         private UnityEngine.Object _activeState;
         private IActiveState ActiveState;
@@ -61,6 +67,9 @@ namespace Oculus.Interaction
             }
         }
 
+        /// <summary>
+        /// The glow color.
+        /// </summary>
         [SerializeField]
         private Color _fingerGlowColor;
         public Color FingerGlowColor

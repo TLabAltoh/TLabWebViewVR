@@ -23,6 +23,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 [InitializeOnLoad]
 internal static class OVRProjectSetupStatusIcon
@@ -38,8 +39,9 @@ internal static class OVRProjectSetupStatusIcon
     private static readonly string OpenOculusSettings = "Open Oculus Settings";
 
     private static GUIStyle _iconStyle;
-    private static VisualElement _container;
     private static OVRGUIContent _currentIcon;
+    private static Object _appStatusBar;
+    private static VisualElement _container;
 
     internal static OVRGUIContent CurrentIcon => _currentIcon;
 
@@ -67,29 +69,28 @@ internal static class OVRProjectSetupStatusIcon
         _currentIcon = _iconSuccess;
 
         OVRProjectSetup.ProcessorQueue.OnProcessorCompleted += RefreshData;
-        EditorApplication.update += RefreshContainer;
+        EditorApplication.update += Update;
     }
 
-    private static void RefreshContainer()
+    private static void Update()
     {
-        if (_container != null)
+        if (_appStatusBar == null)
         {
-            return;
+            Refresh();
         }
+    }
 
+    private static void Refresh()
+    {
         var toolbars = Resources.FindObjectsOfTypeAll(_toolbarType);
         if (toolbars == null || toolbars.Length == 0)
         {
             return;
         }
 
-        var toolbar = toolbars[0];
-        if (toolbar == null)
-        {
-            return;
-        }
+        _appStatusBar = toolbars[0];
 
-        var backend = _guiBackend?.GetValue(toolbar);
+        var backend = _guiBackend?.GetValue(_appStatusBar);
         if (backend == null)
         {
             return;
@@ -111,8 +112,6 @@ internal static class OVRProjectSetupStatusIcon
         handler -= RefreshGUI;
         handler += RefreshGUI;
         _onGuiHandler.SetValue(_container, handler);
-
-        EditorApplication.update -= RefreshContainer;
     }
 
     private static void RefreshStyles()
@@ -165,7 +164,7 @@ internal static class OVRProjectSetupStatusIcon
 
         RefreshStyles();
 
-        var screenWidth = EditorGUIUtility.currentViewWidth;
+        var screenWidth = _container.layout.width;
         // Hardcoded position
         // Currently overlaps with progress bar, and works with 2020 status bar icons
         // TODO: Better hook to dynamically position the button
@@ -173,7 +172,7 @@ internal static class OVRProjectSetupStatusIcon
         GUILayout.BeginArea(currentRect);
         if (GUILayout.Button(_currentIcon, _iconStyle))
         {
-            OVRProjectSetupSettingsProvider.OpenSettingsWindow(OVRProjectSetupSettingsProvider.Origins.Icon);
+            OVRStatusMenu.ShowDropdown(GUIUtility.GUIToScreenPoint(Vector2.zero));
         }
 
         var buttonRect = GUILayoutUtility.GetLastRect();

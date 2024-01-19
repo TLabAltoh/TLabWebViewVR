@@ -47,7 +47,7 @@ namespace Oculus.Interaction
 
         static ActiveStateNot()
         {
-            ActiveStateDebugTree.RegisterModel<ActiveStateNot, DebugModel>();
+            ActiveStateDebugTree.RegisterModel<ActiveStateNot>(new DebugModel());
         }
 
         private class DebugModel : ActiveStateModel<ActiveStateNot>

@@ -26,6 +26,7 @@ using UnityEngine.UI;
 /// <summary>
 /// UI pointer driven by gaze input.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_gaze_pointer")]
 public class OVRGazePointer : OVRCursor
 {
     private Transform gazeIcon; //the transform that rotates according to our movement

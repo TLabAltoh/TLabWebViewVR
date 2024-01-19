@@ -81,8 +81,34 @@ public static class OVRProjectSetup
         ConsoleLinkEventHandler.OnConsoleLink += OnConsoleLink;
         RestoreRegistry();
 
+        ProcessorQueue.OnProcessorCompleted += RefreshBuildStatusMenuSubText;
+        var statusItem = new OVRStatusMenu.Item()
+        {
+            Name = "Project Setup Tool",
+            Color = OVREditorUtils.HexToColor("#4e4e4e"),
+            Icon = OVREditorUtils.CreateContent("ovr_icon_upst.png", OVRGUIContent.Source.ProjectSetupToolIcons),
+            InfoTextDelegate = GetMenuSubText,
+            OnClickDelegate = OnStatusMenuClick,
+            Order = 0
+        };
+        OVRStatusMenu.RegisterItem(statusItem);
     }
 
+    private static string _statusMenuSubText;
+
+    private static void RefreshBuildStatusMenuSubText(OVRConfigurationTaskProcessor processor)
+    {
+        var updater = processor as OVRConfigurationTaskUpdater;
+        var summary = updater?.Summary;
+        _statusMenuSubText = summary?.ComputeNoticeMessage();
+    }
+
+    public static string GetMenuSubText() => _statusMenuSubText;
+
+    private static void OnStatusMenuClick()
+    {
+        OVRProjectSetupSettingsProvider.OpenSettingsWindow(OVRProjectSetupSettingsProvider.Origins.Icon);
+    }
 
     internal static void SetupTemporaryRegistry()
     {

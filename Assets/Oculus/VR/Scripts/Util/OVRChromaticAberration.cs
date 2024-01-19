@@ -23,6 +23,7 @@ using UnityEngine;
 /// <summary>
 /// Allows you to toggle chromatic aberration correction with a gamepad button press.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_chromatic_aberration")]
 public class OVRChromaticAberration : MonoBehaviour
 {
     /// <summary>

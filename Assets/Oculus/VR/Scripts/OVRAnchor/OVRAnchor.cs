@@ -283,16 +283,53 @@ public readonly struct OVRAnchor : IEquatable<OVRAnchor>, IDisposable
     }
 
     /// <summary>
-    /// Tests whether or not the anchor supports a specific type of components.
+    /// Tests whether or not the anchor supports a specific type of component.
     /// </summary>
+    /// <remarks>
+    /// For performance reasons, we use xrGetSpaceComponentStatusFB, which can
+    /// result in an error in the logs when the component is not available.
+    ///
+    /// This error does not have impact on the control flow. The alternative method,
+    /// <seealso cref="GetSupportedComponents(List{SpaceComponentType})"/> avoids
+    /// this error reporting, but does have performance constraints.
+    /// </remarks>
     /// <typeparam name="T">The type of the component.</typeparam>
-    /// <returns>Wether or not the specified type of component is supported.</returns>
+    /// <returns>Whether or not the specified type of component is supported.</returns>
     public bool SupportsComponent<T>() where T : struct, IOVRAnchorComponent<T>
     {
         var component = default(T);
         var result = OVRPlugin.GetSpaceComponentStatusInternal(Handle, component.Type, out _, out _);
         return result.IsSuccess();
     }
+
+    /// <summary>
+    /// Get all the supported components of an anchor.
+    /// </summary>
+    /// <remarks>
+    /// For performance reasons, this method reuses data structures to
+    /// avoid allocations, and is therefore not considered thread safe.
+    ///
+    /// Do not use in background threads, including async functions
+    /// started with <seealso cref="System.Threading.Tasks.Task.Run(Action)"/>
+    /// </remarks>
+    /// <param name="components">The list that will be cleared, then populated with
+    /// the supported components.</param>
+    /// <returns>Whether or not the request succeeded.</returns>
+    public bool GetSupportedComponents(List<SpaceComponentType> components)
+    {
+        components.Clear();
+
+        if (OVRPlugin.EnumerateSpaceSupportedComponents(Handle,
+            out var componentCount, SupportedComponentsArray))
+        {
+            for (var i = 0; i < componentCount; i++)
+                components.Add(SupportedComponentsArray[i]);
+
+            return true;
+        }
+        return false;
+    }
+    private static readonly SpaceComponentType[] SupportedComponentsArray = new SpaceComponentType[64];
 
     public bool Equals(OVRAnchor other) => Handle.Equals(other.Handle) && Uuid.Equals(other.Uuid);
     public override bool Equals(object obj) => obj is OVRAnchor other && Equals(other);

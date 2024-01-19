@@ -25,6 +25,7 @@ using UnityEngine;
 /// Allows grabbing and throwing of objects with the OVRGrabbable component on them.
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_grabber")]
 public class OVRGrabber : MonoBehaviour
 {
     // Grip trigger thresholds for picking up objects, with some hysteresis.

@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 810450350365801491}
   - component: {fileID: 9158579638925443137}
   - component: {fileID: 3291131217374019769}
+  - component: {fileID: 7388510221393064998}
   m_Layer: 0
   m_Name: LocomotionGate
   m_TagString: Untagged
@@ -136,6 +137,49 @@ MonoBehaviour:
   - Finger: 4
     StateThresholds: {fileID: 11400000, guid: 8b470e0c4b48d474c9a42d7f661d48c7, type: 2}
   _disableProactiveEvaluation: 0
+--- !u!114 &7388510221393064998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808186043800459920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf00a93483fd1b4ba357bf6f764d6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactorView: {fileID: 3700747241404445831}
+  _whenEnabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenDisabled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9158579638925443137}
+        m_TargetAssemblyTypeName: Oculus.Interaction.Locomotion.LocomotionGate, Oculus.Interaction
+        m_MethodName: Cancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &847451578483607572
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,10 +341,8 @@ GameObject:
   - component: {fileID: 7115514372195310191}
   - component: {fileID: 3072941224830834207}
   - component: {fileID: 139065751385073977}
-  - component: {fileID: 5214926405554971316}
+  - component: {fileID: 3700747241404445831}
   - component: {fileID: 7804022333523326321}
-  - component: {fileID: 6797757495056233031}
-  - component: {fileID: 2400220289123502046}
   m_Layer: 0
   m_Name: LocomotionHandInteractorGroup
   m_TagString: Untagged
@@ -364,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerFeatureStateProvider: {fileID: 0}
---- !u!114 &5214926405554971316
+--- !u!114 &3700747241404445831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,7 +415,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7115514372195310186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e06fe30fd4efa954b8f53ccc8da8f46b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ac558de6fb637548a9e3e0483939688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactors:
@@ -398,37 +440,6 @@ MonoBehaviour:
   - {fileID: 335789376779770896}
   - {fileID: 3890101353408518718}
   _handler: {fileID: 0}
---- !u!114 &6797757495056233031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7115514372195310186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee2e37559316a94794d03c847ca94e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeState: {fileID: 2400220289123502046}
-  _fingersMask: 12
-  _handMaterialPropertyBlockEditor: {fileID: 0}
-  _glowLerpSpeed: 2
-  _fingerGlowColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0.59607846}
---- !u!114 &2400220289123502046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7115514372195310186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a56054f6e3838f4e85dce4e71979800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactor: {fileID: 5214926405554971316}
-  _property: 36
 --- !u!1 &8818183594577735497
 GameObject:
   m_ObjectHideFlags: 0

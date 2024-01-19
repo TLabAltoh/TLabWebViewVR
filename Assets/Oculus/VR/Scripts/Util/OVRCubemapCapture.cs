@@ -33,6 +33,7 @@ using System.IO;
 /// * Keyboard trigger: press key [triggeredByKey], a capturing will be triggered.
 /// 2) If you like to trigger the screen capture in your code logic, just call static function [OVRCubemapCapture.TriggerCubemapCapture] with proper input arguments.
 /// </description>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_cubemap_capture")]
 public class OVRCubemapCapture : MonoBehaviour
 {
     /// <summary>

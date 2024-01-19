@@ -52,7 +52,7 @@ namespace TLab.Android.WebView
             var https = "https://";
             var http = "http://";
             var hedder = "";
-            if(m_searchBar.text.Length > http.Length)
+            if (m_searchBar.text.Length > http.Length)
             {
                 if (m_searchBar.text.Substring(0, https.Length - 1) != https &&
                     m_searchBar.text.Substring(0, http.Length - 1) != http)

@@ -25,6 +25,7 @@ using UnityEngine;
 /// <summary>
 /// An infrared camera that tracks the position of a head-mounted display.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_tracker")]
 public class OVRTracker
 {
     /// <summary>

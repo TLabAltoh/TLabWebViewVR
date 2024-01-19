@@ -103,6 +103,7 @@ namespace Oculus.Interaction.Input
         public void InjectModifyDataFromSource(IDataSource<TData> modifyDataFromSource)
         {
             _modifyDataFromSource = modifyDataFromSource;
+            _iModifyDataFromSourceMono = modifyDataFromSource as Object;
         }
 
         public void InjectApplyModifier(bool applyModifier)

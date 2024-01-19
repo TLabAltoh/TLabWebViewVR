@@ -27,7 +27,7 @@ public partial class OVRUnityHumanoidSkeletonRetargeter
     /// <summary>
     /// This class contains mappings between Unity Humanoid Rig bones and Oculus Body Tracking bones
     /// </summary>
-    protected static class OVRHumanBodyBonesMappings
+    public static class OVRHumanBodyBonesMappings
     {
         /// <summary>
         /// Corresponds to major sections of the body (left food, chest, etc).

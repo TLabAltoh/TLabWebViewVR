@@ -164,9 +164,10 @@ namespace Oculus.Interaction.HandGrab
         /// <param name="handGrabInteractor">The interactor grabbing</param>
         /// <param name="handGrabInteractable">The interactable being grabbed</param>
         /// <param name="handGrabTypes">A filter for the grab types to calculate</param>
+        /// <param name="includeSelecting">Compute also fingers that are selecting</param>
         /// <returns>The maximum strength for the grabbing fingers, normalized</returns>
         public static float ComputeHandGrabScore(IHandGrabInteractor handGrabInteractor,
-            IHandGrabInteractable handGrabInteractable, out GrabTypeFlags handGrabTypes)
+            IHandGrabInteractable handGrabInteractable, out GrabTypeFlags handGrabTypes, bool includeSelecting = false)
         {
             HandGrabAPI api = handGrabInteractor.HandGrabApi;
             handGrabTypes = GrabTypeFlags.None;
@@ -174,7 +175,7 @@ namespace Oculus.Interaction.HandGrab
 
             if (SupportsPinch(handGrabInteractor, handGrabInteractable))
             {
-                float pinchStrength = api.GetHandPinchScore(handGrabInteractable.PinchGrabRules, false);
+                float pinchStrength = api.GetHandPinchScore(handGrabInteractable.PinchGrabRules, includeSelecting);
                 if (pinchStrength > handGrabScore)
                 {
                     handGrabScore = pinchStrength;
@@ -184,7 +185,7 @@ namespace Oculus.Interaction.HandGrab
 
             if (SupportsPalm(handGrabInteractor, handGrabInteractable))
             {
-                float palmStrength = api.GetHandPalmScore(handGrabInteractable.PalmGrabRules, false);
+                float palmStrength = api.GetHandPalmScore(handGrabInteractable.PalmGrabRules, includeSelecting);
                 if (palmStrength > handGrabScore)
                 {
                     handGrabScore = palmStrength;

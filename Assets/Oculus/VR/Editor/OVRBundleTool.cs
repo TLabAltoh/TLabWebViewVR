@@ -302,6 +302,7 @@ public class OVRBundleTool : EditorWindow
             EditorGUILayout.EndScrollView();
 
             EditorGUILayout.BeginHorizontal();
+            EditorGUI.BeginDisabledGroup(currentApkStatus != ApkStatus.OK);
             {
                 if (GUILayout.Button("Build and Deploy Scene(s)", GUILayout.Width(200)))
                 {
@@ -313,6 +314,7 @@ public class OVRBundleTool : EditorWindow
                     "Relaunch the application after scene bundles are finished deploying.");
                 forceRestart = GUILayout.Toggle(forceRestart, forceRestartLabel, GUILayout.ExpandWidth(true));
             }
+            EditorGUI.EndDisabledGroup();
             EditorGUILayout.EndHorizontal();
         }
 

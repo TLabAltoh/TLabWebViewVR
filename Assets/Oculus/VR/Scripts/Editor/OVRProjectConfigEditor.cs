@@ -212,6 +212,13 @@ public class OVRProjectConfigEditor : Editor
                     OVREditorUtil.SetupEnumField(projectConfig, new GUIContent("Virtual Keyboard Support",
                             "Provides a consistent typing experience across Meta Quest VR applications."),
                         ref projectConfig.virtualKeyboardSupport, ref hasModified);
+
+                    if (projectConfig.requiresSystemKeyboard)
+                    {
+                        EditorGUILayout.HelpBox(
+                            "Using the System Keyboard with Virtual Keyboard is not recommended.",
+                            MessageType.Warning);
+                    }
                 }
 
                 // Anchor Support - linked to Shared Spatial Anchors and Scene
@@ -337,6 +344,11 @@ public class OVRProjectConfigEditor : Editor
                         "Allows the application to use passthrough functionality. This option must be enabled at build time, otherwise initializing passthrough and creating passthrough layers in application scenes will fail."),
                     ref projectConfig._insightPassthroughSupport, ref hasModified);
 
+                // Processor favor (cpu/gpu level trading)
+                OVREditorUtil.SetupEnumField(projectConfig, new GUIContent("Processor Favor",
+                        "If selected, will increase the frequency of one processor at the expense of decreasing the frequency of the other on supported devices"),
+                    ref projectConfig._processorFavor, ref hasModified);
+
                 break;
 
             case eProjectConfigTab.BuildSettings:
@@ -371,6 +383,7 @@ public class OVRProjectConfigEditor : Editor
                 OVREditorUtil.SetupBoolField(projectConfig, new GUIContent("Experimental Features Enabled",
                         "If checked, this application can use experimental features. Note that such features are for developer use only. This option must be disabled when submitting to the Oculus Store."),
                     ref projectConfig.experimentalFeaturesEnabled, ref hasModified);
+
 
                 break;
         }

@@ -28,6 +28,7 @@ using System.Runtime.InteropServices;
 /// <summary>
 /// Plays tactile effects on a tracked VR controller.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_haptics")]
 public static class OVRHaptics
 {
     public readonly static OVRHapticsChannel[] Channels;

@@ -8,7 +8,8 @@
         "Unity.XR.OpenXR.Editor",
         "Unity.XR.Management",
         "Unity.XR.Management.Editor",
-        "Unity.RenderPipelines.Universal.Runtime"
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.XR.CoreUtils.Editor"
     ],
     "includePlatforms": [
         "Editor"
@@ -79,6 +80,11 @@
             "name": "com.unity.xr.oculus",
             "expression": "4.0.0",
             "define": "OCULUS_XR_PLUGIN_QUEST_ONE_REMOVED"
+        },
+        {
+            "name": "com.unity.xr.core-utils",
+            "expression": "2.2.1",
+            "define": "UNITY_XR_CORE_UTILS"
         },
         {
             "name": "com.unity.xr.management",

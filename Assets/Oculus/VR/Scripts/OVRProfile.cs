@@ -25,6 +25,7 @@ using System.Threading;
 /// <summary>
 /// (Deprecated) Contains information about the user's preferences and body dimensions.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_profile")]
 public class OVRProfile : Object
 {
     [System.Obsolete]

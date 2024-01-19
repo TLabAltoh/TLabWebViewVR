@@ -29,6 +29,7 @@ namespace UnityEngine.EventSystems
     /// <summary>
     /// Extension of Unity's PointerEventData to support ray based pointing and also touchpad swiping
     /// </summary>
+    [HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_pointer_event_data")]
     public class OVRPointerEventData : PointerEventData
     {
         public OVRPointerEventData(EventSystem eventSystem)

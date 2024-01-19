@@ -18,101 +18,45 @@
  * limitations under the License.
  */
 
-using System.Collections.Generic;
-using System.Linq;
+using Oculus.Interaction.DebugTree;
 using System;
+using System.Collections.Generic;
 
 namespace Oculus.Interaction.PoseDetection.Debug
 {
-    public interface IActiveStateTreeNode
+    public class ActiveStateDebugTree : DebugTree<IActiveState>
     {
-        IActiveState ActiveState { get; }
-        IEnumerable<IActiveStateTreeNode> Children { get; }
-    }
-
-    public class ActiveStateDebugTree
-    {
-        private class Node : IActiveStateTreeNode
+        public ActiveStateDebugTree(IActiveState root) : base(root)
         {
-            IActiveState IActiveStateTreeNode.ActiveState => ActiveState;
-            IEnumerable<IActiveStateTreeNode> IActiveStateTreeNode.Children => Children;
-
-            public IActiveState ActiveState { get; set; }
-            public List<Node> Children { get; set; }
         }
 
         private static Dictionary<Type, IActiveStateModel> _models =
             new Dictionary<Type, IActiveStateModel>();
 
-        private Dictionary<IActiveState, Node> _existingNodes =
-            new Dictionary<IActiveState, Node>();
-
-        private readonly IActiveState Root;
-        private Node _rootNode;
-
-        public static void RegisterModel<TActiveState, TModel>()
-            where TActiveState : class, IActiveState
-            where TModel : class, IActiveStateModel
+        public static void RegisterModel<TType>(IActiveStateModel stateModel)
+            where TType : class, IActiveState
         {
-            _models[typeof(TActiveState)] =
-                Activator.CreateInstance(typeof(TModel)) as IActiveStateModel;
-        }
-
-        public ActiveStateDebugTree(IActiveState root)
-        {
-            Root = root;
-        }
-
-        public IActiveStateTreeNode GetRootNode()
-        {
-            if (_rootNode == null)
+            Type key = typeof(TType);
+            if (_models.ContainsKey(key))
             {
-                _rootNode = BuildTree(Root);
+                _models[key] = stateModel;
             }
-            return _rootNode;
+            else
+            {
+                _models.Add(key, stateModel);
+            }
         }
 
-        public void Rebuild()
+        protected override bool TryGetChildren(IActiveState node, out IEnumerable<IActiveState> children)
         {
-            _rootNode = BuildTree(Root);
-        }
-
-        private Node BuildTree(IActiveState root)
-        {
-            _existingNodes.Clear();
-            return BuildTreeRecursive(root);
-        }
-
-        private Node BuildTreeRecursive(IActiveState activeState)
-        {
-            if (activeState == null)
+            if (_models.TryGetValue(node.GetType(), out IActiveStateModel model)
+                && model != null)
             {
-                return null;
+                children = model.GetChildren(node);
+                return true;
             }
-
-            if (_existingNodes.ContainsKey(activeState))
-            {
-                return _existingNodes[activeState];
-            }
-
-            List<Node> children = new List<Node>();
-
-            if (_models.TryGetValue(activeState.GetType(),
-                out IActiveStateModel model) && model != null)
-            {
-                children.AddRange(model.GetChildren(activeState)
-                    .Select((child) => BuildTreeRecursive(child))
-                    .Where((child) => child != null));
-            }
-
-            Node self = new Node()
-            {
-                ActiveState = activeState,
-                Children = children,
-            };
-
-            _existingNodes.Add(activeState, self);
-            return self;
+            children = null;
+            return false;
         }
     }
 }

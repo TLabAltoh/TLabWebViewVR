@@ -30,9 +30,9 @@ internal class OVRGUIContent
         BuiltIn,
         GenericIcons,
         ProjectSetupToolIcons,
-        SmartBuildingBlocksIcons,
-        SmartBuildingBlocksThumbnails,
-        SmartBuildingBlocksAnimations
+        BuildingBlocksIcons,
+        BuildingBlocksThumbnails,
+        BuildingBlocksAnimations
     }
 
     private static string _rootPath;

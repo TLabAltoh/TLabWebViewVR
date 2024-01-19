@@ -44,6 +44,7 @@ using Settings = UnityEngine.XR.XRSettings;
 /// <summary>
 /// Manages an Oculus Rift head-mounted display (HMD).
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_display")]
 public class OVRDisplay
 {
     /// <summary>

@@ -25,6 +25,7 @@ using UnityEngine;
 /// Utility for loading a scene model. Derive from this class to customize the scene loading behavior and respond to
 /// events.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_scene_model_loader")]
 [RequireComponent(typeof(OVRSceneManager))]
 public class OVRSceneModelLoader : MonoBehaviour
 {

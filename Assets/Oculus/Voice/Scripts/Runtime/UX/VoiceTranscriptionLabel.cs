@@ -30,6 +30,17 @@ namespace Oculus.VoiceSDK.UX
     public class VoiceTranscriptionLabel : MonoBehaviour
     {
         // The label to be updated
+        public Text Label
+        {
+            get
+            {
+                if (_label == null)
+                {
+                    _label = gameObject.GetComponent<Text>();
+                }
+                return _label;
+            }
+        }
         private Text _label;
 
         [Header("Listen Settings")]
@@ -119,7 +130,7 @@ namespace Oculus.VoiceSDK.UX
         // If no text came through, show prompt
         private void OnComplete(VoiceServiceRequest request)
         {
-            if (string.Equals(_label.text, _promptListening))
+            if (Label != null && string.Equals(Label?.text, _promptListening))
             {
                 SetText(_promptDefault, _promptColor);
             }
@@ -128,17 +139,8 @@ namespace Oculus.VoiceSDK.UX
         // Refresh text
         private void SetText(string newText, Color newColor)
         {
-            // Get text
-            if (_label == null)
-            {
-                _label = GetComponent<Text>();
-                if (_label == null)
-                {
-                    return;
-                }
-            }
             // Ignore if same
-            if (string.Equals(newText, _label.text) && newColor == _label.color)
+            if (Label == null || string.Equals(newText, Label.text) && newColor == Label.color)
             {
                 return;
             }

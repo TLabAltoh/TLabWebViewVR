@@ -19,6 +19,7 @@ Shader "Unlit/WireframeShader" {
       {
         float4 vertex : POSITION;
         float4 color : COLOR; // barycentric coords
+        UNITY_VERTEX_INPUT_INSTANCE_ID
       };
 
       struct v2f
@@ -26,11 +27,15 @@ Shader "Unlit/WireframeShader" {
         float4 vertex : SV_POSITION;
         float3 vertexView : TEXCOORD0;
         float3 color: COLOR;
+        UNITY_VERTEX_OUTPUT_STEREO
       };
 
       v2f vert(appdata v)
       {
         v2f o;
+        UNITY_SETUP_INSTANCE_ID(v);
+        UNITY_INITIALIZE_OUTPUT(v2f, o);
+        UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
         o.vertex = UnityObjectToClipPos(v.vertex);
         o.vertexView = UnityObjectToViewPos(v.vertex);
         o.color = v.color;

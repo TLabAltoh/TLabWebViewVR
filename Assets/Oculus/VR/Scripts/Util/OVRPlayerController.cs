@@ -25,6 +25,7 @@ using UnityEngine;
 /// Controls the player's movement in virtual reality.
 /// </summary>
 [RequireComponent(typeof(CharacterController))]
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_player_controller")]
 public class OVRPlayerController : MonoBehaviour
 {
     /// <summary>

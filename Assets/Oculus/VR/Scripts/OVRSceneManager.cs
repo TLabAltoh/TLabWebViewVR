@@ -23,12 +23,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Unity.Collections;
 using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 /// <summary>
 /// A manager for <see cref="OVRSceneAnchor"/>s created using the Room Setup feature.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_scene_manager")]
 public class OVRSceneManager : MonoBehaviour
 {
     /// <summary>
@@ -63,6 +65,18 @@ public class OVRSceneManager : MonoBehaviour
     [FormerlySerializedAs("prefabOverrides")]
     [Tooltip("Overrides the instantiation of the generic Plane/Volume prefabs with specialized ones.")]
     public List<OVRScenePrefabOverride> PrefabOverrides = new List<OVRScenePrefabOverride>();
+
+    /// <summary>
+    /// If True, the <see cref="OVRSceneManager"/> will present the room(s) the user is currently in.
+    /// Otherwise, the <see cref="OVRSceneManager"/> will present all the room(s) detected by the system at
+    /// the time of <see cref="LoadSceneModel"/> execution.
+    /// </summary>
+    /// <remarks>
+    /// No scene room will be presented if this value set to True and a user is not in any room(s)
+    /// during the <see cref="LoadSceneModel"/> execution.
+    /// </remarks>
+    [Tooltip("Scene manager will only present the room(s) the user is currently in.")]
+    public bool ActiveRoomsOnly = true;
 
     /// <summary>
     /// When true, verbose debug logs will be emitted.
@@ -304,6 +318,13 @@ public class OVRSceneManager : MonoBehaviour
     private Action<bool, List<OVRAnchor>> _onAnchorsFetchCompleted;
     private bool _hasLoadedScene = false;
 
+    private Action<bool> _onFloorAnchorsFetchCompleted;
+    private Action<bool, OVRAnchor> _onFloorAnchorLocalizationCompleted;
+    private List<OVRAnchor> _floorAnchors = OVRObjectPool.Get<List<OVRAnchor>>();
+    private readonly HashSet<Guid> _pendingLocatable = OVRObjectPool.Get<HashSet<Guid>>();
+    private Dictionary<Guid, OVRAnchor> _roomAndFloorPairs = OVRObjectPool.Get<Dictionary<Guid, OVRAnchor>>();
+    private List<OVRAnchor> _roomLayoutAnchors = new List<OVRAnchor>();
+
     #endregion
 
     #region Logging
@@ -352,6 +373,8 @@ public class OVRSceneManager : MonoBehaviour
         }
 
         _onAnchorsFetchCompleted = OnAnchorsFetchCompleted;
+        _onFloorAnchorsFetchCompleted = OnFloorAnchorsFetchCompleted;
+        _onFloorAnchorLocalizationCompleted = OnFloorAnchorLocalizationCompleted;
     }
 
     internal async void OnApplicationPause(bool isPaused)
@@ -397,7 +420,8 @@ public class OVRSceneManager : MonoBehaviour
                 uuids.Add(anchor.Uuid);
             }
 
-            await OVRAnchor.FetchAnchorsAsync(uuids, anchors);
+            if (uuids.Any())
+                await OVRAnchor.FetchAnchorsAsync(uuids, anchors);
             UpdateAllSceneAnchors();
         }
     }
@@ -429,10 +453,24 @@ public class OVRSceneManager : MonoBehaviour
         {
             if (roomLayoutAnchors.Any())
             {
-                InstantiateSceneRooms(roomLayoutAnchors);
+                if (ActiveRoomsOnly)
+                    InstantiateActiveRooms(roomLayoutAnchors);
+                else
+                    InstantiateSceneRooms(roomLayoutAnchors);
             }
             else
             {
+                if (VerboseLogging)
+                {
+                    var scenePermission = OVRPermissionsRequester.Permission.Scene;
+                    if (!OVRPermissionsRequester.IsPermissionGranted(scenePermission))
+                    {
+                        Verbose?.LogWarning(nameof(OVRSceneManager),
+                            $"Cannot retrieve anchors as {scenePermission} hasn't been granted.",
+                            gameObject);
+                    }
+                }
+
                 Development.LogWarning(nameof(OVRSceneManager),
                     "Loading the Scene definition yielded no result. "
                     + "Typically, this means the user has not captured the room they are in yet. "
@@ -444,6 +482,114 @@ public class OVRSceneManager : MonoBehaviour
         }
         OVRObjectPool.Return(roomLayoutAnchors);
     }
+
+    #region Loading active room(s)
+
+    private void InstantiateActiveRooms(List<OVRAnchor> roomLayoutAnchors)
+    {
+        _floorAnchors.Clear();
+        _roomAndFloorPairs.Clear();
+        _pendingLocatable.Clear();
+
+        using (new OVRObjectPool.ListScope<Guid>(out var floorUuids))
+        {
+            // Get all floors
+            foreach (var roomLayoutAnchor in roomLayoutAnchors)
+            {
+                if (!roomLayoutAnchor.TryGetComponent(out OVRRoomLayout roomLayout) ||
+                   !roomLayout.TryGetRoomLayout(out _, out var floorUuid, out _))
+                    continue;
+
+                floorUuids.Add(floorUuid);
+                _roomAndFloorPairs[floorUuid] = roomLayoutAnchor;
+            }
+
+            // Make query by uuids to fetch floor anchors
+            OVRAnchor.FetchAnchorsAsync(floorUuids, _floorAnchors).ContinueWith(_onFloorAnchorsFetchCompleted);
+        }
+
+        roomLayoutAnchors.Clear();
+    }
+
+    private void OnFloorAnchorsFetchCompleted(bool success)
+    {
+        if (!success) return;
+
+        _roomLayoutAnchors.Clear();
+        foreach (var floorAnchor in _floorAnchors)
+        {
+            // Make anchors locatable for Pose
+            if (!floorAnchor.TryGetComponent(out OVRLocatable locatable))
+            {
+                continue;
+            }
+
+            if (locatable.IsEnabled)
+            {
+                LocateUserInRoom(floorAnchor);
+                continue;
+            }
+
+            locatable.SetEnabledAsync(true).ContinueWith(_onFloorAnchorLocalizationCompleted, floorAnchor);
+            _pendingLocatable.Add(floorAnchor.Uuid);
+        }
+    }
+
+    private void OnFloorAnchorLocalizationCompleted(bool success, OVRAnchor anchor)
+    {
+        if (!_pendingLocatable.Contains(anchor.Uuid))
+            return;
+
+        _pendingLocatable.Remove(anchor.Uuid);
+
+        if (!success) return;
+        LocateUserInRoom(anchor);
+    }
+
+    private void LocateUserInRoom(OVRAnchor anchor)
+    {
+        var space = anchor.Handle;
+        var uuid = anchor.Uuid;
+
+        // Get floor anchor's pose
+        if (!OVRPlugin.TryLocateSpace(space, OVRPlugin.GetTrackingOriginType(), out var pose))
+        {
+            return;
+        }
+
+        // Get room boundary vertices
+        if (!OVRPlugin.GetSpaceBoundary2DCount(space, out var count))
+            return;
+
+        using var boundaryVertices = new NativeArray<Vector2>(count, Allocator.Temp);
+        if (!OVRPlugin.GetSpaceBoundary2D(space, boundaryVertices))
+            return;
+
+        // Perform location check
+        var playerPosition = OVRPlugin.GetNodePose(OVRPlugin.Node.EyeCenter, OVRPlugin.Step.Render).Position.FromVector3f();
+        var offsetWithFloor = playerPosition - pose.Position.FromVector3f();
+        playerPosition = Quaternion.Inverse(pose.Orientation.FromQuatf()) * offsetWithFloor;
+
+        if (PointInPolygon2D(boundaryVertices, playerPosition) &&
+            _roomAndFloorPairs.TryGetValue(uuid, out var roomAnchor))
+        {
+            _roomLayoutAnchors.Add(roomAnchor);
+        }
+
+        if (!_roomLayoutAnchors.Any())
+        {
+            Verbose?.Log(nameof(OVRSceneManager), "User is not present in any room(s).");
+            return;
+        }
+
+        // Instantiate room(s)
+        if (!_pendingLocatable.Any())
+        {
+            InstantiateSceneRooms(_roomLayoutAnchors);
+        }
+    }
+
+    #endregion
 
     private void InstantiateSceneRooms(List<OVRAnchor> roomLayoutAnchors)
     {
@@ -740,6 +886,39 @@ public class OVRSceneManager : MonoBehaviour
         {
             _cameraRig.TrackingSpaceChanged -= OnTrackingSpaceChanged;
         }
+    }
+
+    /// <summary>
+    /// Determines if a point is inside of a 2d polygon.
+    /// </summary>
+    /// <param name="boundaryVertices">The vertices that make up the bounds of the polygon</param>
+    /// <param name="target">The target point to test</param>
+    /// <returns>True if the point is inside the polygon, false otherwise</returns>
+    internal static bool PointInPolygon2D(NativeArray<Vector2> boundaryVertices, Vector2 target)
+    {
+        if (boundaryVertices.Length < 3)
+            return false;
+
+        int collision = 0;
+        var x = target.x;
+        var y = target.y;
+
+        for (int i = 0; i < boundaryVertices.Length; i++)
+        {
+            var x1 = boundaryVertices[i].x;
+            var y1 = boundaryVertices[i].y;
+
+            var x2 = boundaryVertices[(i + 1) % boundaryVertices.Length].x;
+            var y2 = boundaryVertices[(i + 1) % boundaryVertices.Length].y;
+
+            if (y < y1 != y < y2 &&
+                x < x1 + ((y - y1) / (y2 - y1)) * (x2 - x1))
+            {
+                collision += (y1 < y2) ? 1 : -1;
+            }
+        }
+
+        return collision != 0;
     }
 
     #region Action callbacks

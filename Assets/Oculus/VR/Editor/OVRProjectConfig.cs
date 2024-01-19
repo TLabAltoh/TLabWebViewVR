@@ -87,6 +87,13 @@ public class OVRProjectConfig : ScriptableObject, ISerializationCallbackReceiver
         Required = 2
     }
 
+    public enum ProcessorFavor
+    {
+        FavorEqually = 0,
+        FavorCPU = -1,
+        FavorGPU = 1
+    }
+
     public enum FeatureSupport
     {
         None = 0,
@@ -139,6 +146,15 @@ public class OVRProjectConfig : ScriptableObject, ISerializationCallbackReceiver
 
     [SerializeField]
     internal FeatureSupport _insightPassthroughSupport = FeatureSupport.None;
+
+    public ProcessorFavor processorFavor
+    {
+        get => _processorFavor;
+        set => _processorFavor = value;
+    }
+
+    [SerializeField]
+    internal ProcessorFavor _processorFavor = ProcessorFavor.FavorEqually;
 
     public enum SystemSplashScreenType
     {
@@ -273,6 +289,12 @@ public class OVRProjectConfig : ScriptableObject, ISerializationCallbackReceiver
             projectConfig.experimentalFeaturesEnabled = false;
             projectConfig.insightPassthroughSupport = FeatureSupport.None;
             AssetDatabase.CreateAsset(projectConfig, oculusProjectConfigAssetPath);
+        }
+
+        if (projectConfig == null)
+        {
+            _cachedProjectConfig = null;
+            return null;
         }
 
         // Force migration to Quest device if still on legacy GearVR/Go device type

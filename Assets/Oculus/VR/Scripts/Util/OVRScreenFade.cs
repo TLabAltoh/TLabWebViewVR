@@ -24,6 +24,7 @@ using System.Collections; // required for Coroutines
 /// <summary>
 /// Fades the screen from black after a new scene is loaded. Fade can also be controlled mid-scene using SetUIFade and SetFadeLevel
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_screen_fade")]
 public class OVRScreenFade : MonoBehaviour
 {
     public static OVRScreenFade instance { get; private set; }

@@ -148,6 +148,17 @@ namespace Oculus.Interaction.Editor
             EndUndoGroup();
         }
 
+        public static void HandleObjectWasAdded(GameObject gameObject)
+        {
+            StartUndoGroup();
+            var addedComponents = gameObject.GetComponentsInChildren<Component>(true);
+            foreach (var component in addedComponents)
+            {
+                UnityObjectAddedBroadcaster.WhenComponentAdded(component);
+            }
+            EndUndoGroup();
+        }
+
         private static void AddInstanceIdsFromSubHierarchyToCache(HashSet<int> cache, params GameObject[] subHierarchyRoots)
         {
             foreach (var gameObject in subHierarchyRoots)

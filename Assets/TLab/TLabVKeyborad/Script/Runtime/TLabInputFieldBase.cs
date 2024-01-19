@@ -44,6 +44,7 @@ namespace TLab.InputField
         {
             if (m_activeOnAwake)
             {
+                m_keyborad.HideKeyborad(false);
                 m_keyborad.SwitchInputField(this);
             }
         }

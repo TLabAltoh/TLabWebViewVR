@@ -29,6 +29,7 @@ using Node = UnityEngine.XR.XRNode;
 /// <summary>
 /// Provides a unified input system for Oculus controllers and gamepads.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_input")]
 public static class OVRInput
 {
     // dotnet-format does not yet support columnar formatting
@@ -953,7 +954,7 @@ public static class OVRInput
                     return Vector3.zero;
                 }
             case Controller.RTouch:
-                if (OVRNodeStateProperties.GetNodeStatePropertyVector3(Node.LeftHand,
+                if (OVRNodeStateProperties.GetNodeStatePropertyVector3(Node.RightHand,
                         NodeStatePropertyType.AngularVelocity, OVRPlugin.Node.ControllerRight, stepType, out velocity))
                 {
                     return velocity;
@@ -1009,7 +1010,7 @@ public static class OVRInput
                     return Vector3.zero;
                 }
             case Controller.RTouch:
-                if (OVRNodeStateProperties.GetNodeStatePropertyVector3(Node.LeftHand,
+                if (OVRNodeStateProperties.GetNodeStatePropertyVector3(Node.RightHand,
                         NodeStatePropertyType.AngularAcceleration, OVRPlugin.Node.ControllerRight, stepType, out accel))
                 {
                     return accel;
@@ -2938,7 +2939,7 @@ public static class OVRInput
             buttonMap.Two                      = RawButton.B;
             buttonMap.Three                    = RawButton.None;
             buttonMap.Four                     = RawButton.None;
-            buttonMap.Start                    = RawButton.None;
+            buttonMap.Start                    = RawButton.Start;
             buttonMap.Back                     = RawButton.None;
             buttonMap.PrimaryShoulder          = RawButton.None;
             buttonMap.PrimaryIndexTrigger      = RawButton.RIndexTrigger;

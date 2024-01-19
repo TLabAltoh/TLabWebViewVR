@@ -19,6 +19,7 @@
  */
 
 using System;
+using UnityEngine;
 using static OVRTelemetry;
 
 internal struct OVRTelemetryMarker : IDisposable
@@ -84,8 +85,15 @@ internal struct OVRTelemetryMarker : IDisposable
         return this;
     }
 
+    public OVRTelemetryMarker AddAnnotationIfNotNullOrEmpty(string annotationKey, string annotationValue)
+    {
+        return string.IsNullOrEmpty(annotationValue) ? this : AddAnnotation(annotationKey, annotationValue);
+    }
+
     public OVRTelemetryMarker Send()
     {
+
+        AddAnnotation(OVRTelemetryConstants.OVRManager.AnnotationTypes.EngineVersion, Application.unityVersion);
 
         State = new OVRTelemetryMarkerState(true, Result);
         _client.MarkerEnd(MarkerId, Result, InstanceKey);

@@ -20,12 +20,14 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace UnityEngine.EventSystems
 {
     /// <summary>
     /// VR extension of PointerInputModule which supports gaze and controller pointing.
     /// </summary>
+    [HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_input_module")]
     public class OVRInputModule : PointerInputModule
     {
         [Tooltip("Object which points with Z axis. E.g. CentreEyeAnchor from OVRCameraRig")]

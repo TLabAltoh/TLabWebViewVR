@@ -36,6 +36,7 @@ using UnityEngine.Rendering;
 ///
 /// The Unity Job System is used to avoid blocking the main thread.
 /// </remarks>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_scene_volume_mesh_filter")]
 [RequireComponent(typeof(MeshFilter))]
 public class OVRSceneVolumeMeshFilter : MonoBehaviour
 {

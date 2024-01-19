@@ -213,8 +213,7 @@ namespace Oculus.Interaction.Input
                 || (OVRInput.GetDominantHand() == OVRInput.Handedness.RightHanded
                     && _handedness == Handedness.Right);
 
-            float pinchAmount = OVRControllerUtility.GetPinchAmount(_ovrController);
-            float pinchStrength = _pinchCurve.Evaluate(pinchAmount);
+            float pinchStrength = _pinchCurve.Evaluate(OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, _ovrController));
             float gripStrength = _pinchCurve.Evaluate(OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, _ovrController));
 
             _handDataAsset.IsFingerHighConfidence[(int)HandFinger.Thumb] = true;

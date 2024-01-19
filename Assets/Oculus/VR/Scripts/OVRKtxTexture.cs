@@ -25,6 +25,7 @@ using System;
 using UnityEngine;
 
 // Class that manages loading of Ktx Textures through OVRPlugin
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_ktx_texture")]
 public class OVRKtxTexture
 {
     private const uint KTX_TTF_BC7_RGBA = 6;

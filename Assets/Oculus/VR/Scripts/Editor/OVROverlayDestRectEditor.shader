@@ -15,11 +15,11 @@ Shader "Unlit/OVROverlayDestRectEditor"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _SrcRectLeft("SrcRectLeft", Vector) = (0,0,1,1)
-        _SrcRectRight("SrcRectRight", Vector) = (0,0,1,1)
-        _DestRectLeft ("DestRectLeft", Vector) = (0,0,1,1)
-        _DestRectRight("DestRectRight", Vector) = (0,0,1,1)
-        _BackgroundColor("Background Color", Color) = (0.225, 0.225, 0.225, 1)
+        _PaddingAndSize("Padding And Size", Vector) = (4, 4, 128, 128)
+        _SrcRect("SrcRect", Vector) = (0,0,1,1)
+        _DestRect ("DestRect", Vector) = (0,0,1,1)
+        _DragColor ("DragColor", Color) = (1,0,0,1)
+        _BackgroundColor("Background Color", Color) = (0.278, 0.278, 0.278, 1)
     }
     SubShader
     {
@@ -44,21 +44,20 @@ Shader "Unlit/OVROverlayDestRectEditor"
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-                float4 leftDragX : TEXCOORD1;
-                float4 leftDragY : TEXCOORD2;
-                float4 rightDragX : TEXCOORD3;
-                float4 rightDragY : TEXCOORD4;
+                float4 dragLeftRight : TEXCOORD1;
+                float4 dragTopBottom : TEXCOORD2;
             };
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
-            float4 _SrcRectLeft;
-            float4 _SrcRectRight;
-            float4 _DestRectLeft;
-            float4 _DestRectRight;
+            float4 _PaddingAndSize;
 
-            fixed4 _BackgroundColor;
+            float4 _SrcRect;
+            float4 _DestRect;
+
+            float4 _DragColor;
+            float4 _BackgroundColor;
 
             v2f vert (appdata v)
             {
@@ -66,80 +65,54 @@ Shader "Unlit/OVROverlayDestRectEditor"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 // Add padding
-                o.uv = (o.uv - 0.5) * (256.0 + 8.0) / (256.0) + 0.5;
+                o.uv = (o.uv - 0.5) * (_PaddingAndSize.xy + _PaddingAndSize.zw) / _PaddingAndSize.zw + 0.5;
 
                 // left
-                o.leftDragX.x = _DestRectLeft.x;
-                o.leftDragY.x = _DestRectLeft.y + _DestRectLeft.w * 0.5;
+                o.dragLeftRight.x = _DestRect.x;
+                o.dragLeftRight.y = _DestRect.y + _DestRect.w * 0.5;
                 // right
-                o.leftDragX.y = _DestRectLeft.x + _DestRectLeft.z;
-                o.leftDragY.y = _DestRectLeft.y + _DestRectLeft.w * 0.5;
+                o.dragLeftRight.z = _DestRect.x + _DestRect.z;
+                o.dragLeftRight.w = _DestRect.y + _DestRect.w * 0.5;
                 // top
-                o.leftDragX.z = _DestRectLeft.x + _DestRectLeft.z * 0.5;
-                o.leftDragY.z = _DestRectLeft.y;
+                o.dragTopBottom.x = _DestRect.x + _DestRect.z * 0.5;
+                o.dragTopBottom.y = _DestRect.y;
                 // bottom
-                o.leftDragX.w = _DestRectLeft.x + _DestRectLeft.z * 0.5;
-                o.leftDragY.w = _DestRectLeft.y + _DestRectLeft.w;
-                // right
-                o.rightDragX.x = _DestRectRight.x;
-                o.rightDragY.x = _DestRectRight.y + _DestRectRight.w * 0.5;
-                // right
-                o.rightDragX.y = _DestRectRight.x + _DestRectRight.z;
-                o.rightDragY.y = _DestRectRight.y + _DestRectRight.w * 0.5;
-                // top
-                o.rightDragX.z = _DestRectRight.x + _DestRectRight.z * 0.5;
-                o.rightDragY.z = _DestRectRight.y;
-                // bottom
-                o.rightDragX.w = _DestRectRight.x + _DestRectRight.z * 0.5;
-                o.rightDragY.w = _DestRectRight.y + _DestRectRight.w;
+                o.dragTopBottom.z = _DestRect.x + _DestRect.z * 0.5;
+                o.dragTopBottom.w = _DestRect.y + _DestRect.w;
 
                 return o;
             }
 
-            float onDrag(float2 uv, float x, float y)
+            float onDrag(const float2 uv, const float2 xy)
             {
-                const float pixelSize = 6;
-                return abs(uv.x - x) < ((pixelSize / 2) / 128.0) && abs(uv.y - y) < ((pixelSize / 2) / 128.0);
+                const float2 handleSize = (_PaddingAndSize.xy / 2.0 + 1.0) / _PaddingAndSize.zw;
+                const float2 offset = abs(uv - xy);
+                return offset.x <= handleSize.x && offset.y <= handleSize.y;
             }
 
-            float onLine(float2 uv, float4 rect)
+            float onLine(const float2 uv, const float4 rect)
             {
                 return
-                    (abs(uv.x - rect.x) < (1 / 128.0) && uv.y >= rect.y && uv.y <= rect.y + rect.w) ||
-                    (abs(uv.x - rect.x - rect.z) < (1 / 128.0) && uv.y >= rect.y && uv.y <= rect.y + rect.w) ||
-                    (abs(uv.y - rect.y) < (1 / 128.0) && uv.x >= rect.x && uv.x <= rect.x + rect.z) ||
-                    (abs(uv.y - rect.y - rect.w) < (1 / 128.0) && uv.x >= rect.x && uv.x <= rect.x + rect.z);
+                    (abs(uv.x - rect.x) < (1 / _PaddingAndSize.z) && uv.y >= rect.y && uv.y <= rect.y + rect.w) ||
+                    (abs(uv.x - rect.x - rect.z) < (1 / _PaddingAndSize.z) && uv.y >= rect.y && uv.y <= rect.y + rect.w) ||
+                    (abs(uv.y - rect.y) < (1 / _PaddingAndSize.w) && uv.x >= rect.x && uv.x <= rect.x + rect.z) ||
+                    (abs(uv.y - rect.y - rect.w) < (1 / _PaddingAndSize.w) && uv.x >= rect.x && uv.x <= rect.x + rect.z);
             }
 
-            float checkerboard(float2 uv)
+            float checkerboard(const float2 uv)
             {
-                float x = floor(uv.x * (16 + 2));
-                float y = floor(uv.y * 8);
-
-                return 2 * ((x + y) / 2.0 - floor((x + y) / 2.0));
+                const float2 xy = floor(uv * (_PaddingAndSize.xy + _PaddingAndSize.zw) / 8 - _PaddingAndSize.xy / 8);
+                return xy.x + xy.y - 2.0 * floor((xy.x + xy.y) / 2.0);
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float isLeftEye = i.uv < 0.5;
-                float2 leftUV = float2(i.uv.x * (256.0 + 32.0) / 128.0, i.uv.y);
-                float2 rightUV = float2(1 - ((1 - i.uv.x) * (256.0 + 32.0) / 128.0), i.uv.y);
 
-                float2 uv = i.uv;
-                float2 textureUV = i.uv;
-                if (isLeftEye)
-                {
-                    uv = (leftUV - _DestRectLeft.xy) / _DestRectLeft.zw;
-                    textureUV = uv * _SrcRectLeft.zw + _SrcRectLeft.xy;
-                }
-                else
-                {
-                    uv = (rightUV - _DestRectRight.xy) / _DestRectRight.zw;
-                    textureUV = uv * _SrcRectRight.zw + _SrcRectRight.xy;
-                }
+                const float2 uv = (i.uv - _DestRect.xy) / _DestRect.zw;
+                const float2 texcoord = uv * _SrcRect.zw + _SrcRect.xy;
 
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, float2(textureUV.x, 1 - textureUV.y));
+                fixed4 col = tex2D(_MainTex, texcoord);
 
                 if (uv.x < 0 || uv.x > 1 || uv.y < 0 || uv.y > 1)
                 {
@@ -148,25 +121,19 @@ Shader "Unlit/OVROverlayDestRectEditor"
 
                 col.rgb = lerp(0.41 - 0.13 * checkerboard(i.uv), col.rgb, col.a);
 
-                if (i.uv.x < 0 || i.uv.x > 1 || i.uv.y < 0 || i.uv.y > 1 || abs(i.uv.x - 0.5) < (14 / 256.0))
+                if (i.uv.x < 0 || i.uv.x > 1 || i.uv.y < 0 || i.uv.y > 1)
                 {
                     col = _BackgroundColor;
                 }
 
                 // now draw clipping objects
-                float left = isLeftEye && (onLine(leftUV, _DestRectLeft) ||
-                    onDrag(leftUV, i.leftDragX.x, i.leftDragY.x) ||
-                    onDrag(leftUV, i.leftDragX.y, i.leftDragY.y) ||
-                    onDrag(leftUV, i.leftDragX.z, i.leftDragY.z) ||
-                    onDrag(leftUV, i.leftDragX.w, i.leftDragY.w));
+                const float drag = onLine(i.uv, _DestRect) ||
+                    onDrag(uv, i.dragLeftRight.xy) ||
+                    onDrag(uv, i.dragLeftRight.zw) ||
+                    onDrag(uv, i.dragTopBottom.xy) ||
+                    onDrag(uv, i.dragTopBottom.zw);
 
-                float right = (!isLeftEye) && (onLine(rightUV, _DestRectRight) ||
-                    onDrag(rightUV, i.rightDragX.x, i.rightDragY.x) ||
-                    onDrag(rightUV, i.rightDragX.y, i.rightDragY.y) ||
-                    onDrag(rightUV, i.rightDragX.z, i.rightDragY.z) ||
-                    onDrag(rightUV, i.rightDragX.w, i.rightDragY.w));
-
-                return lerp(col, fixed4(left, right, 0, 1), left || right);
+                return lerp(col, _DragColor, drag);
             }
             ENDCG
         }

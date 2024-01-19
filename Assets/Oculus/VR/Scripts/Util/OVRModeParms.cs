@@ -23,6 +23,7 @@ using UnityEngine;
 /// <summary>
 /// Logs when the application enters power save mode and allows you to a low-power CPU/GPU level with a button press.
 /// </summary>
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_mode_parms")]
 public class OVRModeParms : MonoBehaviour
 {
     #region Member Variables

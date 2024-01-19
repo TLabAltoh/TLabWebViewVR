@@ -29,6 +29,7 @@ using UnityEngine.Serialization;
 /// <see cref="OVRSceneManager.VolumePrefab"/> based on a semantic <see cref="OVRSceneManager.Classification"/>.
 /// </summary>
 [System.Serializable]
+[HelpURL("https://developer.oculus.com/reference/unity/latest/class_o_v_r_scene_prefab_override")]
 public class OVRScenePrefabOverride : ISerializationCallbackReceiver
 {
     /// <summary>

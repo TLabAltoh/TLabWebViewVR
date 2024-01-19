@@ -21,7 +21,6 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Oculus.Voice.Core.Utilities;
 using UnityEditor;
 using UnityEngine;
 
@@ -282,7 +281,7 @@ namespace Meta.Voice.TelemetryUtilities
                 QplMarkerStart((int)eventId, _nextEventSequenceId, -1);
                 AnnotateEvent(_nextEventSequenceId, AnnotationKey.SessionId, _sessionID.ToString());
                 AnnotateEvent(_nextEventSequenceId, AnnotationKey.StartTimeStamp,
-                    DateTimeUtility.ElapsedMilliseconds.ToString());
+                    ElapsedMilliseconds.ToString());
 
                 LogVerbose($"Started telemetry event {eventId}:{_nextEventSequenceId}");
                 return _nextEventSequenceId++;
@@ -299,7 +298,7 @@ namespace Meta.Voice.TelemetryUtilities
             {
                 var instanceKey = _nextEventSequenceId;
                 _instanceKeyMap[instanceKey] = eventId;
-                var timeStamp = DateTimeUtility.ElapsedMilliseconds.ToString();
+                var timeStamp = ElapsedMilliseconds.ToString();
                 QplMarkerStart((int)eventId, instanceKey, -1);
                 LogVerbose($"Started instant telemetry event {eventId}:{instanceKey}");
                 AnnotateEvent(instanceKey, AnnotationKey.SessionId, _sessionID.ToString());
@@ -358,7 +357,7 @@ namespace Meta.Voice.TelemetryUtilities
 
                 var eventId = _instanceKeyMap[instanceKey];
                 AnnotateEvent(instanceKey, AnnotationKey.EndTimeStamp,
-                    DateTimeUtility.ElapsedMilliseconds.ToString());
+                    ElapsedMilliseconds.ToString());
                 QplMarkerEnd((int)eventId, result, instanceKey, -1);
                 _instanceKeyMap.Remove(instanceKey);
                 LogVerbose($"Ended telemetry event {eventId}:{instanceKey}({result})");
@@ -378,6 +377,11 @@ namespace Meta.Voice.TelemetryUtilities
                 {
                     OnEditorShutdown();
                 }
+            }
+
+            private static long ElapsedMilliseconds
+            {
+                get => DateTime.UtcNow.Ticks / TimeSpan.TicksPerMillisecond;
             }
 
             #region Telemetry native methods

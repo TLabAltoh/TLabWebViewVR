@@ -24,6 +24,9 @@ using UnityEngine.Assertions;
 
 namespace Oculus.Interaction
 {
+    /// <summary>
+    /// Selects and unselects based on the Active State. If this component is piped into the Selector property of the Interactor component, it can replace poses for existing interactors with custom poses.
+    /// </summary>
     public class ActiveStateSelector : MonoBehaviour, ISelector
     {
         [Tooltip("ISelector events will be raised " +
