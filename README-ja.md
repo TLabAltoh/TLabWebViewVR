@@ -1,4 +1,4 @@
-#TLabWebViewVR  
+TLabWebViewVR  
 
 UnityのOculus quest VRでWebViewを使用するためのサンプルプロジェクト  
 Oculus Integration と XR Interaction Toolkitの両方をサポート
@@ -19,6 +19,9 @@ TLabWebViewVRTouchEventManager.cs --> TLabWebViewVRTouchEventListener.cs
 TLabWebViewXRInputManager.cs --> TLabWebViewXRInputListener.cs
 ```
 - 現在，Unity 2021 ~ 2022を正式にサポートしています．
+- リポジトリ内のライブラリをsubmoduleとして管理する方針に変更しました．
+	- コミット ``` 4a7a833 ``` 以前からプロジェクトをクローンしていた方は，改めてリポジトリをクローンし直してください．
+	- ``` git submodule update --init ```でサブモジュールのコミットをプロジェクトで推奨するバージョンに合わせてください．
 
 ## 動作環境
 - Oculus Quest 2
