@@ -23,7 +23,7 @@ TLabWebViewXRInputManager.cs --> TLabWebViewXRInputListener.cs
 - The policy has been changed to manage libraries in the repository as submodules.
 	- Commit ``` 4a7a833 ``` If you cloned the project before, please clone the repository again.
 	- Use ``` git submodule update --init ``` to adjust the commit of the submodule to the version recommended by the project.
-- We have decided to discontinue the ''' TLabWebViewVRTouchEventListener / TLabWebViewXRInputListener ''' and make WebViewInputListener the UI module of TLabWebView from now on. This allows the input module to work independently of plug-ins such as Oculus, XRToolkit, etc. (2024/2/13)
+- We have decided to discontinue the ``` TLabWebViewVRTouchEventListener / TLabWebViewXRInputListener ``` and make ``` WebViewInputListener ``` the UI module of TLabWebView from now on. This allows the input module to work independently of plug-ins such as Oculus, XRToolkit, etc. (2024/2/13)
 
 ## Operating Environment
 - Oculus Quest 2
