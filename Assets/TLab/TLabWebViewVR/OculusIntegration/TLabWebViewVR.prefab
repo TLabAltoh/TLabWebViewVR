@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3685352231241167536}
   - component: {fileID: 1812378173222755294}
   - component: {fileID: 6272470167859563041}
-  - component: {fileID: 758591374718453809}
+  - component: {fileID: 5107125585014186702}
   - component: {fileID: 525996739328166558}
   - component: {fileID: 3890289578771306140}
   m_Layer: 5
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_webHeight: 1024
   m_texWidth: 512
   m_texHeight: 512
---- !u!114 &758591374718453809
+--- !u!114 &5107125585014186702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,14 +106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1230339583510961678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f0391f896636a64c807c92fd4289a51, type: 3}
+  m_Script: {fileID: 11500000, guid: e06f846e1e589444cb635fedc4ba9e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_tlabWebView: {fileID: 6272470167859563041}
-  m_pointerPos: {fileID: 0}
-  m_webViewRect: {fileID: 1979507781648527920}
-  m_controller: 2
-  m_touchButton: 8192
+  m_webview: {fileID: 6272470167859563041}
 --- !u!114 &525996739328166558
 MonoBehaviour:
   m_ObjectHideFlags: 0

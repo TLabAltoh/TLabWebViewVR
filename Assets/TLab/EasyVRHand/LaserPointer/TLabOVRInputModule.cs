@@ -3,11 +3,6 @@ using System.Collections.Generic;
 
 namespace UnityEngine.EventSystems
 {
-    /// <summary>
-    /// VR extension of PointerInputModule which supports gaze and controller pointing.
-    /// OVRInputModuleの両手対応
-    /// Android ビルドに向けて書いたコードであることに注意
-    /// </summary>
     public class TLabOVRInputModule : PointerInputModule
     {
         [Tooltip("Object which points with Z axis. E.g. CentreEyeAnchor from OVRCameraRig")]
@@ -74,7 +69,7 @@ namespace UnityEngine.EventSystems
         private Vector2 m_LastMousePosition;
         private Vector2 m_MousePosition;
 
-        protected TLabOVRInputModule(){ }
+        protected TLabOVRInputModule() { }
 
 #if UNITY_EDITOR
         protected override void Reset()
@@ -473,8 +468,8 @@ namespace UnityEngine.EventSystems
                     SendSubmitEventToSelectedObject();
             }
 
-            ProcessMouseEvent(GetGazePointerData(rayTransformLeft, m_CursorLeft, OVRInput.Controller.LTouch));
-            ProcessMouseEvent(GetGazePointerData(rayTransformRight, m_CursorRight, OVRInput.Controller.RTouch));
+            ProcessMouseEvent(GetGazePointerData(rayTransformLeft, kMouseLeftId, m_CursorLeft, OVRInput.Controller.LTouch));
+            ProcessMouseEvent(GetGazePointerData(rayTransformRight, kMouseLeftId + 1, m_CursorRight, OVRInput.Controller.RTouch));
 #if !UNITY_ANDROID
             ProcessMouseEvent(GetCanvasPointerData());
 #endif
@@ -592,11 +587,11 @@ namespace UnityEngine.EventSystems
         /// State for a pointer controlled by a world space ray. E.g. gaze pointer
         /// </summary>
         /// <returns></returns>
-        virtual protected MouseState GetGazePointerData(Transform rayTransform, OVRCursor cursor, OVRInput.Controller controller)
+        virtual protected MouseState GetGazePointerData(Transform rayTransform, int pointerId, OVRCursor cursor, OVRInput.Controller controller)
         {
             // Get the OVRRayPointerEventData reference
             OVRPointerEventData leftData;
-            GetPointerData(kMouseLeftId, out leftData, true);
+            GetPointerData(pointerId, out leftData, true);
             leftData.Reset();
 
             //Now set the world space ray. This ray is what the user uses to point at UI elements

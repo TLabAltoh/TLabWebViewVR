@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 5666184062252149851}
   - component: {fileID: 7251226884498474293}
   - component: {fileID: 3065577318192207050}
-  - component: {fileID: 7993831339207944254}
+  - component: {fileID: 6344018819965128091}
   - component: {fileID: 4696477075628750277}
   - component: {fileID: 4613071463995270470}
   m_Layer: 5
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_webHeight: 1024
   m_texWidth: 512
   m_texHeight: 512
---- !u!114 &7993831339207944254
+--- !u!114 &6344018819965128091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,15 +256,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7823983333428396261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15029bdc3f33a0458132adda48e9a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: e06f846e1e589444cb635fedc4ba9e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_tlabWebView: {fileID: 3065577318192207050}
-  m_rayInteractor: {fileID: 0}
-  m_webViewRect: {fileID: 7421874876993924315}
-  m_triggerPress: {fileID: -5384860772493043476, guid: d2d039ebf990ec34794eebf1a60f32e9, type: 3}
-  m_lineVisual: {fileID: 0}
-  m_lineRenderer: {fileID: 0}
+  m_webview: {fileID: 3065577318192207050}
 --- !u!114 &4696477075628750277
 MonoBehaviour:
   m_ObjectHideFlags: 0
