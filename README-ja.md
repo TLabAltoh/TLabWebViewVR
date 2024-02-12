@@ -22,6 +22,7 @@ TLabWebViewXRInputManager.cs --> TLabWebViewXRInputListener.cs
 - リポジトリ内のライブラリをsubmoduleとして管理する方針に変更しました．
 	- コミット ``` 4a7a833 ``` 以前からプロジェクトをクローンしていた方は，改めてリポジトリをクローンし直してください．
 	- ``` git submodule update --init ```でサブモジュールのコミットをプロジェクトで推奨するバージョンに合わせてください．
+- ''' TLabWebViewVRTouchEventListener / TLabWebViewXRInputLIstener '''を廃止し，''' WebViewInputListener '''を今後TLabWebViewのUIモジュールとすることにしました．これにより入力モジュールは，Oculus, XRToolkitなどのプラグインに依存せず動作するようになります．(2024/2/13)
 
 ## 動作環境
 - Oculus Quest 2
