@@ -13,12 +13,8 @@ Support for both Oculus Integration and XR Interaction Toolkit.
 
 # Note
 - The input system for WebView has been significantly changed
-	```
-	TLabWebViewVRTouchEventManager.cs --> TLabWebViewVRTouchEventListener.cs
-	```
-	```
-	TLabWebViewXRInputManager.cs --> TLabWebViewXRInputListener.cs
-	```
+	- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
+	- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
 - Now officially compatible with Unity 2021 ~ 2022.
 - The policy has been changed to manage libraries in the repository as submodules.
 	- Commit ``` 4a7a833 ``` If you cloned the project before, please clone the repository again.
