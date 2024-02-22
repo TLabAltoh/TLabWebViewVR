@@ -38,13 +38,12 @@ Support for both Oculus Integration and XR Interaction Toolkit.
 - [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
 
 ### Installing
-Clone the repository with the following command
-
+- Clone the repository with the following command
 	```
 	git clone https://github.com/TLabAltoh/TLabWebViewVR.git
-	
+
 	cd TLabWebViewVR
-	
+
 	git submodule update --init
 	```
 
@@ -66,14 +65,14 @@ Clone the repository with the following command
 
 	- Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
 
+		``` 
+		UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
 		```
-		UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC
+		``` 
+		UNITYWEBVIEW_ANDROID_ENABLE_CAMERA 
 		```
-		```
-		UNITYWEBVIEW_ANDROID_ENABLE_CAMERA
-		```
-		```
-		UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
+		``` 
+		UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE 
 		```
 
 - XR Plug-in Management
