@@ -38,47 +38,47 @@ Oculus Integration と XR Interaction Toolkitの両方をサポート
 
 ### インストール
 - 任意のディレクトリに以下のコマンドでリポジトリをクローン
-	```
-	git clone https://github.com/TLabAltoh/TLabWebViewVR.git
+```
+git clone https://github.com/TLabAltoh/TLabWebViewVR.git
 	
-	cd TLabWebViewVR
+cd TLabWebViewVR
 	
-	git submodule update --init
-	```
+git submodule update --init
+```
 
 ### セットアップ
 - Build Settings  
 
-	| Setting items | value |
-	| --- | --- |  
-	| platform | android |  
+| Setting items | value |
+| --- | --- |  
+| platform | android |  
 
 - Project Settings
 
-	| Setting items | value |
-	| --- | --- |  
-	| Color Space | Linear |  
-	| Graphics | OpenGLES3 |  
-	| Minimux API Level | 29 |  
-	| Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
+| Setting items | value |
+| --- | --- |  
+| Color Space | Linear |  
+| Graphics | OpenGLES3 |  
+| Minimux API Level | 29 |  
+| Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
 
 	- Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
 
-		``` 
-		UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
-		```
-		``` 
-		UNITYWEBVIEW_ANDROID_ENABLE_CAMERA 
-		```
-		``` 
-		UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE 
-		```
+``` 
+UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
+```
+``` 
+UNITYWEBVIEW_ANDROID_ENABLE_CAMERA 
+```
+``` 
+UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE 
+```
 
 - XR Plug-in Management
 
-	| Setting items | value |
-	| --- | --- |  
-	| plugin provider | Oculus (not OpenXR) |  
+| Setting items | value |
+| --- | --- |  
+| plugin provider | Oculus (not OpenXR) |  
 
 #### Oculus Integration
 - Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
