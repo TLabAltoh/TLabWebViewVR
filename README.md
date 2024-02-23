@@ -61,9 +61,11 @@ git submodule update --init
 | Color Space | Linear |  
 | Graphics | OpenGLES3 |  
 | Minimux API Level | 29 |  
-| Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |  
+| Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
+
 
 	- Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
+
 
 ``` 
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
@@ -74,6 +76,7 @@ UNITYWEBVIEW_ANDROID_ENABLE_CAMERA
 ``` 
 UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE 
 ```
+
 
 - XR Plug-in Management
 
