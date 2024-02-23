@@ -64,7 +64,7 @@ git submodule update --init
 | Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
 
 
-	- Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
+- Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
 
 
 ``` 
