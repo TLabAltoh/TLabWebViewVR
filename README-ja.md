@@ -62,7 +62,7 @@ git submodule update --init
 | Minimux API Level | 29 |  
 | Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
 
-	- Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
+- Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
 
 ``` 
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
