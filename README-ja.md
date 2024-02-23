@@ -10,7 +10,7 @@ Oculus Integration と XR Interaction Toolkitの両方をサポート
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)
 
-# Note
+## Note
 - クラス名を変更しました．
 	- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
 	- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
