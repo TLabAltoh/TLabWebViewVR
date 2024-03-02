@@ -30,10 +30,8 @@ public class SearchBarInteractionSample : MonoBehaviour
 
                 if (typeof node.querySelector == 'function') {
                     var element = node.querySelector(id);
-                    if (element != undefined && element != null)
-                    {
-                        if (!inputs.includes(element))
-                        {
+                    if (element != undefined && element != null) {
+                        if (!inputs.includes(element)) {
                             inputs.push(element);
                         }
                     }
@@ -41,15 +39,19 @@ public class SearchBarInteractionSample : MonoBehaviour
             }
 
             querySelectorAllForAllTree(document, 'textarea');
+            querySelectorAllForAllTree(document, 'input');
+
+            function focusin() {
+                window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusin');
+            }
+
+            function focusout() {
+                window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusout');
+            }
 
             for (const input of inputs) {
-                input.addEventListener('focusin', function() {
-                    window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusin');
-                });
-
-                input.addEventListener('focusout', function() {
-                    window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusout');
-                });
+                input.addEventListener('focusin', focusin);
+                input.addEventListener('focusout', focusout);
             }
 
             window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Executed');
