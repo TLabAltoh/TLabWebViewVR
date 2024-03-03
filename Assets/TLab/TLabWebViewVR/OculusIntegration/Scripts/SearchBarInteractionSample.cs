@@ -13,45 +13,43 @@ public class SearchBarInteractionSample : MonoBehaviour
     public void AddEventListener()
     {
         string jsCode = @"
-            var inputs = [];
+            var elements = [];
 
-            function querySelectorAllForAllTree(node, id) {
+            function searchShadowRoot(node, id) {
                 if (node == null) {
                     return;
                 }
 
                 if (node.shadowRoot != undefined && node.shadowRoot != null) {
-                    querySelectorAllForAllTree(node.shadowRoot, id);
+                    if (!elements.includes(node.shadowRoot)) {
+                        elements.push(node.shadowRoot);
+                    }
+                    searchShadowRoot(node.shadowRoot, id);
                 }
 
                 for (var i = 0; i < node.childNodes.length; i++) {
-                    querySelectorAllForAllTree(node.childNodes[i], id);
+                    searchShadowRoot(node.childNodes[i], id);
                 }
+            }
 
-                if (typeof node.querySelector == 'function') {
-                    var element = node.querySelector(id);
-                    if (element != undefined && element != null) {
-                        if (!inputs.includes(element)) {
-                            inputs.push(element);
-                        }
+            elements.push(document);
+            searchShadowRoot(document, 'input');
+            searchShadowRoot(document, 'textarea');
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener('focusin', (e) => {
+                    const target = e.target;
+                    if (target.tagName == 'INPUT' || target.tagName == 'TEXTAREA') {
+                       window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusin');
                     }
-                }
-            }
-
-            querySelectorAllForAllTree(document, 'textarea');
-            querySelectorAllForAllTree(document, 'input');
-
-            function focusin() {
-                window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusin');
-            }
-
-            function focusout() {
-                window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusout');
-            }
-
-            for (const input of inputs) {
-                input.addEventListener('focusin', focusin);
-                input.addEventListener('focusout', focusout);
+                });
+    
+                elements[i].addEventListener('focusout', (e) => {
+                    const target = e.target;
+                    if (target.tagName == 'INPUT' || target.tagName == 'TEXTAREA') {
+                       window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Foucusout');
+                    }
+                });
             }
 
             window.TLabWebViewActivity.unitySendMessage('SearchBar Interaction Sample', 'OnMessage', 'Executed');
