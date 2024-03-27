@@ -70,6 +70,9 @@ git submodule update --init
 - Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
 
 
+```
+UNITYWEBVIEW_ANDROID_SUPPORT_OCULUS
+```
 ``` 
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
 ```
