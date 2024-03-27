@@ -92,11 +92,18 @@ MonoBehaviour:
   m_rawImage: {fileID: 1812378173222755294}
   m_url: https://www.youtube.com/
   m_dlOption: 0
-  m_subdir: downloads
+  m_subDir: downloads
   m_webWidth: 1024
   m_webHeight: 1024
   m_texWidth: 512
   m_texHeight: 512
+  m_jsEventCallback:
+    onPageFinish: 
+    onDownloadStart: 
+    onDownloadFinish: 
+    dl_uri_name: unity_webview_dl_uri
+    dl_url_name: unity_webview_dl_url
+    dl_id_name: unity_webview_dl_id
 --- !u!114 &5107125585014186702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,6 +1393,10 @@ PrefabInstance:
     - target: {fileID: 4272567237343541712, guid: 58607dc0d897b2b46a8496ffaa5fa6a1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449721481549372445, guid: 58607dc0d897b2b46a8496ffaa5fa6a1, type: 3}
+      propertyPath: m_setupOnStart
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4456983926979212249, guid: 58607dc0d897b2b46a8496ffaa5fa6a1, type: 3}
       propertyPath: m_AnchorMax.y

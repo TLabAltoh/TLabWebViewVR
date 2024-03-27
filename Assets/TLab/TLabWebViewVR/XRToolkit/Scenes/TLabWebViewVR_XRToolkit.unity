@@ -7537,8 +7537,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3065577318192207050, guid: 85b5374fcc28c11428c4d26cbcbb24f5, type: 3}
-      propertyPath: m_url
-      value: https://www.youtube.com/
+      propertyPath: m_jsEventCallback.onPageFinish
+      value: jQuery('input[type="date"]').live('click', function(e) {e.preventDefault();}).datepicker();
       objectReference: {fileID: 0}
     - target: {fileID: 3118516440522223007, guid: 85b5374fcc28c11428c4d26cbcbb24f5, type: 3}
       propertyPath: m_AnchorMax.y
