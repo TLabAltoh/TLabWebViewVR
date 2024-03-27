@@ -67,6 +67,9 @@ git submodule update --init
 
 - Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
 
+```
+UNITYWEBVIEW_ANDROID_SUPPORT_OCULUS
+```
 ``` 
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
 ```
