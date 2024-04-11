@@ -15,14 +15,21 @@ Support for both Oculus Integration and XR Interaction Toolkit.
 ![output](Media/tlab-webview-vr.gif)
 
 ## Note
-- The input system for WebView has been significantly changed
-	- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
-	- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
-- Now officially compatible with Unity 2021 ~ 2022.
+<details><summary>please see here</summary>
+
+### The input system for WebView has been significantly changed
+- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
+- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
+
+### Now Officially compatible with Unity 2021 ~ 2022.
 - The policy has been changed to manage libraries in the repository as submodules.
-	- Commit ``` 4a7a833 ``` If you cloned the project before, please clone the repository again.
-	- Use ``` git submodule update --init ``` to adjust the commit of the submodule to the version recommended by the project.
+- Commit ``` 4a7a833 ``` If you cloned the project before, please clone the repository again.
+- Use ``` git submodule update --init ``` to adjust the commit of the submodule to the version recommended by the project.
+
+### WebView Input System Updated
 - We have decided to discontinue the ``` TLabWebViewVRTouchEventListener / TLabWebViewXRInputListener ``` and make ``` WebViewInputListener ``` the UI module of TLabWebView from now on. This allows the input module to work independently of plug-ins such as Oculus, XRToolkit, etc. (2024/2/13)
+
+</details>
 
 ## Operating Environment
 - Oculus Quest 2
@@ -50,21 +57,21 @@ cd TLabWebViewVR
 git submodule update --init
 ```
 
-### Set up
-- Build Settings  
+### Set Up
+- Build Settings
 
-| Setting items | value |
-| --- | --- |  
-| platform | android |  
+| Property      | Value   |
+| ------------- | ------- |
+| Platform      | Android |
 
 - Project Settings
 
-| Setting items | value |
-| --- | --- |  
-| Color Space | Linear |  
-| Graphics | OpenGLES3 |  
-| Minimum API Level | 29 |  
-| Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
+| Property          | Value                                 |
+| ----------------- | ------------------------------------- |
+| Color Space       | Linear                                |
+| Graphics          | OpenGLES3                             |
+| Minimum API Level | 29                                    |
+| Target API Level  | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
 
 
 - Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
@@ -83,12 +90,11 @@ UNITYWEBVIEW_ANDROID_ENABLE_CAMERA
 UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE 
 ```
 
-
 - XR Plug-in Management
 
-| Setting items | value |
-| --- | --- |  
-| plugin provider | Oculus (not OpenXR) |  
+| Property        | Value               |
+| --------------- | ------------------- |
+| Plugin Provider | Oculus (not OpenXR) |
 
 #### Oculus Integration
 - Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity

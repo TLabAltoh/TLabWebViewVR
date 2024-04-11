@@ -14,14 +14,22 @@ Oculus Integration と XR Interaction Toolkitの両方をサポート
 ![output](Media/tlab-webview-vr.gif)
 
 ## Note
-- クラス名を変更しました．
-	- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
-	- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
-- 現在，Unity 2021 ~ 2022を正式にサポートしています．
+
+<details><summary>こちらをご参照ください</summary>
+
+### クラス名を変更しました．
+- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
+- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
+
+### 現在，Unity 2021 ~ 2022を正式にサポートしています．
 - リポジトリ内のライブラリをsubmoduleとして管理する方針に変更しました．
-	- コミット ``` 4a7a833 ``` 以前からプロジェクトをクローンしていた方は，改めてリポジトリをクローンし直してください．
-	- ``` git submodule update --init ```でサブモジュールのコミットをプロジェクトで推奨するバージョンに合わせてください．
+- コミット ``` 4a7a833 ``` 以前からプロジェクトをクローンしていた方は，改めてリポジトリをクローンし直してください．
+- ``` git submodule update --init ```でサブモジュールのコミットをプロジェクトで推奨するバージョンに合わせてください．
+
+### WebViewの入力システムが新しくなりました
 - ``` TLabWebViewVRTouchEventListener ``` / ``` TLabWebViewXRInputLIstener ```を廃止し，``` WebViewInputListener ```を今後TLabWebViewのUIモジュールとすることにしました．これにより入力モジュールは，Oculus, XRToolkitなどのプラグインに依存せず動作するようになります．(2024/2/13)
+
+</details>
 
 ## 動作環境
 - Oculus Quest 2
@@ -50,20 +58,20 @@ git submodule update --init
 ```
 
 ### セットアップ
-- Build Settings  
+- Build Settings
 
-| Setting items | value |
-| --- | --- |  
-| platform | android |  
+| Property      | Value   |
+| ------------- | ------- |
+| Platform      | Android |
 
 - Project Settings
 
-| Setting items | value |
-| --- | --- |  
-| Color Space | Linear |  
-| Graphics | OpenGLES3 |  
-| Minimum API Level | 29 |  
-| Target API Level | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
+| Property          | Value                                 |
+| ----------------- | ------------------------------------- |
+| Color Space       | Linear                                |
+| Graphics          | OpenGLES3                             |
+| Minimum API Level | 29                                    |
+| Target API Level  | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
 
 - Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
 
@@ -82,9 +90,9 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 
 - XR Plug-in Management
 
-| Setting items | value |
-| --- | --- |  
-| plugin provider | Oculus (not OpenXR) |  
+| Property        | Value               |
+| --------------- | ------------------- |
+| Plugin Provider | Oculus (not OpenXR) |
 
 #### Oculus Integration
 - Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
