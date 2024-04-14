@@ -1,7 +1,6 @@
 # TLabWebViewVR  
 
-UnityのOculus quest VRでWebViewを使用するためのサンプルプロジェクト  
-Oculus Integration と XR Interaction Toolkitの両方をサポート
+UnityのOculus quest VRでWebViewを使用するためのサンプルプロジェクト．Meta XR SDKとXR Interaction Toolkitそれぞれで実装したサンプルが内包されています．
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
@@ -17,35 +16,29 @@ Oculus Integration と XR Interaction Toolkitの両方をサポート
 
 <details><summary>こちらをご参照ください</summary>
 
-### クラス名を変更しました．
-- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
-- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
+### Oculus SDK を Meta XR SDK に更新しました
+Oculus SDK を Oculus Integration から Meta XR SDK に更新しました．これにより Unity Editor はバージョン 2021.26f1以降が必要となります．Oculus SDK はバージョン 57 (Meta XR SDK) 以降 Unity Package Manager (UPM)で管理されるようになりました．Oculus Integration と Meta XR SDKにはほぼ完全な互換性がありますが，リポジトリの Meta XR SDK を使用した WebView 実装サンプルを OVR Input ModuleからPointable Canvas Moduleに変更しています．これは Meta XR SDK が提供するUIの実装サンプルがPointable Canvas Moduleを使用しており，以前のようなOVR Input Moduleを使用したWebViewの実装から更新の必要があると判断したためです．(2024/4/14)
 
-### 現在，Unity 2021 ~ 2022を正式にサポートしています．
-- リポジトリ内のライブラリをsubmoduleとして管理する方針に変更しました．
-- コミット ``` 4a7a833 ``` 以前からプロジェクトをクローンしていた方は，改めてリポジトリをクローンし直してください．
-- ``` git submodule update --init ```でサブモジュールのコミットをプロジェクトで推奨するバージョンに合わせてください．
+### モジュールの管理方法を変更しました．
+リポジトリ内のライブラリをコミット ``` 4a7a833 ``` 以降はサブモジュールとして管理する方針に変更しました．``` git submodule update --init ```を実行してサブモジュールのコミットをプロジェクトで推奨するバージョンに合わせてください．
 
 ### WebViewの入力システムが新しくなりました
-- ``` TLabWebViewVRTouchEventListener ``` / ``` TLabWebViewXRInputLIstener ```を廃止し，``` WebViewInputListener ```を今後TLabWebViewのUIモジュールとすることにしました．これにより入力モジュールは，Oculus, XRToolkitなどのプラグインに依存せず動作するようになります．(2024/2/13)
+``` TLabWebViewVRTouchEventListener ``` / ``` TLabWebViewXRInputLIstener ```を廃止し，``` WebViewInputListener ```を今後TLabWebViewのUIモジュールとすることにしました．これにより入力モジュールは，Oculus, XRToolkitなどのプラグインに依存せず動作するようになります．(2024/2/13)
 
 </details>
 
 ## 動作環境
 - Oculus Quest 2
 - Qualcomm Adreno650
-- Unity: 2021.23f1
+- Unity: 2021.37f1
 
 ## スタートガイド
 ### 必要な要件
-- Unity 2021.3.23f1  
-- Oculus Integration
-- XR Interaction Toolkit
-- TextMeshPro
-- ProBuilder
+- Unity 2021.3.26f1 (meta xr sdk が Unity Editor 2021.26f1以降を必要とします)  
+- [meta-xr-all-in-one-sdk](https://assetstore.unity.com/packages/tools/integration/meta-xr-all-in-one-sdk-269657?locale=ja-JP)
+- [com.unity.xr.interaction.toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html)
 - [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
 - [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
-- [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
 
 ### インストール
 - 任意のディレクトリに以下のコマンドでリポジトリをクローン
@@ -95,8 +88,8 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 | Plugin Provider | Oculus (not OpenXR) |
 
 #### Oculus Integration
-- Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unityを開く
-- ヒエラルキーからTLabWebViewVR/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
+- ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```を開く
+- ヒエラルキーから```TLabWebView_MetaXR/TLabWebView/WebView```にアタッチされている TLabWebViewのパラメータを任意で変更  
 	- Url: WebViewの初期化時にロードするURL  
 	- DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
 	- SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
@@ -104,8 +97,8 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 	- Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
 
 #### XR Interaction Toolkit
-- Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unityを開く
-- ヒエラルキーからTLabWebViewVR_XRToolkit/TLabWebView/WebView にアタッチされている TLabWebViewのパラメータを任意で変更  
+- ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```を開く
+- ヒエラルキーから```TLabWebView_XRInteractionToolkit/TLabWebView/WebView```にアタッチされている TLabWebViewのパラメータを任意で変更  
 	- Url: WebViewの初期化時にロードするURL  
 	- DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
 	- SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  

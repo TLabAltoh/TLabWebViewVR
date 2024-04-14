@@ -2,8 +2,7 @@
 
 [日本語版READMEはこちら](README-ja.md)
 
-Sample project for using WebView in Oculus quest VR in Unity  
-Support for both Oculus Integration and XR Interaction Toolkit.
+Sample project for using WebView in Oculus quest VR in Unity. Includes Meta XR SDK and XR Interaction Toolkit implementation example.
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
@@ -17,35 +16,29 @@ Support for both Oculus Integration and XR Interaction Toolkit.
 ## Note
 <details><summary>please see here</summary>
 
-### The input system for WebView has been significantly changed
-- ``` TLabWebViewVRTouchEventManager.cs ``` --> ``` TLabWebViewVRTouchEventListener.cs ```
-- ``` TLabWebViewXRInputManager.cs ``` --> ``` TLabWebViewXRInputListener.cs ```
+### Oculus SDK Updated to Meta XR SDK
+The Oculus SDK has now been updated for Oculus integration SDK to Meta XR All in One SDK, this sdk requires Unity Editor 2021.26f1 ~. Oculus SDK versions after 57 (Meta XR SDK) are managed by Unity Package Manager (UPM), but have near-compatibility between Oculus Integration and the Meta XR SDK. However, in the sample scene in this repository, the Meta XR SDK sample has been updated to no longer use the OVR Input Module and switched to Pointable Canvas Module based, because the UI implementation sample including the Oculus SDK is based on the Pointable Canvas Module and it's inappropriate to implement webview with the OVR Input Module as before. (2021/4/14)
 
-### Now Officially compatible with Unity 2021 ~ 2022.
-- The policy has been changed to manage libraries in the repository as submodules.
-- Commit ``` 4a7a833 ``` If you cloned the project before, please clone the repository again.
-- Use ``` git submodule update --init ``` to adjust the commit of the submodule to the version recommended by the project.
+### Module Management Policy Modified
+The policy has been changed to manage libraries in the repository as submodules after commit ``` 4a7a833 ```. Please run ``` git submodule update --init ``` to adjust the commit of the submodule to the version recommended by the project.
 
 ### WebView Input System Updated
-- We have decided to discontinue the ``` TLabWebViewVRTouchEventListener / TLabWebViewXRInputListener ``` and make ``` WebViewInputListener ``` the UI module of TLabWebView from now on. This allows the input module to work independently of plug-ins such as Oculus, XRToolkit, etc. (2024/2/13)
+I have decided to discontinue the ``` TLabWebViewVRTouchEventListener / TLabWebViewXRInputListener ``` and make ``` WebViewInputListener ``` the UI module of TLabWebView from now on. This allows the input module to work independently of plug-ins such as Oculus, XRToolkit, etc. (2024/2/13)
 
 </details>
 
 ## Operating Environment
 - Oculus Quest 2
 - Qualcomm Adreno650
-- Unity: 2021.23f1
+- Unity: 2021.37f1
 
 ## Getting Started
 ### Prerequisites
-- Unity 2021.3.23f1  
-- Oculus Integration
-- XR Interaction Toolkit
-- TextMeshPro
-- ProBuilder
+- Unity 2021.26f1 (meta xr sdk requires Unity Editor 2021.26f1 ~)
+- [meta-xr-all-in-one-sdk](https://assetstore.unity.com/packages/tools/integration/meta-xr-all-in-one-sdk-269657?locale=ja-JP)
+- [com.unity.xr.interaction.toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html)
 - [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
 - [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
-- [TLabVRPlayerController](https://github.com/TLabAltoh/TLabVRPlayerController)
 
 ### Installing
 - Clone the repository with the following command
@@ -97,8 +90,8 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 | Plugin Provider | Oculus (not OpenXR) |
 
 #### Oculus Integration
-- Open Assets/TLab/TLabWebViewVR/OculusIntegration/Scenes/TLabWebViewVR.unity
-- Change any parameter of TLabWebView attached to TLabWebViewVR/TLabWebView/WebView from the hierarchy
+- Open ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
+- Change any parameter of TLabWebView attached to ```TLabWebView_MetaXR/TLabWebView/WebView``` from the hierarchy
 	- Url: URL to load during WebView initialization  
 	- DlOption: Whether to download to the application folder or the downloads folder  
 	- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
@@ -106,8 +99,8 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 	- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 
 #### XR Interaction Toolkit
-- Open Assets/TLab/TLabWebViewVR/XRToolkit/Scenes/TLabWebViewVR_XRToolkit.unity
-- Change any parameter of TLabWebView attached to TLabWebViewVR_XRToolkit/TLabWebView/WebView from the hierarchy
+- Open ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
+- Change any parameter of TLabWebView attached to ```TLabWebView_XRInteractionToolkit/TLabWebView/WebView``` from the hierarchy
 	- Url: URL to load during WebView initialization  
 	- DlOption: Whether to download to the application folder or the downloads folder  
 	- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
