@@ -28,12 +28,14 @@ Oculus SDK を Oculus Integration から Meta XR SDK に更新しました．こ
 </details>
 
 ## 動作環境
-- Oculus Quest 2
-- Qualcomm Adreno650
-- Unity: 2021.37f1
+|                |                     |
+| -------------- | ------------------- |
+| Headset        | Oculus Quest 2      |
+| GPU            | Qualcomm Adreno 650 |
+| Unity          | 2021.37f1           |
 
 ## スタートガイド
-### 必要な要件
+### 必要なもの
 - Unity 2021.3.26f1 (meta xr sdk が Unity Editor 2021.26f1以降を必要とします)  
 - [meta-xr-all-in-one-sdk](https://assetstore.unity.com/packages/tools/integration/meta-xr-all-in-one-sdk-269657?locale=ja-JP)
 - [com.unity.xr.interaction.toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html)
@@ -68,9 +70,6 @@ git submodule update --init
 
 - Project Settings --> Player --> Other Settings に以下のシンボルを追加(ビルド時に使用)
 
-```
-UNITYWEBVIEW_ANDROID_SUPPORT_OCULUS
-```
 ``` 
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
 ```
@@ -88,22 +87,12 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 | Plugin Provider | Oculus (not OpenXR) |
 
 #### Oculus Integration
-- ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```を開く
-- ヒエラルキーから```TLabWebView_MetaXR/TLabWebView/WebView```にアタッチされている TLabWebViewのパラメータを任意で変更  
-	- Url: WebViewの初期化時にロードするURL  
-	- DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
-	- SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
-	- Web (Width/Height): WebViewの解像度 (デフォルト 1024 * 1024)  
-	- Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
+```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```を開く
+
 
 #### XR Interaction Toolkit
-- ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```を開く
-- ヒエラルキーから```TLabWebView_XRInteractionToolkit/TLabWebView/WebView```にアタッチされている TLabWebViewのパラメータを任意で変更  
-	- Url: WebViewの初期化時にロードするURL  
-	- DlOption: ファイルをアプリケーションフォルダとダウンロードフォルダどちらにダウンロードするか  
-	- SubDir: アプリケーションフォルダにダウンロードする場合，```{Application folder}/{files}/{SubDir}```にダウンロードされる  
-	- Web (Width/Height): WebViewの解像度 (デフォルト 1024 * 1024)  
-	- Tex (Width/Height): Texture2Dの解像度 (デフォルト 512 * 512)  
+```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```を開く
+
 
 ## チュートリアル
 ### アセット移行チュートリアル (Youtube)

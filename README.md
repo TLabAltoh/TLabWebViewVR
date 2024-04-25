@@ -28,9 +28,11 @@ I have decided to discontinue the ``` TLabWebViewVRTouchEventListener / TLabWebV
 </details>
 
 ## Operating Environment
-- Oculus Quest 2
-- Qualcomm Adreno650
-- Unity: 2021.37f1
+|                |                     |
+| -------------- | ------------------- |
+| Headset        | Oculus Quest 2      |
+| GPU            | Qualcomm Adreno 650 |
+| Unity          | 2021.37f1           |
 
 ## Getting Started
 ### Prerequisites
@@ -70,9 +72,7 @@ git submodule update --init
 - Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
 
 
-```
-UNITYWEBVIEW_ANDROID_SUPPORT_OCULUS
-```
+
 ``` 
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
 ```
@@ -90,22 +90,12 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 | Plugin Provider | Oculus (not OpenXR) |
 
 #### Oculus Integration
-- Open ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
-- Change any parameter of TLabWebView attached to ```TLabWebView_MetaXR/TLabWebView/WebView``` from the hierarchy
-	- Url: URL to load during WebView initialization  
-	- DlOption: Whether to download to the application folder or the downloads folder  
-	- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
-	- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
-	- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
+Open ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
+
 
 #### XR Interaction Toolkit
-- Open ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
-- Change any parameter of TLabWebView attached to ```TLabWebView_XRInteractionToolkit/TLabWebView/WebView``` from the hierarchy
-	- Url: URL to load during WebView initialization  
-	- DlOption: Whether to download to the application folder or the downloads folder  
-	- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
-	- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
-	- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
+Open ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
+
 
 ## Tutorial Videos
 ### Asset Migration Tutorial (Youtube)
