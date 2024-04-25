@@ -14,4 +14,6 @@
     <meta-data android:name="com.oculus.supportedDevices" android:value="quest2|questpro" />
   </application>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
+	
+  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 </manifest>

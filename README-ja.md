@@ -86,6 +86,12 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 | --------------- | ------------------- |
 | Plugin Provider | Oculus (not OpenXR) |
 
+- ダウンロードフォルダのような外部ストレージにアクセスしたい場合，android 11以降はこちらのパーミッションをAndroidManifest.xmlに追加してください ([詳細](https://developer.android.com/training/data-storage/manage-all-files?hl=ja))．
+
+```.xml
+<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+```
+
 #### Oculus Integration
 ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```を開く
 
