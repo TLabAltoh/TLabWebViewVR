@@ -12,21 +12,6 @@ UnityのOculus quest VRでWebViewを使用するためのサンプルプロジ�
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)
 
-## Note
-
-<details><summary>こちらをご参照ください</summary>
-
-### Oculus SDK を Meta XR SDK に更新しました
-Oculus SDK を Oculus Integration から Meta XR SDK に更新しました．これにより Unity Editor はバージョン 2021.26f1以降が必要となります．Oculus SDK はバージョン 57 (Meta XR SDK) 以降 Unity Package Manager (UPM)で管理されるようになりました．Oculus Integration と Meta XR SDKにはほぼ完全な互換性がありますが，リポジトリの Meta XR SDK を使用した WebView 実装サンプルを OVR Input ModuleからPointable Canvas Moduleに変更しています．これは Meta XR SDK が提供するUIの実装サンプルがPointable Canvas Moduleを使用しており，以前のようなOVR Input Moduleを使用したWebViewの実装から更新の必要があると判断したためです．(2024/4/14)
-
-### モジュールの管理方法を変更しました．
-リポジトリ内のライブラリをコミット ``` 4a7a833 ``` 以降はサブモジュールとして管理する方針に変更しました．``` git submodule update --init ```を実行してサブモジュールのコミットをプロジェクトで推奨するバージョンに合わせてください．
-
-### WebViewの入力システムが新しくなりました
-``` TLabWebViewVRTouchEventListener ``` / ``` TLabWebViewXRInputLIstener ```を廃止し，``` WebViewInputListener ```を今後TLabWebViewのUIモジュールとすることにしました．これにより入力モジュールは，Oculus, XRToolkitなどのプラグインに依存せず動作するようになります．(2024/2/13)
-
-</details>
-
 ## 動作環境
 |                |                     |
 | -------------- | ------------------- |
@@ -92,20 +77,16 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 ```
 
-#### Oculus Integration
-```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```を開く
+### サンプルシーン
+
+#### Meta XR SDK
+```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
 
 
 #### XR Interaction Toolkit
-```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```を開く
+```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
 
-
-## チュートリアル
-### アセット移行チュートリアル (Youtube)
-- [Oculus Integration Sample](https://youtu.be/tAY8gM8EgvI)
-- [XR Interaction ToolkitSample](https://youtu.be/1OhMEAv6Qok)
-
-### サンプルリポジトリ for Unity 2022
+## サンプルリポジトリ for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
 - [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)
 

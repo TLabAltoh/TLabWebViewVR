@@ -13,20 +13,6 @@ Sample project for using WebView in Oculus quest VR in Unity. Includes Meta XR S
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)
 
-## Note
-<details><summary>please see here</summary>
-
-### Oculus SDK Updated to Meta XR SDK
-The Oculus SDK has now been updated for Oculus integration SDK to Meta XR All in One SDK, this sdk requires Unity Editor 2021.26f1 ~. Oculus SDK versions after 57 (Meta XR SDK) are managed by Unity Package Manager (UPM), but have near-compatibility between Oculus Integration and the Meta XR SDK. However, in the sample scene in this repository, the Meta XR SDK sample has been updated to no longer use the OVR Input Module and switched to Pointable Canvas Module based, because the UI implementation sample including the Oculus SDK is based on the Pointable Canvas Module and it's inappropriate to implement webview with the OVR Input Module as before. (2021/4/14)
-
-### Module Management Policy Modified
-The policy has been changed to manage libraries in the repository as submodules after commit ``` 4a7a833 ```. Please run ``` git submodule update --init ``` to adjust the commit of the submodule to the version recommended by the project.
-
-### WebView Input System Updated
-I have decided to discontinue the ``` TLabWebViewVRTouchEventListener / TLabWebViewXRInputListener ``` and make ``` WebViewInputListener ``` the UI module of TLabWebView from now on. This allows the input module to work independently of plug-ins such as Oculus, XRToolkit, etc. (2024/2/13)
-
-</details>
-
 ## Operating Environment
 |                |                     |
 | -------------- | ------------------- |
@@ -95,20 +81,17 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 ```
 
-#### Oculus Integration
-Open ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
+### Sample Scene
+
+#### Meta XR SDK
+```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
 
 
 #### XR Interaction Toolkit
-Open ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
+```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
 
 
-## Tutorial Videos
-### Asset Migration Tutorial (Youtube)
-- [Oculus Integration Sample](https://youtu.be/tAY8gM8EgvI)
-- [XR Interaction ToolkitSample](https://youtu.be/1OhMEAv6Qok)
-
-### Sample Repository for Unity 2022
+## Sample Repository for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
 - [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)
 
