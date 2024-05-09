@@ -57,8 +57,6 @@ git submodule update --init
 
 - Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
 
-
-
 ``` 
 UNITYWEBVIEW_ANDROID_USES_CLEARTEXT_TRAFFIC 
 ```
@@ -85,7 +83,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 
 #### Meta XR SDK
 ```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
-
 
 #### XR Interaction Toolkit
 ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
