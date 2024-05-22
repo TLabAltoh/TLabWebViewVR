@@ -1,0 +1,18 @@
+{
+    "name": "com.tlabaltoh.webview-metaxr-sample",
+    "version": "0.0.0",
+    "displayName": "TLabWebView - Meta XR Sample",
+    "description": "",
+    "author": {
+        "name": "tlabaltoh",
+        "url": "https://tlab-games.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TLabAltoh/TLabWebViewVR.git?path=Assets/TLab/TLabWebViewVR/MetaXR"
+    },
+    "dependencies": {
+        "com.meta.xr.sdk.all": "63.0.0"
+    },
+    "license": "MIT License"
+}
