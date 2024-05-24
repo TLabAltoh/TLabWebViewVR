@@ -18,7 +18,7 @@
         {
             "displayName": "Sample Scenes",
             "description": "",
-            "path": "Samples/Scenes"
+            "path": "Samples~/Scenes"
         }
     ],
     "license": "MIT License"
