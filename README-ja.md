@@ -80,11 +80,11 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 ### サンプルシーン
 
 #### Meta XR SDK
-```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
+```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
 
 
 #### XR Interaction Toolkit
-```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
+```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
 
 ## サンプルリポジトリ for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)

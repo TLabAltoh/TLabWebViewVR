@@ -82,10 +82,10 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 ### Sample Scene
 
 #### Meta XR SDK
-```Assets/TLab/TLabWebViewVR/MetaXR/Scenes/MetaXR Sample.unity```
+```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
 
 #### XR Interaction Toolkit
-```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Scenes/XRInteractionToolkit Sample.unity```
+```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
 
 
 ## Sample Repository for Unity 2022
