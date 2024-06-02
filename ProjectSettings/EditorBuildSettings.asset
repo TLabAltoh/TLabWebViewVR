@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit
       Sample.unity
     guid: 8bcc0278569dd0442b0b5feeba45e2c4
+  - enabled: 0
+    path: Assets/Samples/Meta XR Interaction SDK OVR Samples/63.0.0/Feature Scenes/PokeCanvas.unity
+    guid: 13029ef4913eb58419d202e411552872
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ec2bea82b67f04945934b9f400ad5671, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 19ef7116424564847a9f7f524fe6661a, type: 2}
