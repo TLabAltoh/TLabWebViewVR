@@ -50,7 +50,6 @@ git submodule update --init
 | Property          | Value                                 |
 | ----------------- | ------------------------------------- |
 | Color Space       | Linear                                |
-| Graphics          | OpenGLES3                             |
 | Minimum API Level | 29                                    |
 | Target API Level  | 30 (Unity 2021), 31 ~ 32 (Unity 2022) |
 
