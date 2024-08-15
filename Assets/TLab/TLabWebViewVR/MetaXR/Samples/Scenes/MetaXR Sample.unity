@@ -14881,10 +14881,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6272470167859563041, guid: e81afc2b3d9f6c3428a5b86e4ca95ef3, type: 3}
-      propertyPath: m_url
-      value: https://self-signed.badssl.com
-      objectReference: {fileID: 0}
-    - target: {fileID: 6272470167859563041, guid: e81afc2b3d9f6c3428a5b86e4ca95ef3, type: 3}
       propertyPath: m_dlOption
       value: 1
       objectReference: {fileID: 0}
