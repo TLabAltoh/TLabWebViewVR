@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity
     guid: 4b7eb4c46a9c51446ba14f1a05b2ae4d
-  - enabled: 0
+  - enabled: 1
     path: Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR HandTracking Sample.unity
     guid: 1aae4a946ac328d428e08c2158bb6be5
-  - enabled: 0
+  - enabled: 1
     path: Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit
       Sample.unity
     guid: 8bcc0278569dd0442b0b5feeba45e2c4

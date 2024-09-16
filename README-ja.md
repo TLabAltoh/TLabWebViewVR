@@ -64,12 +64,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_CAMERA
 UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE 
 ```
 
-- XR Plug-in Management
-
-| Property        | Value               |
-| --------------- | ------------------- |
-| Plugin Provider | Oculus (not OpenXR) |
-
 - ダウンロードフォルダのような外部ストレージにアクセスしたい場合，android 11以降はこちらのパーミッションをAndroidManifest.xmlに追加してください ([詳細](https://developer.android.com/training/data-storage/manage-all-files?hl=ja))．
 
 ```.xml
@@ -90,4 +84,5 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)
 
 ## リンク
-[使用したJavaプラグインのソースコード](https://github.com/TLabAltoh/TLabWebViewPlugin)
+- [スニペット](https://gist.github.com/TLabAltoh/e0512b3367c25d3e1ec28ddbe95da497#file-xr-composition-layers_rendering-md)  
+- [使用したJavaプラグインのソースコード](https://github.com/TLabAltoh/TLabWebViewPlugin)
