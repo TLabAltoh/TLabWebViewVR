@@ -66,12 +66,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_CAMERA
 UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE 
 ```
 
-- XR Plug-in Management
-
-| Property        | Value               |
-| --------------- | ------------------- |
-| Plugin Provider | Oculus (not OpenXR) |
-
 - If you want to access files that are in external storage (like download, picture). you need to add follow manifest in Android 11 ([detail](https://developer.android.com/training/data-storage/manage-all-files?hl=en)).
 
 ```.xml
@@ -92,4 +86,5 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)
 
 ## Link
+[Snippets](https://gist.github.com/TLabAltoh/e0512b3367c25d3e1ec28ddbe95da497#file-xr-composition-layers_rendering-md)
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
