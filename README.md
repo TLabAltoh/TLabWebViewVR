@@ -86,5 +86,5 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)
 
 ## Link
-- [Snippets](https://gist.github.com/TLabAltoh/e0512b3367c25d3e1ec28ddbe95da497)  
+- [Snippets](https://gist.github.com/TLabAltoh/e0512b3367c25d3e1ec28ddbe95da497#file-tlabwebview-snippets-md)  
 - [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
