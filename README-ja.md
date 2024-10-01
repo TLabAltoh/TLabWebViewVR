@@ -1,6 +1,6 @@
 # TLabWebViewVR  
 
-[```TLabWebView```](https://github.com/TLabAltoh/TLabWebView) を OculusQuest で使用するためのサンプルプロジェクト．Meta XR SDK と XR Interaction Toolkit それぞれで実装したサンプルが内包されています．
+[```TLabWebView```](https://github.com/TLabAltoh/TLabWebView) を OculusQuest で使用するためのサンプルプロジェクト．[```Meta XR SDK```](https://developers.meta.com/horizon/downloads/package/meta-xr-sdk-all-in-one-upm) と [```XR Interaction Toolkit```](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html) それぞれで実装したサンプルが内包されています．
 
 [ドキュメントはこちら](https://tlabgames.gitbook.io/tlabwebview)  
 [スニペットはこちら](https://gist.github.com/TLabAltoh/e0512b3367c25d3e1ec28ddbe95da497#file-tlabwebview-snippets-md)  
