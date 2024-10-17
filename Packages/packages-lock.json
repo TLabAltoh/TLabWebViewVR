@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.meta.xr.mrutilitykit": {
-      "version": "68.0.1",
+      "version": "68.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "68.0.2",
+        "com.meta.xr.sdk.core": "68.0.3",
         "com.unity.textmeshpro": "3.0.6",
         "com.unity.ai.navigation": "1.1.4",
         "com.unity.nuget.newtonsoft-json": "3.0.2"
@@ -13,19 +13,19 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.all": {
-      "version": "68.0.1",
+      "version": "68.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "68.0.2",
+        "com.meta.xr.sdk.core": "68.0.3",
         "com.meta.xr.sdk.audio": "68.0.0",
         "com.meta.xr.sdk.voice": "67.0.0",
         "com.meta.xr.simulator": "68.0.0",
-        "com.meta.xr.sdk.haptics": "68.0.1",
-        "com.meta.xr.mrutilitykit": "68.0.1",
+        "com.meta.xr.sdk.haptics": "68.0.2",
+        "com.meta.xr.mrutilitykit": "68.0.2",
         "com.meta.xr.sdk.platform": "68.0.0",
-        "com.meta.xr.sdk.interaction": "68.0.1",
-        "com.meta.xr.sdk.interaction.ovr": "68.0.1"
+        "com.meta.xr.sdk.interaction": "68.0.2",
+        "com.meta.xr.sdk.interaction.ovr": "68.0.2"
       },
       "url": "https://packages.unity.com"
     },
@@ -37,23 +37,23 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.core": {
-      "version": "68.0.2",
+      "version": "68.0.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.haptics": {
-      "version": "68.0.1",
+      "version": "68.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "68.0.2"
+        "com.meta.xr.sdk.core": "68.0.3"
       },
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction": {
-      "version": "68.0.1",
+      "version": "68.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -63,21 +63,21 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction.ovr": {
-      "version": "68.0.1",
+      "version": "68.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "68.0.2",
-        "com.meta.xr.sdk.interaction": "68.0.1"
+        "com.meta.xr.sdk.core": "68.0.3",
+        "com.meta.xr.sdk.interaction": "68.0.2"
       },
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction.ovr.samples": {
-      "version": "68.0.0",
+      "version": "68.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.interaction.ovr": "68.0.0"
+        "com.meta.xr.sdk.interaction.ovr": "68.0.2"
       },
       "url": "https://packages.unity.com"
     },
@@ -149,7 +149,7 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.28",
+      "version": "3.0.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -352,7 +352,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.oculus": {
-      "version": "3.4.0",
+      "version": "3.4.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
