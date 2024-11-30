@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/[Aa]ssets/Plugins/Android/geckoview-*
+/[Aa]ssets/Plugins/Android/mainTemplate.gradle*
+/[Aa]ssets/Plugins/Android/gradleTemplate.properties*
