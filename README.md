@@ -39,7 +39,7 @@ git submodule update --init
 ```
 
 ### Set Up
-Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView)
+Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView?tab=readme-ov-file#set-up)
 
 ### Sample Scene
 
