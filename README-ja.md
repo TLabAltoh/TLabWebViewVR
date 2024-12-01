@@ -38,7 +38,7 @@ git submodule update --init
 ```
 
 ### セットアップ
-[こちら](https://github.com/TLabAltoh/TLabWebView)のセットアップセクションを参照してください
+[こちら](https://github.com/TLabAltoh/TLabWebView/blob/master/README-ja.md#%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97)のセットアップセクションを参照してください
 
 ### サンプルシーン
 
