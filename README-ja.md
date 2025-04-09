@@ -49,6 +49,14 @@ git submodule update --init
 #### XR Interaction Toolkit
 ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
 
+<details><summary>When using the OpenXR plugin</summary>
+
+XR Plugin Manegementから`Force Remove Internet Permission`を無効にしてください．
+
+<img src="Media/image.png" width="512"></img>
+
+</details>
+
 ## サンプルリポジトリ for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
 - [XR Interaction Toolkit Sample (VR Template)](https://github.com/TLabAltoh/TLabWebViewVR-XRInteractionToolkit-2022)

@@ -49,6 +49,13 @@ Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView?tab
 #### XR Interaction Toolkit
 ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
 
+<details><summary>When using the OpenXR plugin</summary>
+
+Please disable `Force Remove Internet Permission` from XR Plugin Manegement
+
+<img src="Media/image.png" width="512"></img>
+
+</details>
 
 ## Sample Repository for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
