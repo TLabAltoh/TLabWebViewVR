@@ -49,7 +49,7 @@ git submodule update --init
 #### XR Interaction Toolkit
 ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
 
-<details><summary>When using the OpenXR plugin</summary>
+<details><summary>OpenXRを使用する場合</summary>
 
 XR Plugin Manegementから`Force Remove Internet Permission`を無効にしてください．
 
