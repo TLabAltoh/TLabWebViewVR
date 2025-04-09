@@ -40,6 +40,14 @@ git submodule update --init
 ### セットアップ
 [こちら](https://github.com/TLabAltoh/TLabWebView/blob/master/README-ja.md#%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97)のセットアップセクションを参照してください
 
+<details><summary>OpenXRを使用する場合</summary>
+
+XR Plugin Manegementから`Force Remove Internet Permission`を無効にしてください．
+
+<img src="Media/image.png" width="512"></img>
+
+</details>
+
 ### サンプルシーン
 
 #### Meta XR SDK
@@ -48,14 +56,6 @@ git submodule update --init
 
 #### XR Interaction Toolkit
 ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
-
-<details><summary>OpenXRを使用する場合</summary>
-
-XR Plugin Manegementから`Force Remove Internet Permission`を無効にしてください．
-
-<img src="Media/image.png" width="512"></img>
-
-</details>
 
 ## サンプルリポジトリ for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)

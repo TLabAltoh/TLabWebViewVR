@@ -41,14 +41,6 @@ git submodule update --init
 ### Set Up
 Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView?tab=readme-ov-file#set-up)
 
-### Sample Scene
-
-#### Meta XR SDK
-```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
-
-#### XR Interaction Toolkit
-```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
-
 <details><summary>When using the OpenXR plugin</summary>
 
 Please disable `Force Remove Internet Permission` from XR Plugin Manegement
@@ -56,6 +48,14 @@ Please disable `Force Remove Internet Permission` from XR Plugin Manegement
 <img src="Media/image.png" width="512"></img>
 
 </details>
+
+### Sample Scene
+
+#### Meta XR SDK
+```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
+
+#### XR Interaction Toolkit
+```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
 
 ## Sample Repository for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
