@@ -1,6 +1,6 @@
 # TLabWebViewVR  
 
-[```TLabWebView```](https://github.com/TLabAltoh/TLabWebView) を OculusQuest で使用するためのサンプルプロジェクト．[```Meta XR SDK```](https://developers.meta.com/horizon/downloads/package/meta-xr-sdk-all-in-one-upm) と [```XR Interaction Toolkit```](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html) それぞれで実装したサンプルが内包されています．
+[```TLabWebView```](https://github.com/TLabAltoh/TLabWebView) (3D ウェブブラウザ / 3D WebView プラグイン) を OculusQuest で使用するためのサンプルUnityプロジェクト．[```Meta XR SDK```](https://developers.meta.com/horizon/downloads/package/meta-xr-sdk-all-in-one-upm) と [```XR Interaction Toolkit```](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html) それぞれで実装したサンプルが内包されています．
 
 [ドキュメントはこちら](https://tlabgames.gitbook.io/tlabwebview)  
 [スニペットはこちら](https://gist.github.com/TLabAltoh/e0512b3367c25d3e1ec28ddbe95da497#file-tlabwebview-snippets-md)  
@@ -48,6 +48,14 @@ git submodule update --init
 
 #### XR Interaction Toolkit
 ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
+
+<details><summary>When using the OpenXR plugin</summary>
+
+XR Plugin Manegementから`Force Remove Internet Permission`を無効にしてください．
+
+<img src="Media/image.png" width="512"></img>
+
+</details>
 
 ## サンプルリポジトリ for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
