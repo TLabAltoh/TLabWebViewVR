@@ -9,6 +9,9 @@ Sample Unity project for using [```TLabWebView```](https://github.com/TLabAltoh/
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
+> [!WARNING]
+> Note that this project only works on Android devices; it will not display web pages when run on the Unity Editor.
+
 ## Screenshot  
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)

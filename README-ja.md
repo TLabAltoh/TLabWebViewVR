@@ -7,6 +7,9 @@
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
+> [!WARNING]
+> このプロジェクトはAndroidデバイス上でのみ動作します．Unity Editor上で実行してもWebページは表示されないことに注意してください．
+
 ## スクリーンショット  
 
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
