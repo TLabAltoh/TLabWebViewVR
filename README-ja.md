@@ -10,6 +10,9 @@
 > [!WARNING]
 > このプロジェクトはAndroidデバイス上でのみ動作します．Unity Editor上で実行してもWebページは表示されないことに注意してください．
 
+> [!WARNING]
+> Meta XR All-in-One SDK がバージョン74から参照エラーを起こしているようなので，今のところはバージョン72をキープしています (これについて言及されている[フォーラム](https://www.reddit.com/r/oculusdev/comments/1jn4l5k/error_implementing_meta_allinone_sdk/)).
+
 ## スクリーンショット  
 
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
