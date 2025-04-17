@@ -15,6 +15,9 @@ Sample Unity project for using [```TLabWebView```](https://github.com/TLabAltoh/
 > [!WARNING]
 > Meta XR All-in-One SDK is having a reference error at version 74 (Please see [this forum](https://www.reddit.com/r/oculusdev/comments/1jn4l5k/error_implementing_meta_allinone_sdk/)), so I will keep version 72 for now.
 
+> [!WARNING]
+> For now, I do not recommend building this project with Unity 6000.x due to unstable. If you do, please refer to the "Configuration for Unity 6000.x" section in the Setup section.
+
 ## Screenshot  
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)
@@ -51,7 +54,20 @@ Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView?tab
 
 Please disable `Force Remove Internet Permission` from XR Plugin Manegement
 
-<img src="Media/image.png" width="512"></img>
+<img src="Media/image.0.png" width="512"></img>
+
+</details>
+
+<details><summary>Configuration for Unity 6000.x</summary>
+
+When opening this project in Unity 6000.x, a compile error occurs in the TMPro resource. To resolve this, re-import the TMPro resources.
+
+<img src="Media/image.3.png" width="256"></img>  
+
+Also, please change the capture mode from the default `HardwareBuffer` to `ByteBuffer`.
+
+<img src="Media/image.1.png" width="256"></img>  
+<img src="Media/image.2.png" width="256"></img>
 
 </details>
 
