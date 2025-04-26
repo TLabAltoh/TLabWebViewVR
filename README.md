@@ -18,6 +18,14 @@ Sample Unity project for using [```TLabWebView```](https://github.com/TLabAltoh/
 > [!WARNING]
 > For now, I do not recommend building this project with Unity 6000.x due to unstable. If you do, please refer to the "Configuration for Unity 6000.x" section in the Setup section.
 
+> [!WARNING]
+> This project uses `HardwareBuffer` as the default `CaptureMode` for WebView. This `HardwareBuffer` option is confirmed to work with Oculus Quest, but may not work with some other devices (e.g., the WebView screen may go blank). In that case, change the `CaptureMode` from `HardwareBuffer` to `ByteBuffer`.
+>
+> <details>
+> <img src="Media/image.1.png" width="256"></img>
+> <img src="Media/image.2.png" width="256"></img>
+> </details>
+
 ## Screenshot  
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
 ![output](Media/tlab-webview-vr.gif)
