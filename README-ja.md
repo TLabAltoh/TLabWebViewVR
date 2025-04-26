@@ -14,10 +14,10 @@
 > Meta XR All-in-One SDK がバージョン74から参照エラーを起こしているようなので，今のところはバージョン72をキープしています (これについて言及されている[フォーラム](https://www.reddit.com/r/oculusdev/comments/1jn4l5k/error_implementing_meta_allinone_sdk/)).
 
 > [!WARNING]
-> 今のところ，このプロジェクトをUnity 6000.xでビルドするのは，動作が不安定のため推奨しません．もしする場合は，セットアップセクションの"Unity 6000.x向けの設定"という項目を参考にしてください．
+> このプロジェクトをOculus Questへデプロイする場合，Unity 6000.xでこのプロジェクトをビルドすることを私はお勧めしません．今現在，このプロジェクトをUnity 6000.xでビルドした場合，`HardwareBuffer`モードが動作が不安定になる問題が見つかっています([詳細はこちらのissueを参照してください](https://github.com/TLabAltoh/TLabWebViewVR/issues/39))．もしする場合は，セットアップセクションの"Unity 6000.x向けの設定"という項目を参考にしてください．
 
 > [!WARNING]
-> このプロジェクトは，WebViewの`CaptureMode`にデフォルトで`HardwareBuffer`を使用しています．この`HardwareBuffer`オプションは，Oculus Questでは動作を確認していますが，他の一部のデバイスでは動かない可能性があります (例えばWebViewの画面が真っ白になってしまう等)．その場合，`CaptureMode`を`HardwareBuffer`から`ByteBuffer`に変更してください．.
+> このプロジェクトは，WebViewの`CaptureMode`にデフォルトで`HardwareBuffer`を使用しています．また，`Graphics API`には`Vulkan`をデフォルトで使用しています．この`HardwareBuffer`オプションと`Vulkan` APIの組み合わせは，Oculus Questでは動作を確認していますが，他の一部のデバイスでは動かない可能性があります (例えばWebViewの画面が真っ白になってしまう等)．その場合，プロジェクトの`Graphics API`をデフォルトで設定されている`Vulkan`から`OpenGLES`へ変更する，もしくは，`CaptureMode`を`HardwareBuffer`から`ByteBuffer`に変更してください．
 >
 > <details>
 > <img src="Media/image.1.png" width="256"></img><br>
