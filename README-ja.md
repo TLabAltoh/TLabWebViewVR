@@ -20,7 +20,7 @@
 > このプロジェクトは，WebViewの`CaptureMode`にデフォルトで`HardwareBuffer`を使用しています．この`HardwareBuffer`オプションは，Oculus Questでは動作を確認していますが，他の一部のデバイスでは動かない可能性があります (例えばWebViewの画面が真っ白になってしまう等)．その場合，`CaptureMode`を`HardwareBuffer`から`ByteBuffer`に変更してください．.
 >
 > <details>
-> <img src="Media/image.1.png" width="256"></img>
+> <img src="Media/image.1.png" width="256"></img>  
 > <img src="Media/image.2.png" width="256"></img>
 > </details>
 
