@@ -224,6 +224,9 @@ MonoBehaviour:
     m_directory: 1
     m_subDirectory: downloads
   m_eventCallback:
+    onPageStart:
+      m_PersistentCalls:
+        m_Calls: []
     onPageFinish:
       m_PersistentCalls:
         m_Calls: []
@@ -325,6 +328,9 @@ MonoBehaviour:
     m_directory: 1
     m_subDirectory: downloads
   m_eventCallback:
+    onPageStart:
+      m_PersistentCalls:
+        m_Calls: []
     onPageFinish:
       m_PersistentCalls:
         m_Calls: []

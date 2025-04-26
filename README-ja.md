@@ -13,6 +13,17 @@
 > [!WARNING]
 > Meta XR All-in-One SDK がバージョン74から参照エラーを起こしているようなので，今のところはバージョン72をキープしています (これについて言及されている[フォーラム](https://www.reddit.com/r/oculusdev/comments/1jn4l5k/error_implementing_meta_allinone_sdk/)).
 
+> [!WARNING]
+> 今のところ，このプロジェクトをUnity 6000.xでビルドするのは，動作が不安定のため推奨しません．もしする場合は，セットアップセクションの"Unity 6000.x向けの設定"という項目を参考にしてください．
+
+> [!WARNING]
+> このプロジェクトは，WebViewの`CaptureMode`にデフォルトで`HardwareBuffer`を使用しています．この`HardwareBuffer`オプションは，Oculus Questでは動作を確認していますが，他の一部のデバイスでは動かない可能性があります (例えばWebViewの画面が真っ白になってしまう等)．その場合，`CaptureMode`を`HardwareBuffer`から`ByteBuffer`に変更してください．.
+>
+> <details>
+> <img src="Media/image.1.png" width="256"></img>
+> <img src="Media/image.2.png" width="256"></img>
+> </details>
+
 ## スクリーンショット  
 
 [Watch on Youtube](https://youtu.be/q3swlSP1mRg)  
@@ -51,6 +62,19 @@ git submodule update --init
 XR Plugin Manegementから`Force Remove Internet Permission`を無効にしてください．
 
 <img src="Media/image.png" width="512"></img>
+
+</details>
+
+<details><summary>Unity 6000.x向けの設定</summary>
+
+このプロジェクトをUnity 6000.xで開くと，TMProのリソースでコンパイルエラーが発生します．これを解消するために，TMProのリソースを再度インポートしてください．
+
+<img src="Media/image.3.png" width="256"></img>  
+
+また，`CaptureMode`を，デフォルトの`HardwareBuffer`から`ByteBuffer`に変更してください．
+
+<img src="Media/image.1.png" width="256"></img>  
+<img src="Media/image.2.png" width="256"></img>
 
 </details>
 
