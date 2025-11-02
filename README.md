@@ -35,7 +35,7 @@ Sample Unity project for using [```TLabWebView```](https://github.com/TLabAltoh/
 | ------- | ------------------- |
 | Headset | Oculus Quest 2      |
 | GPU     | Qualcomm Adreno 650 |
-| Unity   | 2021.37f1           |
+| Unity   | 2021.45f2           |
 
 ## Getting Started
 ### Prerequisites
@@ -82,10 +82,13 @@ Also, please change the capture mode from the default `HardwareBuffer` to `ByteB
 ### Sample Scene
 
 #### Meta XR SDK
-```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
+1. ```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
+2. ```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR HandTracking Sample.unity```
+
 
 #### XR Interaction Toolkit
-```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
+1. ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
+2. ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit SpatialKeyborad Sample.unity```
 
 ## Sample Repository for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)
