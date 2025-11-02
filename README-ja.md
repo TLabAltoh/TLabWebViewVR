@@ -34,7 +34,7 @@
 | ------- | ------------------- |
 | Headset | Oculus Quest 2      |
 | GPU     | Qualcomm Adreno 650 |
-| Unity   | 2021.37f1           |
+| Unity   | 2021.45f2           |
 
 ## スタートガイド
 ### 必要なもの
@@ -81,11 +81,13 @@ XR Plugin Manegementから`Force Remove Internet Permission`を無効にして�
 ### サンプルシーン
 
 #### Meta XR SDK
-```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
+1. ```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR Sample.unity```
+2. ```Assets/TLab/TLabWebViewVR/MetaXR/Samples/Scenes/MetaXR HandTracking Sample.unity```
 
 
 #### XR Interaction Toolkit
-```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
+1. ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit Sample.unity```
+2. ```Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit SpatialKeyborad Sample.unity```
 
 ## サンプルリポジトリ for Unity 2022
 - [Oculus Integration Sample](https://github.com/TLabAltoh/TLabWebViewVR-OculusIntegration-2022)

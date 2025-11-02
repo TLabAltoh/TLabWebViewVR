@@ -15,6 +15,10 @@ EditorBuildSettings:
     path: Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit
       Sample.unity
     guid: 8bcc0278569dd0442b0b5feeba45e2c4
+  - enabled: 1
+    path: Assets/TLab/TLabWebViewVR/XRInteractionToolkit/Samples/Scenes/XRInteractionToolkit
+      SpatialKeyborad Sample.unity
+    guid: 85207b4950ae043458a4b9b91a4dee50
   - enabled: 0
     path: Assets/Samples/Meta XR Interaction SDK OVR Samples/63.0.0/Feature Scenes/PokeCanvas.unity
     guid: 13029ef4913eb58419d202e411552872

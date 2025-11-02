@@ -1,0 +1,18 @@
+{
+    "name": "TLab.WebViewVR.XRInteractionToolkit.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:643142c4527239447a4feb8d9fba651e",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:7e521086000d5a9438798610d07f6507"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
